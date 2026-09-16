@@ -32,6 +32,9 @@ a {
     padding: 0 5%;
     gap: 35px;
     border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 1px 5px #00517c;
+    position:relative;
+    z-index:100
 }
 
 
@@ -72,7 +75,7 @@ a {
 }
 
 .nav-left a:hover {
-    color: #527db8;
+    color: #52a4b8;
 }
 
 
@@ -153,11 +156,6 @@ a {
     border-color: #262626;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
 /* =========================
    HERO
 ========================= */
@@ -172,6 +170,7 @@ a {
 
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    z-index:1;
 }
 
 
