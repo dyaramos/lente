@@ -8,176 +8,291 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
+<script>
+function toggleVisibility(id, button) {
+    const element = document.getElementById(id);
+
+    if (element.style.display === "none") {
+        element.style.display = "flex";
+        button.textContent = "Hide Products ↑";
+    } else {
+        element.style.display = "none";
+        button.textContent = "Show More Products ↓";
+    }
+}
+</script>
+
 <body>
 
-    <!-- ================= MAIN HEADER ================= -->
-    <header class="main-header">
+<!-- ================= MAIN HEADER ================= -->
+<header class="main-header">
+    <nav class="nav-left">
+        <a href="link.html">Shop</a>
+        <a href="link.html">New In</a>
+        <a href="#collections">Collections</a>
+        <a href="#recommendations">For You</a>
+        <a href="link.html">Contact</a>
+    </nav>
+    <a href="link.html" class="logo">
+        <img src="images/logotext1.png" alt="Lente">
+    </a>
+    <div class="header-right">
+        <a href="link.html" class="icon-btn">
+            <i data-lucide="search"></i>
+        </a>
+        <a href="link.html" class="icon-btn">
+            <i data-lucide="user-round"></i>
+        </a>
+        <a href="link.html" class="cart-btn">
+            <i data-lucide="shopping-cart"></i>
+            <span>1 Item</span>
+        </a>
+    </div>
+</header>
 
-        <!-- LEFT NAVIGATION -->
-        <nav class="nav-left">
-            <a href="link.html">Shop</a>
-            <a href="link.html">New In</a>
-            <a href="link.html">Collections</a>
-            <a href="link.html">About</a>
-            <a href="link.html">Contact</a>
-        </nav>
 
-        <!-- Logo -->
-        <a href="link.html" class="logo">
-            <img src="images/logotext1.png" alt="lente">
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-slideshow">
+        <img src="images/hero-bg.png" alt="Hero Background">
+        <img src="images/hero1.png" alt="Hero 1">
+        <img src="images/hero2.png" alt="Hero 2">
+        <img src="images/hero3.png" alt="Hero 3">
+    </div>
+    <div class="hero-title left-title">
+        <h5>Capture What</h5>
+        <h1>MATTERS</h1>
+    </div>
+    <div class="hero-subject">
+        <img src="images/Camera.png" alt="Camera">
+    </div>
+    <div class="hero-title right-title">
+        <h5>Frame Your</h5>
+        <h1>WORLD</h1>
+    </div>
+    <div class="hero-content">
+        <p>New Collections</p>
+        <h3 class="brand">See It Differently</h3>
+        <h2>With <strong>Lente</strong></h2>
+        <p>Explore our latest camera collection</p>
+        <p>Premium cameras for your creative vision.</p>
+        <a href="link.html" class="hero-content-btn">Shop Now →</a>
+    </div>
+    <div class="hero-featured">
+        <h3 class="featured">Featured</h3>
+        <a href="link.html">
+            <img src="images/featured.png" alt="Featured Camera">
+        </a>
+    </div>
+</section>
+
+<!-- ================= COLLECTIONS ================= -->
+<section class="interactive-collections" id="collections">
+    <div class="collections-header">
+        <h2>Collections</h2>
+        <a href="link.html" class="view-all">View All</a>
+    </div>
+    <div class="collection-list">
+        <div class="collection-card">
+            <a href="link.html">
+                <img src="images/dslr.jpg" alt="DSLR Cameras">
+            </a>
+            <div class="collection-info">
+                <h3>DSLR Cameras</h3>
+                <p>Built for Detail</p>
+            </div>
+            <span class="collection-arrow">→</span>
+        </div>
+        <div class="collection-card">
+            <a href="link.html">
+                <img src="images/digicam.jpg" alt="Digital Cameras">
+            </a>
+            <div class="collection-info">
+                <h3>Digital Cameras</h3>
+                <p>Digital Nostalgia</p>
+            </div>
+            <span class="collection-arrow">→</span>
+        </div>
+        <div class="collection-card">
+            <a href="link.html">
+                <img src="images/action.jpg" alt="Action Cameras">
+            </a>
+            <div class="collection-info">
+                <h3>Action Cameras</h3>
+                <p>Ready for Adventure</p>
+            </div>
+            <span class="collection-arrow">→</span>
+        </div>
+        <div class="collection-card">
+            <a href="link.html">
+                <img src="images/accessories.jpg" alt="Camera Accessories">
+            </a>
+            <div class="collection-info">
+                <h3>Camera Accessories</h3>
+                <p>Complete your Setup</p>
+            </div>
+            <span class="collection-arrow">→</span>
+        </div>
+    </div>
+</section>
+
+<hr>
+<!-- ================= RECOMMENDATIONS ================= -->
+<section class="recommended" id="recommendations">
+    <div class="section-header">
+        <h2>Recommended For You</h2>
+        <a href="link.html">See All</a>
+    </div>
+    <div class="product-list">
+
+        <!-- PRODUCT 1 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/canon-eos-r50.png" alt="Canon EOS R50">
+                </div>
+                <div class="product-info">
+                    <h3><strong>Canon EOS R50</strong></h3>
+                    <p class="product-description"><em>Mirrorless Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><pre><del>₱42,999</del> <ins>₱38,998</ins></pre></span>
+                        <span class="rating">★ 4.8</span>
+                    </div>
+                </div>
+            </div>
         </a>
 
-        <!-- Right Section -->
-        <div class="header-right">
-
-            <a href="link.html" class="icon-btn">
-                <i data-lucide="search"></i>
-            </a>
-
-            <a href="link.html" class="icon-btn">
-                <i data-lucide="user-round"></i>
-            </a>
-
-            <a href="link.html" class="cart-btn">
-                <i data-lucide="shopping-cart"></i>
-                <span>1 Item</span>
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- ================= HERO ================= -->
-    <section class="hero">
-
-        <!-- HERO SLIDESHOW -->
-        <div class="hero-slideshow">
-
-            <img src="images/hero-bg.png" alt="Hero Background">
-            <img src="images/hero1.png" alt="Hero 1">
-            <img src="images/hero2.png" alt="Hero 2">
-            <img src="images/hero3.png" alt="Hero 3">
-
-        </div>
-
-
-        <!-- LEFT HEADLINE -->
-        <div class="hero-title left-title">
-            <h5>Capture What</h5>
-            <h1>MATTERS</h1>
-        </div>
-
-
-        <!-- CENTER CAMERA / SUBJECT -->
-        <div class="hero-subject">
-            <img src="images/Camera.png" alt="Camera">
-        </div>
-
-
-        <!-- RIGHT HEADLINE -->
-        <div class="hero-title right-title">
-            <h5>Frame Your</h5>
-            <h1>WORLD</h1>
-        </div>
-
-
-        <!-- HERO CONTENT -->
-        <div class="hero-content">
-            <p>New Collections</p>
-            <h3 class="brand"> See It Differently</h3>
-            <h2>With <strong>Lente</strong></h2>
-            <p>Explore our latest camera collection</p>
-            <p>Premium cameras for your creative vision.</p>
-            <a href="link.html" class="hero-content-btn">Shop Now →</a>
-        </div>
-
-
-        <!-- FEATURED -->
-        <div class="hero-featured">
-            <h3 class="featured"> Featured</h3>
-            <a href="link.html">
-                <img src="images/featured.png" alt="featured">
-            </a>
-        </div>
-
-    </section>
-
-
-    <!-- ================= COLLECTIONS ================= -->
-    <section class="interactive-collections">
-
-        <div class="collections-header">
-            <h2>Collections</h2>
-            <a href="link.html" class="view-all">View All</a>
-        </div>
-
-        <div class="collection-list">
-
-            <div class="collection-card">
-                <a href="link.html">
-                    <img src="images/dslr.jpg" alt="DSLR Cameras">
-                </a>
-
-                <div class="collection-info">
-                    <h3>DSLR Cameras</h3>
-                    <p>Built for Detail</p>
+        <!-- PRODUCT 2 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/sony-zv-e10-ii.png" alt="Sony ZV-E10 II">
                 </div>
-
-                <span class="collection-arrow">→</span>
-            </div>
-
-
-            <div class="collection-card">
-                <a href="link.html">
-                    <img src="images/digicam.jpg" alt="Digital">
-                </a>
-
-                <div class="collection-info">
-                    <h3>Digital Cameras</h3>
-                    <p>Digital Nostalgia</p>
+                <div class="product-info">
+                    <h3><strong>Sony ZV-E10 II</strong></h3>
+                    <p class="product-description"><em>Vlog Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><ins> ₱54,999 </ins></span>
+                        <span class="rating">★ 4.7</span>
+                    </div>
                 </div>
-
-                <span class="collection-arrow">→</span>
             </div>
+        </a>
 
-
-            <div class="collection-card">
-                <a href="link.html">
-                    <img src="images/action.jpg" alt="Action">
-                </a>
-
-                <div class="collection-info">
-                    <h3>Action Cameras</h3>
-                    <p>Ready for Adventure</p>
+        <!-- PRODUCT 3 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/kodak-pixpro-fz55.png" alt="KODAK PIXPRO FZ55">
                 </div>
-
-                <span class="collection-arrow">→</span>
-            </div>
-
-
-            <div class="collection-card">
-                <a href="link.html">
-                    <img src="images/accessories.jpg" alt="Accessories">
-                </a>
-
-                <div class="collection-info">
-                    <h3>Camera Accessories</h3>
-                    <p>Complete your Setup</p>
+                <div class="product-info">
+                    <h3><strong>KODAK PIXPRO FZ55</strong></h3>
+                    <p class="product-description"><em>Compact Digital Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><ins>₱12,999</ins></span>
+                        <span class="rating">★ 4.6</span>
+                    </div>
                 </div>
-
-                <span class="collection-arrow">→</span>
             </div>
+        </a>
 
-        </div>
+        <!-- PRODUCT 4 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/gopro-hero13-black.png" alt="GoPro HERO13 Black">
+                </div>
+                <div class="product-info">
+                    <h3><strong>GoPro HERO13 Black</strong></h3>
+                    <p class="product-description"><em>Action Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><ins>₱22,999</ins></span>
+                        <span class="rating">★ 4.8</span>
+                    </div>
+                </div>
+            </div>
+        </a>
 
-    </section>
+        <!-- PRODUCT 5 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
+                </div>
+                <div class="product-info">
+                    <h3><strong>Fujifilm Instax Mini 12</strong></h3>
+                    <p class="product-description"><em>Instant Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><pre><del>₱9,999</del> <ins>₱8,999</ins></pre></span>
+                        <span class="rating">★ 4.7</span>
+                    </div>
+                </div>
+            </div>
+        </a>
 
+        <!-- PRODUCT 6 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
+                </div>
+                <div class="product-info">
+                    <h3><strong>Sony Alpha 6700</strong></h3>
+                    <p class="product-description"><em>APS-C Mirrorless Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><ins>₱79,999</ins></span>
+                        <span class="rating">★ 4.9</span>
+                    </div>
+                </div>
+            </div>
+        </a>
 
-    <script>
-        lucide.createIcons();
-    </script>
-    
+    </div>
 
+    <div id="more-products" style="display: none;">
+        <!-- PRODUCT 7 -->
+
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
+                </div>
+                <div class="product-info">
+                    <h3><strong>Fujifilm Instax Mini 12</strong></h3>
+                    <p class="product-description"><em>Instant Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><pre><del>₱9,999</del> <ins>₱8,999</ins></pre></span>
+                        <span class="rating">★ 4.7</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <!-- PRODUCT 8 -->
+        <a href="link.html" class="product-link">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
+                </div>
+                <div class="product-info">
+                    <h3><strong>Sony Alpha 6700</strong></h3>
+                    <p class="product-description"><em>APS-C Mirrorless Camera</em></p>
+                    <div class="product-bottom">
+                        <span class="price"><ins>₱79,999</ins></span>
+                        <span class="rating">★ 4.9</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <button class="show-more-btn" onclick="toggleVisibility('more-products', this)">
+    Show More Products ↓
+    </button>
+</section>
+
+<script>
+    lucide.createIcons();
+</script>
 </body>
 </html>
