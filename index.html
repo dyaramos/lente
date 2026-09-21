@@ -8,20 +8,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<script>
-function toggleVisibility(id, button) {
-    const element = document.getElementById(id);
-
-    if (element.style.display === "none") {
-        element.style.display = "flex";
-        button.textContent = "Hide Products ↑";
-    } else {
-        element.style.display = "none";
-        button.textContent = "Show More Products ↓";
-    }
-}
-</script>
-
 <body>
 
 <!-- ================= MAIN HEADER ================= -->
@@ -33,9 +19,11 @@ function toggleVisibility(id, button) {
         <a href="#recommendations">For You</a>
         <a href="link.html">Contact</a>
     </nav>
+
     <a href="link.html" class="logo">
         <img src="images/logotext1.png" alt="Lente">
     </a>
+
     <div class="header-right">
         <a href="link.html" class="icon-btn">
             <i data-lucide="search"></i>
@@ -50,7 +38,6 @@ function toggleVisibility(id, button) {
     </div>
 </header>
 
-
 <!-- ================= HERO ================= -->
 <section class="hero">
     <div class="hero-slideshow">
@@ -59,17 +46,21 @@ function toggleVisibility(id, button) {
         <img src="images/hero2.png" alt="Hero 2">
         <img src="images/hero3.png" alt="Hero 3">
     </div>
+
     <div class="hero-title left-title">
         <h5>Capture What</h5>
         <h1>MATTERS</h1>
     </div>
+
     <div class="hero-subject">
         <img src="images/Camera.png" alt="Camera">
     </div>
+
     <div class="hero-title right-title">
         <h5>Frame Your</h5>
         <h1>WORLD</h1>
     </div>
+
     <div class="hero-content">
         <p>New Collections</p>
         <h3 class="brand">See It Differently</h3>
@@ -78,6 +69,7 @@ function toggleVisibility(id, button) {
         <p>Premium cameras for your creative vision.</p>
         <a href="link.html" class="hero-content-btn">Shop Now →</a>
     </div>
+
     <div class="hero-featured">
         <h3 class="featured">Featured</h3>
         <a href="link.html">
@@ -86,213 +78,409 @@ function toggleVisibility(id, button) {
     </div>
 </section>
 
-<!-- ================= COLLECTIONS ================= -->
-<section class="interactive-collections" id="collections">
-    <div class="collections-header">
-        <h2>Collections</h2>
-        <a href="link.html" class="view-all">View All</a>
+<!-- ================= FEATURED CATEGORIES ================= -->
+<section class="featured-categories" id="collections">
+    <div class="featured-header">
+        <h2>Featured Categories</h2>
+        <a href="link.html" class="featured-view-all">View all categories →</a>
     </div>
-    <div class="collection-list">
-        <div class="collection-card">
-            <a href="link.html">
-                <img src="images/dslr.jpg" alt="DSLR Cameras">
-            </a>
-            <div class="collection-info">
+
+    <div class="category-list">
+        <!-- DSLR CAMERAS -->
+        <a href="link.html" class="category-card">
+            <img src="images/categories/dslr-category.png" alt="DSLR Cameras">
+            <div class="category-overlay"></div>
+            <div class="category-info">
                 <h3>DSLR Cameras</h3>
-                <p>Built for Detail</p>
+                <p>12 Products</p>
             </div>
-            <span class="collection-arrow">→</span>
-        </div>
-        <div class="collection-card">
-            <a href="link.html">
-                <img src="images/digicam.jpg" alt="Digital Cameras">
-            </a>
-            <div class="collection-info">
+            <span class="category-arrow">→</span>
+        </a>
+
+        <!-- DIGITAL CAMERAS -->
+        <a href="link.html" class="category-card">
+            <img src="images/categories/digital-category.png" alt="Digital Cameras">
+            <div class="category-overlay"></div>
+            <div class="category-info">
                 <h3>Digital Cameras</h3>
-                <p>Digital Nostalgia</p>
+                <p>18 Products</p>
             </div>
-            <span class="collection-arrow">→</span>
-        </div>
-        <div class="collection-card">
-            <a href="link.html">
-                <img src="images/action.jpg" alt="Action Cameras">
-            </a>
-            <div class="collection-info">
+            <span class="category-arrow">→</span>
+        </a>
+
+        <!-- MIRRORLESS CAMERAS -->
+        <a href="link.html" class="category-card">
+            <img src="images/categories/mirrorless-category.png" alt="Mirrorless Cameras">
+            <div class="category-overlay"></div>
+            <div class="category-info">
+                <h3>Mirrorless Cameras</h3>
+                <p>14 Products</p>
+            </div>
+            <span class="category-arrow">→</span>
+        </a>
+
+        <!-- ACTION CAMERAS -->
+        <a href="link.html" class="category-card">
+            <img src="images/categories/action-category.png" alt="Action Cameras">
+            <div class="category-overlay"></div>
+            <div class="category-info">
                 <h3>Action Cameras</h3>
-                <p>Ready for Adventure</p>
+                <p>15 Products</p>
             </div>
-            <span class="collection-arrow">→</span>
-        </div>
-        <div class="collection-card">
-            <a href="link.html">
-                <img src="images/accessories.jpg" alt="Camera Accessories">
-            </a>
-            <div class="collection-info">
+            <span class="category-arrow">→</span>
+        </a>
+
+        <!-- CAMERA ACCESSORIES -->
+        <a href="link.html" class="category-card">
+            <img src="images/categories/accessories-category.png" alt="Camera Accessories">
+            <div class="category-overlay"></div>
+            <div class="category-info">
                 <h3>Camera Accessories</h3>
-                <p>Complete your Setup</p>
+                <p>24 Products</p>
             </div>
-            <span class="collection-arrow">→</span>
-        </div>
+            <span class="category-arrow">→</span>
+        </a>
     </div>
 </section>
 
 <hr>
-<!-- ================= RECOMMENDATIONS ================= -->
-<section class="recommended" id="recommendations">
-    <div class="section-header">
-        <h2>Recommended For You</h2>
-        <a href="link.html">See All</a>
-    </div>
-    <div class="product-list">
 
+<!-- ================= BEST SELLING ================= -->
+<section class="best-selling" id="best-selling">
+    <div class="best-selling-header">
+        <div class="best-selling-title">
+            <h2>Best Selling</h2>
+            <span class="bestseller-badge">Bestsellers</span>
+        </div>
+    </div>
+
+    <!-- FIRST 6 PRODUCTS -->
+    <div class="best-selling-list">
         <!-- PRODUCT 1 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-10%</span>
                     <img src="images/products/canon-eos-r50.png" alt="Canon EOS R50">
                 </div>
-                <div class="product-info">
-                    <h3><strong>Canon EOS R50</strong></h3>
-                    <p class="product-description"><em>Mirrorless Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><pre><del>₱42,999</del> <ins>₱38,998</ins></pre></span>
-                        <span class="rating">★ 4.8</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.8 (225)
+                    </div>
+                    <h3>Canon EOS R50</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱38,998</span>
+                        <span class="old-price"><del>₱42,999</del></span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
 
         <!-- PRODUCT 2 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-15%</span>
                     <img src="images/products/sony-zv-e10-ii.png" alt="Sony ZV-E10 II">
                 </div>
-                <div class="product-info">
-                    <h3><strong>Sony ZV-E10 II</strong></h3>
-                    <p class="product-description"><em>Vlog Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><ins> ₱54,999 </ins></span>
-                        <span class="rating">★ 4.7</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.7 (189)
+                    </div>
+                    <h3>Sony ZV-E10 II</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱54,999</span>
+                        <span class="old-price"><del>₱64,999</del></span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
 
         <!-- PRODUCT 3 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
                     <img src="images/products/kodak-pixpro-fz55.png" alt="KODAK PIXPRO FZ55">
                 </div>
-                <div class="product-info">
-                    <h3><strong>KODAK PIXPRO FZ55</strong></h3>
-                    <p class="product-description"><em>Compact Digital Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><ins>₱12,999</ins></span>
-                        <span class="rating">★ 4.6</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.6 (330)
+                    </div>
+                    <h3>KODAK PIXPRO FZ55</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱12,999</span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
 
         <!-- PRODUCT 4 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-10%</span>
                     <img src="images/products/gopro-hero13-black.png" alt="GoPro HERO13 Black">
                 </div>
-                <div class="product-info">
-                    <h3><strong>GoPro HERO13 Black</strong></h3>
-                    <p class="product-description"><em>Action Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><ins>₱22,999</ins></span>
-                        <span class="rating">★ 4.8</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.9 (145)
+                    </div>
+                    <h3>GoPro HERO13 Black</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱22,999</span>
+                        <span class="old-price"><del>₱25,999</del></span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
 
         <!-- PRODUCT 5 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-5%</span>
                     <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
                 </div>
-                <div class="product-info">
-                    <h3><strong>Fujifilm Instax Mini 12</strong></h3>
-                    <p class="product-description"><em>Instant Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><pre><del>₱9,999</del> <ins>₱8,999</ins></pre></span>
-                        <span class="rating">★ 4.7</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.5 (198)
+                    </div>
+                    <h3>Fujifilm Instax Mini 12</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱8,999</span>
+                        <span class="old-price"><del>₱9,999</del></span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
 
         <!-- PRODUCT 6 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
                     <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
                 </div>
-                <div class="product-info">
-                    <h3><strong>Sony Alpha 6700</strong></h3>
-                    <p class="product-description"><em>APS-C Mirrorless Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><ins>₱79,999</ins></span>
-                        <span class="rating">★ 4.9</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.7 (76)
+                    </div>
+                    <h3>Sony Alpha 6700</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱79,999</span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
-
     </div>
 
-    <div id="more-products" style="display: none;">
+    <!-- MORE PRODUCTS (Hidden Initially) -->
+    <div class="more-best-products" id="more-best-products">
         <!-- PRODUCT 7 -->
-
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/fujifilm-x100vi.png" alt="Fujifilm X100VI">
                 </div>
-                <div class="product-info">
-                    <h3><strong>Fujifilm Instax Mini 12</strong></h3>
-                    <p class="product-description"><em>Instant Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><pre><del>₱9,999</del> <ins>₱8,999</ins></pre></span>
-                        <span class="rating">★ 4.7</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.9 (102)
+                    </div>
+                    <h3>Fujifilm X100VI</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱89,999</span>
+                        <span class="old-price"><del>₱99,999</del></span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
 
         <!-- PRODUCT 8 -->
-        <a href="link.html" class="product-link">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <img src="images/products/nikon-z50.png" alt="Nikon Z50">
                 </div>
-                <div class="product-info">
-                    <h3><strong>Sony Alpha 6700</strong></h3>
-                    <p class="product-description"><em>APS-C Mirrorless Camera</em></p>
-                    <div class="product-bottom">
-                        <span class="price"><ins>₱79,999</ins></span>
-                        <span class="rating">★ 4.9</span>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.8 (91)
+                    </div>
+                    <h3>Nikon Z50</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
                     </div>
                 </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
+            </div>
+        </a>
+
+        <!-- PRODUCT 9 -->
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/canon-eos-r10.png" alt="Canon EOS R10">
+                </div>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.8 (118)
+                    </div>
+                    <h3>Canon EOS R10</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱46,999</span>
+                        <span class="old-price"><del>₱51,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
+            </div>
+        </a>
+
+        <!-- PRODUCT 10 -->
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <img src="images/products/dji-osmo-action.png" alt="DJI Osmo Action">
+                </div>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.7 (84)
+                    </div>
+                    <h3>DJI Osmo Action</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱19,999</span>
+                    </div>
+                </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
+            </div>
+        </a>
+
+        <!-- PRODUCT 11 -->
+        <a href="link.html" class="best-product-link">
+            <div class="best-product-card">
+                <div class="best-product-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/sony-a6400.png" alt="Sony A6400">
+                </div>
+                <div class="best-product-info">
+                    <div class="product-rating">
+                        <span class="star">★</span>
+                        4.8 (134)
+                    </div>
+                    <h3>Sony A6400</h3>
+                    <div class="product-price">
+                        <span class="current-price">₱42,999</span>
+                        <span class="old-price"><del>₱47,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button">
+                    <i data-lucide="shopping-cart"></i>
+                </span>
             </div>
         </a>
     </div>
 
-    <button class="show-more-btn" onclick="toggleVisibility('more-products', this)">
-    Show More Products ↓
+    <!-- TOGGLE BUTTON -->
+    <button class="show-more-btn" onclick="toggleVisibility('more-best-products', this)">
+        Show More Products ↓
     </button>
 </section>
 
+<!-- ================= SCRIPTS ================= -->
 <script>
+    function toggleVisibility(id, button) {
+        const element = document.getElementById(id);
+        if (element.style.display === "none" || element.style.display === "") {
+            element.style.display = "grid";
+            button.textContent = "Hide Products ↑";
+        } else {
+            element.style.display = "none";
+            button.textContent = "Show More Products ↓";
+        }
+    }
+
     lucide.createIcons();
 </script>
+
+<!-- =========================
+     SUMMER SALE BANNER
+========================= -->
+<section class="sale-banner">
+    <!-- LEFT SIDE -->
+    <div class="sale-content">
+        <span class="sale-label">Limited Time Offer</span>
+        <h2>Holiday Sale</h2>
+        <h3>Up to 40% OFF</h3>
+        <p>Don't miss out on our biggest sale of the season.</p>
+    </div>
+
+    <!-- MIDDLE -->
+    <div class="sale-middle">
+        <!-- COUNTDOWN -->
+        <div class="sale-countdown">
+            <div class="countdown-box">
+                <strong>02</strong>
+                <span>Days</span>
+            </div>
+            <div class="countdown-box">
+                <strong>14</strong>
+                <span>Hours</span>
+            </div>
+            <div class="countdown-box">
+                <strong>36</strong>
+                <span>Mins</span>
+            </div>
+            <div class="countdown-box">
+                <strong>45</strong>
+                <span>Secs</span>
+            </div>
+        </div>
+
+        <!-- SHOP BUTTON -->
+        <a href="#collections" class="sale-button">Shop the Sale →</a>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="sale-image">
+        <img src="images/sale-camera.png" alt="Summer Sale">
+    </div>
+</section>
+
 </body>
 </html>
