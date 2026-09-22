@@ -47,7 +47,6 @@ body {
 }
 
 /* ===== SCROLL THEME LAYERS ===== */
-/* base (light) layer — always opacity 1, sits furthest back */
 body::before {
     content: "";
     position: fixed;
@@ -70,7 +69,6 @@ body::before {
             #a98bd1 100%);
 }
 
-/* dark layer — fades in on top once .theme-dark is added to <body> */
 body::after {
     content: "";
     position: fixed;
@@ -90,8 +88,6 @@ body.theme-dark::after {
     opacity: 1;
 }
 
-/* dark-mode variable overrides — cascades to every card/text that
-   already reads these custom properties, no extra rules needed */
 body.theme-dark {
     --bg-panel: #14112a;
     --bg-panel-alt: #1a1533;
@@ -106,14 +102,17 @@ body.theme-dark {
     --text-dim: #746e93;
 }
 
-/* a few sections use hardcoded (non-variable) backgrounds —
-   override those explicitly so they follow the theme too */
 body.theme-dark .brand-table-section {
     background: rgba(20, 17, 42, 0.55);
 }
 
 body.theme-dark .about-section {
     background: rgba(7, 5, 15, 0.75);
+}
+
+body.theme-dark .main-header {
+    background: rgba(15, 12, 28, 0.75);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 body > * {
@@ -136,34 +135,130 @@ a {
     -webkit-backdrop-filter: blur(14px);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 5%;
-    gap: 35px;
+    gap: 20px;
     border-bottom: 1px solid var(--glass-border-soft);
     box-shadow: 0 10px 20px rgba(34, 199, 224, 0.08);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 100;
 }
 
 /* =========================
-   LOGO
+   LOGO (CENTERED)
 ========================= */
 .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
-.logo img {
+.logo-img {
+    position: absolute;
+    inset: 0;
     height: 100px;
     width: 100px;
     object-fit: contain;
     display: block;
     filter: drop-shadow(0 0 10px rgba(34, 199, 224, 0.20));
+    transition: opacity 0.6s ease;
+}
+
+.logo-dark {
+    opacity: 1;
+}
+
+.logo-light {
+    opacity: 0;
+}
+
+body.theme-dark .logo-dark {
+    opacity: 0;
+}
+
+body.theme-dark .logo-light {
+    opacity: 1;
 }
 
 /* =========================
    NAVIGATION
 ========================= */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+.main-nav > a,
+.nav-dropdown > a {
+    color: var(--text-muted);
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+/* SHOP DROPDOWN */
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nav-dropdown > a {
+    display: block;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    width: 180px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(90, 80, 130, 0.15);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s ease;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-muted);
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 9px;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    color: #ffffff;
+    background: var(--holo-gradient);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
 .nav-left {
     display: flex;
     align-items: center;
@@ -307,9 +402,6 @@ a {
 .hero-slideshow img:nth-child(3) { animation-delay: 10s; }
 .hero-slideshow img:nth-child(4) { animation-delay: 15s; }
 
-/* =========================
-   SLIDESHOW ANIMATION
-========================= */
 @keyframes heroSlide {
     0%   { opacity: 1; }
     24%  { opacity: 1; }
@@ -367,9 +459,6 @@ a {
     filter: drop-shadow(0 0 40px rgba(34, 199, 224, 0.18));
 }
 
-/* =========================
-   CAMERA ANIMATION
-========================= */
 @keyframes cameraSlide {
     0%   { opacity: 1; }
     24%  { opacity: 1; }
@@ -476,9 +565,6 @@ a {
     color: var(--text-primary);
 }
 
-/* =========================
-   FEATURED HEADER
-========================= */
 .featured-header {
     display: flex;
     align-items: center;
@@ -503,18 +589,12 @@ a {
     color: var(--holo-pink);
 }
 
-/* =========================
-   CATEGORY LIST
-========================= */
 .category-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 14px;
 }
 
-/* =========================
-   CATEGORY CARD
-========================= */
 .category-card {
     position: relative;
     height: 150px;
@@ -528,9 +608,6 @@ a {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.6s ease;
 }
 
-/* =========================
-   CATEGORY IMAGE
-========================= */
 .category-card img {
     position: absolute;
     inset: 0;
@@ -542,9 +619,6 @@ a {
     transition: transform 0.35s ease;
 }
 
-/* =========================
-   DARK BOTTOM OVERLAY
-========================= */
 .category-overlay {
     position: absolute;
     left: 0;
@@ -559,9 +633,6 @@ a {
     pointer-events: none;
 }
 
-/* =========================
-   CATEGORY INFORMATION
-========================= */
 .category-info {
     position: absolute;
     left: 14px;
@@ -584,9 +655,6 @@ a {
     color: rgba(255, 255, 255, 0.75);
 }
 
-/* =========================
-   CATEGORY ARROW
-========================= */
 .category-arrow {
     position: absolute;
     right: 10px;
@@ -607,9 +675,6 @@ a {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-/* =========================
-   CATEGORY HOVER
-========================= */
 .category-card:hover {
     transform: translateY(-3px);
     border-color: rgba(34, 199, 224, 0.35);
@@ -627,9 +692,6 @@ a {
     box-shadow: 0 0 18px rgba(155, 107, 242, 0.35);
 }
 
-/* =========================
-   DIVIDER
-========================= */
 hr {
     border: none;
     border-top: 1px solid var(--glass-border-soft);
@@ -644,9 +706,6 @@ hr {
     margin: 45px auto 60px;
 }
 
-/* =========================
-   BEST SELLING HEADER
-========================= */
 .best-selling-header {
     display: flex;
     align-items: center;
@@ -667,9 +726,6 @@ hr {
     color: var(--text-primary);
 }
 
-/* =========================
-   BESTSELLERS BADGE
-========================= */
 .bestseller-badge {
     display: flex;
     align-items: center;
@@ -684,9 +740,6 @@ hr {
     box-shadow: 0 0 14px rgba(155, 107, 242, 0.25);
 }
 
-/* =========================
-   BEST SELLING GRID
-========================= */
 .best-selling-list,
 .more-best-products {
     display: grid;
@@ -699,9 +752,6 @@ hr {
     margin-top: 14px;
 }
 
-/* =========================
-   BEST PRODUCT LINK
-========================= */
 .best-product-link {
     display: block;
     min-width: 0;
@@ -709,9 +759,6 @@ hr {
     color: inherit;
 }
 
-/* =========================
-   BEST PRODUCT CARD
-========================= */
 .best-product-card {
     position: relative;
     width: 100%;
@@ -730,9 +777,6 @@ hr {
     box-shadow: 0 10px 30px rgba(255, 122, 184, 0.12), 0 10px 30px rgba(34, 199, 224, 0.10);
 }
 
-/* =========================
-   BEST PRODUCT IMAGE
-========================= */
 .best-product-image {
     position: relative;
     width: 100%;
@@ -756,9 +800,6 @@ hr {
     transform: scale(1.05);
 }
 
-/* =========================
-   SALE BADGE
-========================= */
 .sale-badge {
     position: absolute;
     top: 12px;
@@ -778,9 +819,6 @@ hr {
     box-shadow: 0 2px 10px rgba(155, 107, 242, 0.30);
 }
 
-/* =========================
-   BEST PRODUCT INFO
-========================= */
 .best-product-info {
     padding: 10px 13px 14px;
 }
@@ -806,9 +844,6 @@ hr {
     line-height: 1.3;
 }
 
-/* =========================
-   BEST PRODUCT PRICE
-========================= */
 .product-price {
     display: flex;
     align-items: center;
@@ -828,9 +863,6 @@ hr {
     font-weight: 400;
 }
 
-/* =========================
-   CART BUTTON
-========================= */
 .cart-button {
     position: absolute;
     right: 11px;
@@ -898,9 +930,6 @@ hr {
     color: var(--holo-pink);
 }
 
-/* =========================
-   PRODUCT LIST (Recommended)
-========================= */
 .product-list {
     display: flex;
     gap: 12px;
@@ -1057,9 +1086,6 @@ hr {
     z-index: 1;
 }
 
-/* ==================================================
-   LEFT CONTENT
-================================================== */
 .sale-content {
     width: 42%;
     padding-left: 40px;
@@ -1105,9 +1131,6 @@ hr {
     line-height: 1.4;
 }
 
-/* ==================================================
-   MIDDLE SECTION
-================================================== */
 .sale-middle {
     width: 38%;
     display: flex;
@@ -1119,9 +1142,6 @@ hr {
     z-index: 3;
 }
 
-/* ==================================================
-   COUNTDOWN
-================================================== */
 .sale-countdown {
     display: flex;
     gap: 10px;
@@ -1156,9 +1176,6 @@ hr {
     font-weight: 600;
 }
 
-/* ==================================================
-   SALE BUTTON
-================================================== */
 .sale-button {
     width: 320px;
     max-width: 100%;
@@ -1181,9 +1198,6 @@ hr {
     box-shadow: 0 0 30px rgba(34, 199, 224, 0.40);
 }
 
-/* ==================================================
-   RIGHT IMAGE
-================================================== */
 .sale-image {
     position: absolute;
     right: 25px;
@@ -1208,13 +1222,10 @@ hr {
 /* ==================================================
    BRANDS + CAMERA TABLE SECTION
 ================================================== */
-
 .brand-table-section {
     width: 100%;
     padding: 90px 5%;
-
     background: rgba(255, 255, 255, 0.55);
-
     border-top: 1px solid var(--glass-border-soft);
     border-bottom: 1px solid var(--glass-border-soft);
 }
@@ -1222,24 +1233,15 @@ hr {
 .brand-table-container {
     max-width: 1400px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-
     gap: 70px;
     align-items: center;
 }
 
-
-/* ==================================================
-   BRANDS - LEFT
-================================================== */
-
 .brand-section h2 {
     margin-bottom: 25px;
-
     color: var(--text-primary);
-
     font-size: 32px;
     line-height: 1.1;
 }
@@ -1251,170 +1253,96 @@ hr {
     -webkit-text-fill-color: transparent;
 }
 
-
-/* BRAND GRID */
-
 .brand-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
     gap: 12px;
 }
 
-
-/* BRAND CARD */
-
 .brand-card {
     height: 100px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 8px;
-
     background: var(--glass-fill-strong);
-
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-
     text-decoration: none;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-
-
-/* BRAND IMAGE */
 
 .brand-card img {
-    width: 85px;
-    height: 38px;
-
+    width: 130px;
+    height: 60px;
     object-fit: contain;
-
     opacity: 0.65;
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
 }
-
-
-/* BRAND NAME */
 
 .brand-card span {
     color: var(--text-muted);
-
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 0.5px;
 }
 
-
-/* BRAND HOVER */
-
 .brand-card:hover {
     background: var(--holo-gradient-soft);
-
     border-color: rgba(155, 107, 242, 0.35);
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 8px 22px rgba(155, 107, 242, 0.12),
-        0 5px 18px rgba(34, 199, 224, 0.10);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(155, 107, 242, 0.12), 0 5px 18px rgba(34, 199, 224, 0.10);
 }
 
 .brand-card:hover img {
     opacity: 1;
-
-    transform: scale(1.05);
+    transform: scale(2.5);
 }
 
 .brand-card:hover span {
     color: var(--holo-violet);
 }
 
-
-/* ==================================================
-   CAMERA CATEGORY TABLE - RIGHT
-================================================== */
-
 .brand-table {
     width: 100%;
-
     border-collapse: separate;
     border-spacing: 0;
-
     overflow: hidden;
-
     background: var(--glass-fill-strong);
-
     border: 1px solid var(--glass-border);
-
     border-radius: 16px;
-
-    box-shadow:
-        0 8px 25px rgba(90, 80, 130, 0.08);
-
+    box-shadow: 0 8px 25px rgba(90, 80, 130, 0.08);
     font-size: 12px;
 }
 
-
-/* TABLE TITLE */
-
 .brand-table-container h3 {
-    margin-bottom: 18px;
-
+    margin-bottom: 12px;
     color: var(--text-primary);
-
     font-size: 24px;
     font-weight: 700;
 }
 
-
-/* TABLE HEADER */
-
 .brand-table th {
     padding: 15px 16px;
-
-    background:  #8f7ae5;;
+    background: #8f7ae5;
     color: #ffffff;
-
     font-size: 11px;
     font-weight: 700;
-
     text-align: left;
 }
 
-/* TABLE CELLS */
-
 .brand-table td {
     padding: 14px 16px;
-
     color: var(--text-primary);
-
     background: rgba(255, 255, 255, 0.70);
-
     border-bottom: 1px solid var(--glass-border-soft);
 }
-
-
-/* PRODUCT COUNT */
 
 .brand-table th:nth-child(3),
 .brand-table td:nth-child(3) {
     text-align: center;
 }
-
-
-/* TABLE HOVER */
 
 .brand-table tbody tr {
     transition: background 0.2s ease;
@@ -1424,23 +1352,13 @@ hr {
     background: var(--holo-gradient-soft);
 }
 
-
-/* TABLE FOOTER */
-
 .brand-table tfoot td {
     padding: 15px 16px;
-
     background: var(--bg-panel-alt);
-
     color: var(--holo-violet);
-
     font-weight: 700;
-
     border-bottom: none;
 }
-
-
-/* ROUNDED TABLE CORNERS */
 
 .brand-table th:first-child {
     border-top-left-radius: 15px;
@@ -1456,6 +1374,38 @@ hr {
 
 .brand-table tfoot td:last-child {
     border-bottom-right-radius: 15px;
+}
+
+.table-info-list {
+    margin-top: 16px;
+    padding: 16px 18px;
+    list-style: none;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border-soft);
+    border-radius: 14px;
+}
+
+.table-info-list li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--text-muted);
+    font-size: 11.5px;
+    line-height: 1.6;
+}
+
+.table-info-list li + li {
+    margin-top: 6px;
+}
+
+.table-info-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--holo-gradient);
 }
 
 /* ==================================================
@@ -1474,7 +1424,6 @@ hr {
     text-align: center;
 }
 
-/* ABOUT LABEL */
 .about-label {
     display: inline-block;
     margin-bottom: 10px;
@@ -1484,7 +1433,6 @@ hr {
     letter-spacing: 2px;
 }
 
-/* ABOUT TITLE */
 .about-content h2 {
     margin-bottom: 15px;
     color: var(--text-primary);
@@ -1499,7 +1447,6 @@ hr {
     -webkit-text-fill-color: transparent;
 }
 
-/* ABOUT TEXT */
 .about-content p {
     margin-bottom: 6px;
     color: var(--text-muted);
@@ -1510,7 +1457,6 @@ hr {
     text-overflow: ellipsis;
 }
 
-/* ABOUT LANGUAGES */
 .about-languages {
     display: flex;
     justify-content: center;
@@ -1531,7 +1477,6 @@ hr {
     letter-spacing: 1px;
 }
 
-/* ABOUT BACK TO TOP */
 .back-to-top {
     display: inline-block;
     margin-top: 5px;
@@ -1561,9 +1506,6 @@ hr {
     color: #ffffff;
 }
 
-/* ==================================================
-   CAMERA BRANDS
-================================================== */
 .footer-brands {
     width: 100%;
     min-height: 55px;
@@ -1587,9 +1529,6 @@ hr {
     opacity: 0.8;
 }
 
-/* ==================================================
-   MAIN FOOTER
-================================================== */
 .footer-main {
     width: 90%;
     max-width: 1400px;
@@ -1600,9 +1539,6 @@ hr {
     gap: 35px;
 }
 
-/* ==================================================
-   FOOTER COLUMNS
-================================================== */
 .footer-column {
     display: flex;
     flex-direction: column;
@@ -1630,9 +1566,6 @@ hr {
     transform: translateX(3px);
 }
 
-/* ==================================================
-   LENTE INFORMATION
-================================================== */
 .footer-brand-info h2 {
     margin-bottom: 4px;
     background: linear-gradient(135deg, #55c7e8, #ffffff);
@@ -1654,9 +1587,6 @@ hr {
     color: #ffffff;
 }
 
-/* ==================================================
-   SOCIAL MEDIA
-================================================== */
 .social-links {
     display: flex;
     gap: 8px;
@@ -1689,9 +1619,6 @@ hr {
     font-size: 10px;
 }
 
-/* ==================================================
-   BOTTOM FOOTER
-================================================== */
 .footer-bottom {
     width: 100%;
     padding: 12px 5%;

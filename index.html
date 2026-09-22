@@ -12,17 +12,45 @@
 
 <!-- ================= MAIN HEADER ================= -->
 <header class="main-header">
-    <nav class="nav-left">
-        <a href="link.html">Shop</a>
-        <a href="link.html">New In</a>
-        <a href="#collections">Collections</a>
-        <a href="#recommendations">For You</a>
-        <a href="link.html">Contact</a>
-        <a href="#about">About</a>
-    </nav>
+    <nav class="main-nav">
+
+    <a href="index.html">Home</a>
+
+    <div class="nav-dropdown">
+        <a href="shop.html">Shop ▾</a>
+        <div class="dropdown-menu">
+            <a href="link.html">All Products</a>
+            <a href="link.html#dslr">DSLR</a>
+            <a href="link.html#mirrorless">Mirrorless</a>
+            <a href="link.html#digicam">Digicam</a>
+            <a href="link.html#film">Film</a>
+            <a href="link.html#action">Action Camera</a>
+            <a href="link.html#accessories">Accessories</a>
+        </div>
+    </div>
+
+    <div class="nav-dropdown">
+    <a href="index.html#brand">Brands ▾</a>
+
+    <div class="dropdown-menu">
+        <a href="link.html#canon">Canon</a>
+        <a href="link.html#sony">Sony</a>
+        <a href="link.html#nikon">Nikon</a>
+        <a href="link.html#fujifilm">Fujifilm</a>
+        <a href="link.html#kodak">Kodak</a>
+        <a href="link.html#gopro">GoPro</a>
+        <a href="link.html#dji">DJI</a>
+    </div>
+</div>
+
+    <a href="index.html#collections">Best Sellers</a>
+    <a href="index.html#about">About</a>
+
+</nav>
 
     <a href="link.html" class="logo">
-        <img src="images/logotext1.png" alt="Lente">
+        <img src="images/logotext1.png" alt="Lente" class="logo-img logo-dark">
+        <img src="images/logotext2.png" alt="Lente" class="logo-img logo-light">
     </a>
 
     <div class="header-right">
@@ -391,7 +419,7 @@
 <!-- =========================
      BRANDS + CAMERA TABLE
 ========================= -->
-<section class="brand-table-section">
+<section class="brand-table-section" id="brand">
     <div class="brand-table-container">
         <!-- LEFT: CAMERA BRANDS -->
         <div class="brand-section">
@@ -401,31 +429,27 @@
             <div class="brand-list">
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/canon.png" alt="Canon">
-                    <span>Canon</span>
                 </a>
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/sony.png" alt="Sony">
-                    <span>Sony</span>
                 </a>
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/nikon.png" alt="Nikon">
-                    <span>Nikon</span>
                 </a>
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/fujifilm.png" alt="Fujifilm">
-                    <span>Fujifilm</span>
                 </a>
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/kodak.png" alt="KODAK">
-                    <span>KODAK</span>
                 </a>
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/gopro.png" alt="GoPro">
-                    <span>GoPro</span>
                 </a>
                 <a href="link.html" class="brand-card">
                     <img src="images/brands/dji.png" alt="DJI">
-                    <span>DJI</span>
+                </a>
+                <a href="link.html" class="brand-card">
+                    <img src="images/brands/samsung.png" alt="samsung">
                 </a>
             </div>
         </div>
@@ -484,6 +508,13 @@
                     </tr>
                 </tfoot>
             </table>
+
+            <ul class="table-info-list">
+                <li>Free shipping nationwide on orders over ₱5,000</li>
+                <li>1-year manufacturer warranty on all cameras</li>
+                <li>Easy returns and exchanges within 30 days</li>
+                <li>24/7 customer support for order and product concerns</li>
+            </ul>
         </div>
     </div>
 </section>
