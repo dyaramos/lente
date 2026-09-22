@@ -51,7 +51,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ambient holographic glow field behind everything */
 body::before {
     content: "";
     position: fixed;
@@ -80,14 +79,14 @@ a {
 .main-header {
     height: 76px;
     background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(14px);
     display: flex;
     align-items: center;
     padding: 0 5%;
     gap: 35px;
     border-bottom: 1px solid var(--glass-border-soft);
-    box-shadow: 0 1px 20px rgba(34, 199, 224, 0.08);
+    box-shadow: 0 10px 20px rgba(34, 199, 224, 0.08);
     position: relative;
     z-index: 100;
 }
@@ -209,8 +208,7 @@ a {
     width: 100%;
     height: 650px;
     overflow: hidden;
-    background-color: var(--bg-panel);
-    border-radius: 25px;
+    border-radius: 0;
     box-shadow: 0 10px 40px rgba(90, 80, 130, 0.14), inset 0 0 80px rgba(34, 199, 224, 0.04);
     border: 1px solid var(--glass-border-soft);
     z-index: 1;
@@ -287,7 +285,7 @@ a {
     font-size: 70px;
     line-height: 0.9;
     font-weight: 800;
-    background: linear-gradient(135deg, #000405 0%, #595959 50%, #c6c6c6 100%);
+    background: linear-gradient(135deg, #000405 0%, #00164e 50%, #7e9aed 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1107,7 +1105,7 @@ hr {
 
 /* ==================================================
    SALE BUTTON
-========================= */
+================================================== */
 .sale-button {
     width: 320px;
     max-width: 100%;
@@ -1152,6 +1150,228 @@ hr {
     object-position: bottom center;
     display: block;
     filter: drop-shadow(0 0 25px rgba(34, 199, 224, 0.20));
+}
+
+/* ==================================================
+   ABOUT US SECTION
+================================================== */
+.about-section {
+    width: 100%;
+    padding: 50px 5% 70px;
+}
+
+.about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* ==================================================
+   LEFT SIDE - ABOUT TEXT
+================================================== */
+.about-content {
+    max-width: 570px;
+}
+
+.about-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #00517c;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.about-content h2 {
+    margin-bottom: 25px;
+    color: #111111;
+    font-size: 48px;
+    line-height: 1.05;
+}
+
+.about-content h2 strong {
+    color: #00517c;
+}
+
+.about-content p {
+    margin-bottom: 16px;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.about-languages {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.about-languages ruby {
+    color: #00517c;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.about-languages rt {
+    color: #777;
+    font-size: 9px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* ==================================================
+   BACK TO TOP
+================================================== */
+.back-to-top {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #002438, #008bb5);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #00517c, #008bb5, #4b30b7, #f065f3);
+}
+
+/* ==================================================
+   RIGHT SIDE - TABLE
+================================================== */
+.about-table-container {
+    width: 100%;
+}
+
+.about-table-container h3 {
+    margin-bottom: 18px;
+    color: #111111;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* ==================================================
+   TABLE
+================================================== */
+.about-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #dce7ec;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 81, 124, 0.08);
+    font-size: 13px;
+}
+
+/* ==================================================
+   TABLE HEADER
+================================================== */
+.about-table th {
+    padding: 16px 18px;
+    background: #002d45;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* ==================================================
+   TABLE CELLS
+================================================== */
+.about-table td {
+    padding: 15px 18px;
+    background: #ffffff;
+    color: #333333;
+    border-bottom: 1px solid #edf2f4;
+}
+
+/* PRODUCT COUNT */
+.about-table th:nth-child(3),
+.about-table td:nth-child(3) {
+    text-align: center;
+}
+
+/* HOVER */
+.about-table tbody tr:hover td {
+    background: #f3f9fc;
+}
+
+/* ==================================================
+   TABLE FOOTER
+================================================== */
+.about-table tfoot td {
+    padding: 16px 18px;
+    background: #eaf5fa;
+    color: #00517c;
+    font-weight: 700;
+    border-top: 1px solid #d4e8ef;
+    border-bottom: none;
+}
+
+/* ==================================================
+   ROUNDED CORNERS
+================================================== */
+.about-table th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.about-table th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.about-table tfoot td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+.about-table tfoot td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+/* ==================================================
+   TABLET
+================================================== */
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .about-content {
+        max-width: 100%;
+    }
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+@media (max-width: 600px) {
+    .about-section {
+        padding: 40px 6% 60px;
+    }
+    .about-content h2 {
+        font-size: 38px;
+    }
+    .about-content p {
+        font-size: 13px;
+    }
+    .about-table-container h3 {
+        font-size: 21px;
+    }
+    .about-table {
+        font-size: 11px;
+    }
+    .about-table th,
+    .about-table td {
+        padding: 12px 9px;
+    }
 }
 
 /* ==================================================
@@ -1202,6 +1422,7 @@ hr {
         display: none;
     }
 }
+
 /* ==================================================
    RESPONSIVE
 ================================================== */
@@ -1298,10 +1519,6 @@ hr {
 /* ==================================================
    HERO RESPONSIVE
 ================================================== */
-
-/* =========================
-   TABLET
-========================= */
 @media (max-width: 1100px) {
     .hero {
         height: 600px;
@@ -1311,7 +1528,6 @@ hr {
         width: 96%;
         height: 450px;
     }
-    /* LEFT + RIGHT TITLES */
     .hero-title {
         top: 25px;
     }
@@ -1327,11 +1543,9 @@ hr {
     .hero-title-right {
         right: 4%;
     }
-    /* CAMERA */
     .hero-subject img {
         width: 560px;
     }
-    /* HERO CONTENT */
     .hero-content {
         left: 5%;
         bottom: 120px;
@@ -1345,16 +1559,12 @@ hr {
     .hero-content p {
         font-size: 12px;
     }
-    /* FEATURED */
     .hero-featured {
         right: 5%;
         bottom: 35px;
     }
 }
 
-/* =========================
-   SMALL TABLET
-========================= */
 @media (max-width: 800px) {
     .hero {
         height: 560px;
@@ -1366,18 +1576,15 @@ hr {
         height: 420px;
         border-radius: 25px;
     }
-    /* TITLES */
     .hero-title h5 {
         font-size: 30px;
     }
     .hero-title h1 {
         font-size: 43px;
     }
-    /* CAMERA */
     .hero-subject img {
         width: 480px;
     }
-    /* HERO CONTENT */
     .hero-content {
         bottom: 100px;
     }
@@ -1387,15 +1594,11 @@ hr {
     .hero-content h3 {
         font-size: 21px;
     }
-    /* FEATURED */
     .hero-featured {
         display: none;
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
 @media (max-width: 600px) {
     .hero {
         width: 100%;
@@ -1403,7 +1606,6 @@ hr {
         border-radius: 0;
         box-shadow: none;
     }
-    /* BACKGROUND */
     .hero-slideshow {
         left: 3%;
         width: 94%;
@@ -1411,7 +1613,6 @@ hr {
         bottom: 0;
         border-radius: 20px;
     }
-    /* HERO TITLES */
     .hero-title {
         top: 20px;
         z-index: 5;
@@ -1430,7 +1631,6 @@ hr {
     .hero-title h1 {
         font-size: 38px;
     }
-    /* CAMERA */
     .hero-subject {
         bottom: 20px;
     }
@@ -1438,7 +1638,6 @@ hr {
         width: 390px;
         max-width: 90vw;
     }
-    /* HERO CONTENT */
     .hero-content {
         left: 0;
         bottom: 30px;
@@ -1459,15 +1658,11 @@ hr {
         display: inline-block;
         margin-top: 8px;
     }
-    /* FEATURED */
     .hero-featured {
         display: none;
     }
 }
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
 @media (max-width: 400px) {
     .hero {
         height: 570px;
