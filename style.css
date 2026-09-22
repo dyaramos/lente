@@ -1,4 +1,31 @@
 /* =========================
+   Y2K / HOLOGRAPHIC THEME TOKENS (LIGHT)
+========================= */
+:root {
+    --bg-void: #f4f3fb;
+    --bg-panel: #ffffff;
+    --bg-panel-alt: #eef0fb;
+
+    --glass-fill: rgba(255, 255, 255, 0.55);
+    --glass-fill-strong: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(20, 15, 45, 0.10);
+    --glass-border-soft: rgba(20, 15, 45, 0.07);
+
+    --holo-violet: #9b6bf2;
+    --holo-cyan: #22c7e0;
+    --holo-pink: #ff7ab8;
+    --holo-blue: #5a7bff;
+
+    --holo-gradient: linear-gradient(135deg, var(--holo-violet) 0%, var(--holo-cyan) 50%, var(--holo-pink) 100%);
+    --holo-gradient-soft: linear-gradient(135deg, rgba(155,107,242,0.18) 0%, rgba(34,199,224,0.18) 50%, rgba(255,122,184,0.18) 100%);
+    --chrome-gradient: linear-gradient(180deg, #2b2740 0%, #574f7a 35%, #918aad 55%, #2b2740 100%);
+
+    --text-primary: #171426;
+    --text-muted: #6b6484;
+    --text-dim: #9691ab;
+}
+
+/* =========================
    RESET
 ========================= */
 * {
@@ -9,8 +36,37 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #111;
-    background: #fff;
+    color: var(--text-primary);
+    background: linear-gradient(100deg,
+        #c9a0cb 0%,
+        #9fceee 16%,
+        #ffffff 32%,
+        #f4b8d7 48%,
+        #c6b5d8 62%,
+        #fcfdfe 76%,
+        #f5cce7 88%,
+        #a98bd1 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ambient holographic glow field behind everything */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.35), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.25), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.30), transparent 35%);
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 a {
@@ -23,13 +79,15 @@ a {
 ========================= */
 .main-header {
     height: 76px;
-    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     display: flex;
     align-items: center;
     padding: 0 5%;
     gap: 35px;
-    border-bottom: 1px solid #f0f0f0;
-    box-shadow: 0 1px 5px rgba(0, 4, 5, 0.25);
+    border-bottom: 1px solid var(--glass-border-soft);
+    box-shadow: 0 1px 20px rgba(34, 199, 224, 0.08);
     position: relative;
     z-index: 100;
 }
@@ -48,6 +106,7 @@ a {
     width: 100px;
     object-fit: contain;
     display: block;
+    filter: drop-shadow(0 0 10px rgba(34, 199, 224, 0.20));
 }
 
 /* =========================
@@ -63,12 +122,12 @@ a {
 .nav-left a {
     font-size: 11px;
     font-weight: 500;
-    color: #222;
+    color: var(--text-muted);
     transition: color 0.2s ease;
 }
 
 .nav-left a:hover {
-    color: #02828b;
+    color: var(--holo-violet);
 }
 
 /* =========================
@@ -92,8 +151,10 @@ a {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: #222;
-    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    color: var(--text-primary);
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .icon-btn svg {
@@ -103,9 +164,11 @@ a {
 }
 
 .icon-btn:hover {
-    color: #00cedb;
-    background: #eafcfc;
+    color: #ffffff;
+    background: var(--holo-gradient);
+    border-color: transparent;
     transform: translateY(-1px);
+    box-shadow: 0 0 16px rgba(34, 199, 224, 0.30);
 }
 
 /* =========================
@@ -117,12 +180,12 @@ a {
     display: flex;
     align-items: center;
     gap: 7px;
-    border: 1px solid #000405;
+    border: 1px solid var(--glass-border);
     border-radius: 20px;
-    color: #222;
-    background: #fff;
+    color: var(--text-primary);
+    background: var(--glass-fill);
     font-size: 10px;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cart-btn svg {
@@ -132,9 +195,10 @@ a {
 }
 
 .cart-btn:hover {
-    background: linear-gradient(135deg, #000405 0%, #002e34 33%, #02828b 66%, #00cedb 100%);
-    color: #fff;
-    border-color: #02828b;
+    background: var(--holo-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 0 18px rgba(155, 107, 242, 0.30);
 }
 
 /* =========================
@@ -145,9 +209,10 @@ a {
     width: 100%;
     height: 650px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: var(--bg-panel);
     border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0, 4, 5, 0.10);
+    box-shadow: 0 10px 40px rgba(90, 80, 130, 0.14), inset 0 0 80px rgba(34, 199, 224, 0.04);
+    border: 1px solid var(--glass-border-soft);
     z-index: 1;
 }
 
@@ -165,6 +230,15 @@ a {
     z-index: 1;
 }
 
+.hero-slideshow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: none;
+    z-index: 2;
+    pointer-events: none;
+}
+
 .hero-slideshow img {
     position: absolute;
     inset: 0;
@@ -174,6 +248,7 @@ a {
     object-position: center bottom;
     opacity: 0;
     animation: heroSlide 20s infinite;
+    filter: saturate(1.05);
 }
 
 .hero-slideshow img:nth-child(1) { animation-delay: 0s; }
@@ -205,14 +280,18 @@ a {
     line-height: 1;
     font-weight: 700;
     font-style: italic;
-    color: #111;
+    color: var(--text-primary);
 }
 
 .hero-title h1 {
     font-size: 70px;
     line-height: 0.9;
     font-weight: 800;
-    color: #000405;
+    background: linear-gradient(135deg, #000405 0%, #595959 50%, #c6c6c6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px rgba(198, 198, 198, 0.25));
 }
 
 .left-title  { left: 5%; }
@@ -234,6 +313,7 @@ a {
     width: 700px;
     height: auto;
     display: block;
+    filter: drop-shadow(0 0 40px rgba(34, 199, 224, 0.18));
 }
 
 /* =========================
@@ -258,11 +338,15 @@ a {
     font-size: 30px;
     line-height: 1;
     font-weight: 700;
-    color: #fff;
+    color: #f6f6f9;
 }
 
 .hero-content .brand {
     margin-bottom: 10px;
+    background: var(--holo-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-content h2 {
@@ -274,7 +358,7 @@ a {
     font-size: 16px;
     line-height: 1.2;
     font-weight: 400;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.901);
     margin-bottom: 8px;
 }
 
@@ -282,8 +366,8 @@ a {
     display: inline-block;
     color: #ffffff;
     font-size: 15px;
-    font-weight: 500;
-    background: linear-gradient(135deg, #000405 0%, #002e34 33%, #02828b 66%, #00cedb 100%);
+    font-weight: 600;
+    background: var(--holo-gradient);
     height: 50px;
     width: 120px;
     border-radius: 10px;
@@ -291,12 +375,14 @@ a {
     line-height: 50px;
     margin-top: 15px;
     transition: all 0.2s ease;
+    box-shadow: 0 0 22px rgba(155, 107, 242, 0.28);
 }
 
 .hero-content-btn:hover {
-    color: #000405;
-    background: linear-gradient(135deg, #dbdbdb 0%, #c6c6c6 50%, #595959 100%);
+    color: #ffffff;
+    filter: brightness(1.08);
     transform: translateY(-1px);
+    box-shadow: 0 0 30px rgba(34, 199, 224, 0.40);
 }
 
 /* =========================
@@ -307,10 +393,12 @@ a {
     right: 100px;
     bottom: 50px;
     z-index: 4;
+    padding: 14px;
+    border-radius: 18px;
 }
 
 .hero-featured h3 {
-    color: #f0f0f0;
+    color: #ffffff;
     font-size: 20px;
     font-style: italic;
     line-height: 2;
@@ -333,8 +421,8 @@ a {
 .featured-categories {
     width: 100%;
     padding: 30px 5% 35px;
-    background: #feffff;
-    color: #fff;
+    background: transparent;
+    color: var(--text-primary);
 }
 
 /* =========================
@@ -350,18 +438,18 @@ a {
 .featured-header h2 {
     font-size: 20px;
     font-weight: 700;
-    color: #000405;
+    color: var(--text-primary);
 }
 
 .featured-view-all {
     font-size: 11px;
     font-weight: 500;
-    color: #002e34;
+    color: var(--holo-violet);
     transition: color 0.2s ease;
 }
 
 .featured-view-all:hover {
-    color: #00cedb;
+    color: var(--holo-pink);
 }
 
 /* =========================
@@ -381,10 +469,12 @@ a {
     height: 150px;
     overflow: hidden;
     border-radius: 12px;
-    background: #000405;
+    background: var(--bg-panel);
+    border: 1px solid var(--glass-border-soft);
     display: block;
     color: #fff;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 16px rgba(90, 80, 130, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 /* =========================
@@ -410,10 +500,10 @@ a {
     right: 0;
     bottom: 0;
     height: 30%;
-    background: rgba(0, 4, 5, 0.68);
+    background: rgba(23, 20, 38, 0.62);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
     z-index: 1;
     pointer-events: none;
 }
@@ -440,7 +530,7 @@ a {
     margin: 0;
     font-size: 9px;
     font-weight: 400;
-    color: #dbdbdb;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 /* =========================
@@ -456,13 +546,14 @@ a {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: linear-gradient(135deg, #dbdbdb 0%, #c6c6c6 50%, #595959 100%);
-    color: #000405;
+    background: var(--glass-fill-strong);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
     font-size: 15px;
     font-weight: 700;
     z-index: 3;
-    box-shadow: 0 2px 6px rgba(0, 4, 5, 0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 10px rgba(90, 80, 130, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 /* =========================
@@ -470,7 +561,8 @@ a {
 ========================= */
 .category-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 4, 5, 0.25);
+    border-color: rgba(34, 199, 224, 0.35);
+    box-shadow: 0 10px 28px rgba(34, 199, 224, 0.16);
 }
 
 .category-card:hover img {
@@ -479,8 +571,9 @@ a {
 
 .category-card:hover .category-arrow {
     transform: translateX(2px);
-    background: linear-gradient(135deg, #00cedb 0%, #02828b 50%, #002e34 100%);
+    background: var(--holo-gradient);
     color: #ffffff;
+    box-shadow: 0 0 18px rgba(155, 107, 242, 0.35);
 }
 
 /* =========================
@@ -488,7 +581,7 @@ a {
 ========================= */
 hr {
     border: none;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--glass-border-soft);
     margin: 0;
 }
 
@@ -520,7 +613,7 @@ hr {
     margin: 0;
     font-size: 28px;
     font-weight: 700;
-    color: #000405;
+    color: var(--text-primary);
 }
 
 /* =========================
@@ -533,10 +626,11 @@ hr {
     height: 24px;
     padding: 0 10px;
     border-radius: 20px;
-    background: linear-gradient(135deg, #dbdbdb, #c6c6c6);
-    color: #000405;
+    background: var(--holo-gradient);
+    color: #ffffff;
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 0 14px rgba(155, 107, 242, 0.25);
 }
 
 /* =========================
@@ -572,15 +666,17 @@ hr {
     width: 100%;
     height: 355px;
     overflow: hidden;
-    border: 1px solid #e2e5e5;
+    border: 1px solid var(--glass-border-soft);
     border-radius: 15px;
-    background: #f7f8f8;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: var(--bg-panel);
+    box-shadow: 0 3px 14px rgba(90, 80, 130, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .best-product-link:hover .best-product-card {
     transform: translateY(-4px);
-    box-shadow: 0 8px 22px rgba(0, 4, 5, 0.15);
+    border-color: rgba(255, 122, 184, 0.30);
+    box-shadow: 0 10px 30px rgba(255, 122, 184, 0.12), 0 10px 30px rgba(34, 199, 224, 0.10);
 }
 
 /* =========================
@@ -594,7 +690,7 @@ hr {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #f1f2f2;
+    background: var(--bg-panel-alt);
 }
 
 .best-product-image img {
@@ -624,11 +720,11 @@ hr {
     height: 23px;
     padding: 0 8px;
     border-radius: 20px;
-    background: linear-gradient(135deg, #002e34 0%, #02828b 50%, #00cedb 100%);
+    background: var(--holo-gradient);
     color: #ffffff;
     font-size: 9px;
     font-weight: 700;
-    box-shadow: 0 2px 5px rgba(0, 4, 5, 0.15);
+    box-shadow: 0 2px 10px rgba(155, 107, 242, 0.30);
 }
 
 /* =========================
@@ -640,20 +736,20 @@ hr {
 
 .product-rating {
     margin-bottom: 9px;
-    color: #595959;
+    color: var(--text-muted);
     font-size: 10px;
     font-weight: 500;
 }
 
 .star {
     margin-right: 2px;
-    color: #00cedb;
+    color: var(--holo-violet);
     font-size: 12px;
 }
 
 .best-product-info h3 {
     margin: 0 0 12px;
-    color: #000405;
+    color: var(--text-primary);
     font-size: 13px;
     font-weight: 600;
     line-height: 1.3;
@@ -670,13 +766,13 @@ hr {
 }
 
 .current-price {
-    color: #000405;
+    color: var(--text-primary);
     font-size: 14px;
     font-weight: 700;
 }
 
 .old-price {
-    color: #8b8f91;
+    color: var(--text-dim);
     font-size: 10px;
     font-weight: 400;
 }
@@ -695,12 +791,12 @@ hr {
     align-items: center;
     justify-content: center;
     padding: 0;
-    border: none;
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
-    background: linear-gradient(135deg, #dbdbdb 0%, #c6c6c6 50%, #595959 100%);
-    color: #000405;
+    background: var(--glass-fill-strong);
+    color: var(--text-primary);
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .cart-button svg {
@@ -711,9 +807,10 @@ hr {
 
 .best-product-link:hover .cart-button {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #00cedb 0%, #02828b 50%, #002e34 100%);
+    background: var(--holo-gradient);
     color: #ffffff;
-    box-shadow: 0 3px 8px rgba(0, 4, 5, 0.20);
+    border-color: transparent;
+    box-shadow: 0 3px 14px rgba(34, 199, 224, 0.30);
 }
 
 /* ==================================================
@@ -735,19 +832,19 @@ hr {
     margin: 0;
     font-size: 24px;
     font-weight: 700;
-    color: #000405;
+    color: var(--text-primary);
 }
 
 .section-header a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    color: #002e34;
+    color: var(--holo-violet);
     transition: color 0.2s ease;
 }
 
 .section-header a:hover {
-    color: #00cedb;
+    color: var(--holo-pink);
 }
 
 /* =========================
@@ -776,16 +873,18 @@ hr {
 .product-card {
     width: 100%;
     height: 285px;
-    background: #fff;
-    border: 1px solid #e5e5e5;
+    background: var(--bg-panel);
+    border: 1px solid var(--glass-border-soft);
     border-radius: 14px;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 14px rgba(90, 80, 130, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .product-link:hover .product-card {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 4, 5, 0.10);
+    border-color: rgba(155, 107, 242, 0.30);
+    box-shadow: 0 8px 24px rgba(155, 107, 242, 0.14);
 }
 
 .product-image {
@@ -794,7 +893,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0e0031;
+    background: var(--bg-panel-alt);
     overflow: hidden;
 }
 
@@ -819,7 +918,7 @@ hr {
     font-size: 14px;
     font-weight: 600;
     line-height: 1.25;
-    color: #000405;
+    color: var(--text-primary);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -836,17 +935,17 @@ hr {
 .price {
     font-size: 14px;
     font-weight: 700;
-    color: #000405;
+    color: var(--text-primary);
 }
 
 .rating {
     font-size: 11px;
     font-weight: 600;
-    color: #595959;
+    color: var(--text-muted);
 }
 
 .rating::first-letter {
-    color: #00cedb;
+    color: var(--holo-violet);
 }
 
 #more-products {
@@ -861,21 +960,22 @@ hr {
     display: block;
     margin: 30px auto 0;
     padding: 11px 27px;
-    border: 1px solid #000405;
+    border: 1px solid var(--glass-border);
     border-radius: 25px;
-    background: #ffffff;
-    color: #000405;
+    background: var(--glass-fill-strong);
+    color: var(--text-primary);
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .show-more-btn:hover {
-    background: linear-gradient(135deg, #000405 0%, #002e34 33%, #02828b 66%, #00cedb 100%);
+    background: var(--holo-gradient);
     color: #ffffff;
-    border-color: #02828b;
+    border-color: transparent;
     transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(34, 199, 224, 0.28);
 }
 
 /* ==================================================
@@ -890,8 +990,20 @@ hr {
     align-items: center;
     overflow: hidden;
     border-radius: 20px;
-    background: linear-gradient(100deg, #003752 0%, #02acce 50%, #001930 100%);
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(100deg, #efe9ff 0%, #dcf3fb 35%, #ffe6f2 70%, #f4f3fb 100%);
+    box-shadow: 0 5px 30px rgba(90, 80, 130, 0.10);
+    border: 1px solid var(--glass-border-soft);
+}
+
+.sale-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 122, 184, 0.20), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(34, 199, 224, 0.20), transparent 40%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* ==================================================
@@ -909,15 +1021,16 @@ hr {
     margin-bottom: 8px;
     padding: 5px 10px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.25);
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(20, 15, 45, 0.10);
+    color: var(--text-primary);
     font-size: 10px;
     font-weight: 600;
 }
 
 .sale-content h2 {
     margin: 0;
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: 38px;
     font-weight: 700;
     line-height: 1.05;
@@ -925,7 +1038,10 @@ hr {
 
 .sale-content h3 {
     margin: 3px 0 12px;
-    color: #ffffff;
+    background: var(--holo-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 32px;
     font-weight: 700;
     line-height: 1.05;
@@ -933,7 +1049,7 @@ hr {
 
 .sale-content p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(23, 20, 38, 0.72);
     font-size: 13px;
     line-height: 1.4;
 }
@@ -968,14 +1084,15 @@ hr {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.20);
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(20, 15, 45, 0.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 3px 10px rgba(90, 80, 130, 0.08);
 }
 
 .countdown-box strong {
-    color: #172033;
+    color: var(--text-primary);
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
@@ -983,14 +1100,14 @@ hr {
 
 .countdown-box span {
     margin-top: 5px;
-    color: #31433d;
+    color: var(--text-muted);
     font-size: 9px;
     font-weight: 600;
 }
 
 /* ==================================================
    SALE BUTTON
-================================================== */
+========================= */
 .sale-button {
     width: 320px;
     max-width: 100%;
@@ -999,17 +1116,18 @@ hr {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: #071b1d;
+    background: var(--holo-gradient);
     color: #ffffff;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 22px rgba(155, 107, 242, 0.25);
 }
 
 .sale-button:hover {
-    background: #173b3d;
     transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(34, 199, 224, 0.40);
 }
 
 /* ==================================================
@@ -1033,6 +1151,7 @@ hr {
     object-fit: contain;
     object-position: bottom center;
     display: block;
+    filter: drop-shadow(0 0 25px rgba(34, 199, 224, 0.20));
 }
 
 /* ==================================================
