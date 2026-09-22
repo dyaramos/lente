@@ -34,33 +34,86 @@
     box-sizing: border-box;
 }
 
+*, *::before, *::after {
+    transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text-primary);
-    background: linear-gradient(100deg,
-        #c9a0cb 0%,
-        #9fceee 16%,
-        #ffffff 32%,
-        #f4b8d7 48%,
-        #c6b5d8 62%,
-        #fcfdfe 76%,
-        #f5cce7 88%,
-        #a98bd1 100%);
-    background-attachment: fixed;
+    background: transparent;
     position: relative;
     overflow-x: hidden;
 }
 
+/* ===== SCROLL THEME LAYERS ===== */
+/* base (light) layer — always opacity 1, sits furthest back */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -2;
     pointer-events: none;
+    opacity: 1;
     background:
         radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.35), transparent 32%),
         radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.25), transparent 30%),
-        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.30), transparent 35%);
+        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.30), transparent 35%),
+        linear-gradient(100deg,
+            #c9a0cb 0%,
+            #9fceee 16%,
+            #ffffff 32%,
+            #f4b8d7 48%,
+            #c6b5d8 62%,
+            #fcfdfe 76%,
+            #f5cce7 88%,
+            #a98bd1 100%);
+}
+
+/* dark layer — fades in on top once .theme-dark is added to <body> */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(185, 140, 255, 0.20), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(111, 227, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(255, 158, 207, 0.14), transparent 35%),
+        linear-gradient(135deg, #07050f 0%, #120a24 45%, #06060f 100%);
+}
+
+body.theme-dark::after {
+    opacity: 1;
+}
+
+/* dark-mode variable overrides — cascades to every card/text that
+   already reads these custom properties, no extra rules needed */
+body.theme-dark {
+    --bg-panel: #14112a;
+    --bg-panel-alt: #1a1533;
+
+    --glass-fill: rgba(255, 255, 255, 0.06);
+    --glass-fill-strong: rgba(255, 255, 255, 0.10);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-border-soft: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #f5f4fb;
+    --text-muted: #a8a3c0;
+    --text-dim: #746e93;
+}
+
+/* a few sections use hardcoded (non-variable) backgrounds —
+   override those explicitly so they follow the theme too */
+body.theme-dark .brand-table-section {
+    background: rgba(20, 17, 42, 0.55);
+}
+
+body.theme-dark .about-section {
+    background: rgba(7, 5, 15, 0.75);
 }
 
 body > * {
@@ -472,7 +525,7 @@ a {
     display: block;
     color: #fff;
     box-shadow: 0 4px 16px rgba(90, 80, 130, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.6s ease;
 }
 
 /* =========================
@@ -668,7 +721,7 @@ hr {
     border-radius: 15px;
     background: var(--bg-panel);
     box-shadow: 0 3px 14px rgba(90, 80, 130, 0.06);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.6s ease;
 }
 
 .best-product-link:hover .best-product-card {
@@ -876,7 +929,7 @@ hr {
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 3px 14px rgba(90, 80, 130, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.6s ease;
 }
 
 .product-link:hover .product-card {
@@ -1021,14 +1074,14 @@ hr {
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.65);
     border: 1px solid rgba(20, 15, 45, 0.10);
-    color: var(--text-primary);
+    color: #171426;
     font-size: 10px;
     font-weight: 600;
 }
 
 .sale-content h2 {
     margin: 0;
-    color: var(--text-primary);
+    color: #171426;
     font-size: 38px;
     font-weight: 700;
     line-height: 1.05;
@@ -1090,7 +1143,7 @@ hr {
 }
 
 .countdown-box strong {
-    color: var(--text-primary);
+    color: #171426;
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
@@ -1098,7 +1151,7 @@ hr {
 
 .countdown-box span {
     margin-top: 5px;
-    color: var(--text-muted);
+    color: #6b6484;
     font-size: 9px;
     font-weight: 600;
 }
@@ -1151,107 +1204,6 @@ hr {
     display: block;
     filter: drop-shadow(0 0 25px rgba(34, 199, 224, 0.20));
 }
-
-/* ==================================================
-   BRANDS + TABLE SECTION
-================================================== */
-
-.brand-table-section {
-    width: 100%;
-    padding: 90px 5%;
-
-    background: #ffffff;
-
-    border-top: 1px solid #e8eef1;
-}
-
-.brand-table-container {
-    max-width: 1400px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-
-    gap: 70px;
-    align-items: center;
-}
-
-
-/* ==================================================
-   BRANDS - LEFT
-================================================== */
-
-.brand-section h2 {
-    margin-top: 5px;
-    margin-bottom: 25px;
-
-    color: #111111;
-    font-size: 32px;
-}
-
-.brand-section h2 strong {
-    color: #00517c;
-}
-
-.brand-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 12px;
-}
-
-.brand-card {
-    height: 100px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    background: #f7fbfd;
-
-    border: 1px solid #dce7ec;
-    border-radius: 16px;
-
-    text-decoration: none;
-
-    transition: 0.3s ease;
-}
-
-.brand-card img {
-    width: 80px;
-    height: 38px;
-
-    object-fit: contain;
-
-    opacity: 0.7;
-
-    transition: 0.3s ease;
-}
-
-.brand-card span {
-    color: #52717f;
-
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.brand-card:hover {
-    background: #eaf5fa;
-
-    border-color: #008bb5;
-
-    transform: translateY(-4px);
-
-    box-shadow: 0 8px 20px rgba(0, 81, 124, 0.1);
-}
-
-.brand-card:hover img {
-    opacity: 1;
-}
-
 
 /* ==================================================
    BRANDS + CAMERA TABLE SECTION

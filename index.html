@@ -349,22 +349,6 @@
     </button>
 </section>
 
-<!-- ================= SCRIPTS ================= -->
-<script>
-    function toggleVisibility(id, button) {
-        const element = document.getElementById(id);
-        if (element.style.display === "none" || element.style.display === "") {
-            element.style.display = "grid";
-            button.textContent = "Hide Products ↑";
-        } else {
-            element.style.display = "none";
-            button.textContent = "Show More Products ↓";
-        }
-    }
-
-    lucide.createIcons();
-</script>
-
 <!-- =========================
      HOLIDAY SALE BANNER
 ========================= -->
@@ -610,6 +594,55 @@
         </div>
     </div>
 </footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+    function toggleVisibility(id, button) {
+        const element = document.getElementById(id);
+        if (element.style.display === "none" || element.style.display === "") {
+            element.style.display = "grid";
+            button.textContent = "Hide Products ↑";
+        } else {
+            element.style.display = "none";
+            button.textContent = "Show More Products ↓";
+        }
+    }
+
+    lucide.createIcons();
+
+    /* ===== SCROLL-TRIGGERED DARK THEME =====
+       Once the top of the Holiday Sale banner reaches ~75% down
+       the viewport, add .theme-dark to <body>. The actual fade is
+       handled by CSS (body::after opacity transition), this
+       script just flips the switch. Scrolling back above the
+       section reverts to the light theme. */
+    (function () {
+        const trigger = document.querySelector('.sale-banner');
+        if (!trigger) return;
+
+        let ticking = false;
+
+        function updateTheme() {
+            const rect = trigger.getBoundingClientRect();
+            const triggerPoint = window.innerHeight * 0.75;
+            if (rect.top <= triggerPoint) {
+                document.body.classList.add('theme-dark');
+            } else {
+                document.body.classList.remove('theme-dark');
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(updateTheme);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        updateTheme();
+    })();
+</script>
 
 </body>
 </html>
