@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canon EOS R50 — Lente</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* =========================
+           PRODUCT DETAIL PAGE — ADD-ON STYLES
+           (relies on the color/spacing tokens already
+           defined in style.css)
+        ========================= */
+
+        /* ---- READABILITY FIX ----
+           The default --text-muted / --text-dim tokens from style.css
+           are too light against the pastel background gradient, so
+           body copy was blending in. Darkening them here (light mode
+           only — dark mode already has its own readable overrides in
+           style.css) fixes every element below that uses them. */
+        :root {
+            --text-muted: #454064;
+            --text-dim: #6b6484;
+        }
+
+        .breadcrumb {
+            width: 90%;
+            margin: 18px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .breadcrumb a { color: var(--holo-violet); font-weight: 600; }
+        .breadcrumb a:hover { color: var(--holo-pink); }
+        .breadcrumb .current { color: var(--text-primary); font-weight: 700; }
+
+        .product-detail {
+            width: 90%;
+            margin: 30px auto 10px;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* ---- gallery ---- */
+        .main-figure {
+            margin: 0;
+            border: 1px solid var(--glass-border-soft);
+            border-radius: 18px;
+            background: var(--bg-panel-alt);
+            padding: 20px;
+            text-align: center;
+        }
+        .main-figure img {
+            max-width: 100%;
+            height: 340px;
+            object-fit: contain;
+            cursor: crosshair;
+        }
+        .main-figure figcaption {
+            margin-top: 12px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        .thumbnail-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .thumbnail-row img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            padding: 8px;
+            background: var(--bg-panel-alt);
+            border: 1px solid var(--glass-border-soft);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .thumbnail-row img:hover {
+            border-color: var(--holo-violet);
+            transform: translateY(-2px);
+        }
+
+        /* ---- info column ---- */
+        .product-info h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .product-info h1 em {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 16px;
+            display: block;
+            margin-top: 4px;
+        }
+        .product-rating {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .product-rating .star { color: var(--holo-violet); }
+
+        .price-block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .price-block del { color: var(--text-dim); font-size: 13px; font-weight: 600; }
+        .price-block ins {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            font-weight: 800;
+        }
+        .price-block .badge {
+            padding: 3px 9px;
+            border-radius: 12px;
+            background: var(--holo-gradient);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .desc { font-size: 13.5px; line-height: 1.6; font-weight: 500; color: var(--text-muted); margin-bottom: 16px; }
+        .desc strong { color: var(--text-primary); font-weight: 800; }
+        .desc em { color: var(--text-primary); font-weight: 600; }
+
+        .variant-select, .qty-selector, .stock-toggle {
+            margin-bottom: 16px;
+        }
+        .variant-select label, .qty-selector label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        select, input[type="number"], input[type="text"], input[type="password"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-fill-strong);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 12.5px;
+            font-family: inherit;
+        }
+        .qty-selector input[type="number"] { width: 90px; }
+        .qty-selector p { margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .qty-selector #totalPrice { font-weight: 800; }
+
+        .stock-toggle span { display: block; font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .stock-toggle label { font-size: 12px; font-weight: 600; margin-right: 14px; color: var(--text-muted); }
+
+        .action-buttons { display: flex; gap: 12px; margin-bottom: 14px; }
+        .btn-cart, .btn-wishlist {
+            border: none;
+            border-radius: 10px;
+            padding: 13px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-cart {
+            background: var(--holo-gradient);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(155,107,242,0.28);
+        }
+        .btn-cart .btn-logo { width: 16px; height: 16px; object-fit: contain; filter: brightness(0) invert(1); }
+        .btn-cart:hover { transform: translateY(-2px); }
+        .btn-wishlist {
+            background: var(--glass-fill-strong);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+        }
+        .btn-wishlist:hover { border-color: var(--holo-pink); color: var(--holo-pink); }
+
+        .toggle-specs-btn {
+            background: none;
+            border: 1px dashed var(--glass-border);
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--holo-violet);
+            cursor: pointer;
+        }
+        .quick-specs {
+            margin-top: 10px;
+            padding: 14px;
+            background: var(--bg-panel-alt);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border-soft);
+        }
+        .quick-specs pre {
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+
+        /* ---- media section ---- */
+        .media-section, .details-tabs, .brand-note, .recently-viewed, .review-section {
+            width: 90%;
+            margin: 40px auto;
+        }
+        .media-section h2, .details-tabs h2, .recently-viewed h2, .review-section h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 20px;
+        }
+        .media-grid figure {
+            margin: 0;
+            padding: 14px;
+            background: var(--bg-panel);
+            border: 1px solid var(--glass-border-soft);
+            border-radius: 14px;
+        }
+        .media-grid iframe { border-radius: 8px; border: none; }
+        .media-grid audio { width: 100%; }
+        .media-grid figcaption { margin-top: 8px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); }
+
+        /* ---- details / specs ---- */
+        .details-tabs h3 { font-size: 15px; font-weight: 800; margin: 22px 0 10px; color: var(--holo-violet); }
+        .details-tabs ul, .details-tabs ol { padding-left: 20px; font-size: 13px; font-weight: 500; color: var(--text-muted); line-height: 1.8; }
+        .details-tabs dl { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+        .details-tabs dt { margin-top: 10px; }
+        .details-tabs dfn { font-style: normal; font-weight: 800; color: var(--text-primary); }
+        .details-tabs dd { margin: 2px 0 0 16px; }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 12px;
+            background: var(--glass-fill-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .specs-table th {
+            background: #8f7ae5;
+            color: #fff;
+            font-weight: 700;
+            text-align: left;
+            padding: 12px 14px;
+        }
+        .specs-table td:first-child {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .specs-table td {
+            padding: 11px 14px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--glass-border-soft);
+            color: var(--text-primary);
+        }
+        .specs-table tfoot td {
+            background: var(--bg-panel-alt);
+            color: var(--holo-violet);
+            font-weight: 700;
+            border-bottom: none;
+        }
+
+        .pdf-link { margin-top: 16px; font-size: 12.5px; font-weight: 600; color: var(--text-primary); }
+        .pdf-embed { margin-top: 10px; border-radius: 10px; border: 1px solid var(--glass-border-soft); }
+
+        .brand-note { text-align: center; }
+        .brand-note ruby { font-size: 15px; font-weight: 700; color: var(--holo-violet); }
+        .brand-note rt { font-size: 9px; font-weight: 600; color: var(--text-muted); }
+        .brand-note p { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+
+        .recent-list { display: flex; gap: 10px; flex-wrap: wrap; }
+        .recent-chip {
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: var(--glass-fill-strong);
+            border: 1px solid var(--glass-border);
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .review-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 520px;
+        }
+        .review-section label { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+        .review-section textarea { resize: vertical; }
+        .review-section input[type="file"] {
+            padding: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            background: var(--glass-fill);
+        }
+        .review-section button[type="submit"] {
+            align-self: flex-start;
+            border: none;
+            border-radius: 10px;
+            padding: 11px 22px;
+            background: var(--holo-gradient);
+            color: #fff;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .back-links {
+            width: 90%;
+            margin: 10px auto 50px;
+            text-align: center;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+        .back-links a { color: var(--holo-violet); margin: 0 6px; }
+
+        @media (max-width: 900px) {
+            .product-detail { grid-template-columns: 1fr; }
+            .media-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+<!-- ================= MAIN HEADER (reused from index.html) ================= -->
+<header class="main-header">
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="shop.html">Shop ▾</a>
+            <div class="dropdown-menu">
+                <a href="link.html">All Products</a>
+                <a href="link.html#dslr">DSLR</a>
+                <a href="link.html#mirrorless">Mirrorless</a>
+                <a href="link.html#digicam">Digicam</a>
+                <a href="link.html#film">Film</a>
+                <a href="link.html#action">Action Camera</a>
+                <a href="link.html#accessories">Accessories</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="index.html#brand">Brands ▾</a>
+            <div class="dropdown-menu">
+                <a href="link.html#canon">Canon</a>
+                <a href="link.html#sony">Sony</a>
+                <a href="link.html#nikon">Nikon</a>
+                <a href="link.html#fujifilm">Fujifilm</a>
+                <a href="link.html#kodak">Kodak</a>
+                <a href="link.html#gopro">GoPro</a>
+                <a href="link.html#dji">DJI</a>
+            </div>
+        </div>
+        <a href="index.html#collections">Best Sellers</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+        <img src="images/logotext1.png" alt="Lente" class="logo-img logo-dark">
+        <img src="images/logotext2.png" alt="Lente" class="logo-img logo-light">
+    </a>
+
+    <div class="header-right">
+        <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
+        <a href="link.html" class="icon-btn"><i data-lucide="user-round"></i></a>
+        <a href="link.html" class="cart-btn">
+            <i data-lucide="shopping-cart"></i>
+            <span>1 Item</span>
+        </a>
+    </div>
+</header>
+
+<!-- ================= BREADCRUMB ================= -->
+<nav class="breadcrumb">
+    <span><a href="index.html">Home</a> / <a href="link.html#mirrorless">Mirrorless</a> / <a href="link.html#canon">Canon</a> / <span class="current">Canon EOS R50</span></span>
+    <a href="#bottom">Jump to reviews ↓</a>
+</nav>
+
+<main>
+
+<!-- ================= PRODUCT DETAIL ================= -->
+<section class="product-detail">
+
+    <!-- GALLERY: figure/figcaption + image map -->
+    <div class="product-gallery">
+        <figure class="main-figure">
+            <img id="mainProductImage" src="images/products/canon-eos-r50.png"
+                 usemap="#cameraMap" alt="Canon EOS R50 mirrorless camera">
+            <map name="cameraMap">
+                <area shape="circle" coords="175,120,55" href="#glossary" alt="Lens mount" title="RF-S Lens Mount">
+                <area shape="rect" coords="230,60,270,90" href="#quickSpecs" alt="Shutter button" title="Shutter Button">
+                <area shape="rect" coords="40,140,120,190" href="#reviewText" alt="Grip" title="Ergonomic Hand Grip">
+            </map>
+            <figcaption>Canon EOS R50 — Mirrorless Body, Black. Hover the highlighted areas to explore parts of the camera.</figcaption>
+        </figure>
+
+        <div class="thumbnail-row">
+            <img src="images/products/canon-eos-r50.png" alt="Front view" onclick="document.getElementById('mainProductImage').src=this.src">
+            <img src="images/products/canon-eos-r50-angle.png" alt="Angled view" onclick="document.getElementById('mainProductImage').src=this.src">
+            <img src="images/products/canon-eos-r50-top.png" alt="Top view" onclick="document.getElementById('mainProductImage').src=this.src">
+        </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="product-info">
+        <h1>Canon EOS R50<em>Mirrorless Camera — Black</em></h1>
+
+        <p class="product-rating"><span class="star">★</span> 4.8 (225 Reviews)</p>
+
+        <p class="price-block">
+            <del>₱42,999</del>
+            <ins>₱38,998</ins>
+            <span class="badge">-10%</span>
+        </p>
+
+        <p class="desc">
+            Built for <strong>creators who want more</strong>, the EOS R50 pairs a 24.2MP sensor with
+            <em>Dual Pixel CMOS AF II</em> for fast, reliable autofocus in both stills and 4K video.
+        </p>
+
+        <hr>
+
+        <div class="variant-select">
+            <label for="configSelect">Choose Configuration:</label>
+            <select id="configSelect" name="configuration">
+                <optgroup label="Body Only">
+                    <option value="black-body">Black</option>
+                    <option value="white-body">White</option>
+                </optgroup>
+                <optgroup label="Kit with Lens">
+                    <option value="black-kit">Black + RF-S 18-45mm</option>
+                    <option value="white-kit">White + RF-S 18-45mm</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="qty-selector">
+            <label for="qtyInput">Quantity:</label>
+            <input list="qtySuggestions" id="qtyInput" name="qty" type="number" min="1" max="10" value="1" oninput="multiplication()">
+            <datalist id="qtySuggestions">
+                <option value="1">
+                <option value="2">
+                <option value="3">
+                <option value="5">
+            </datalist>
+            <p>Total: ₱<span id="totalPrice">38,998</span></p>
+        </div>
+
+        <div class="stock-toggle">
+            <span>Notify me by email if this goes out of stock:</span>
+            <label><input type="radio" name="notify" value="yes"> Y</label>
+            <label><input type="radio" name="notify" value="no" checked> N</label>
+        </div>
+
+        <div class="action-buttons">
+            <button type="button" class="btn-cart" onclick="pushRecentlyViewed('Canon EOS R50')">
+                <img src="images/logotext1.png" alt="" class="btn-logo"> Add to Cart
+            </button>
+            <button type="button" class="btn-wishlist">♡ Wishlist</button>
+        </div>
+
+        <button type="button" class="toggle-specs-btn" onclick="toggle('quickSpecs')">Show / Hide Quick Specs ▾</button>
+        <div id="quickSpecs" class="quick-specs" hidden>
+<pre>
+Sensor:      24.2MP APS-C CMOS
+Processor:   DIGIC X
+ISO Range:   100–32000
+Video:       4K30p / FHD120p
+Weight:      375g (body only)
+</pre>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<!-- ================= MEDIA (audio + iframe) ================= -->
+<section class="media-section">
+    <h2>See It In Action</h2>
+    <div class="media-grid">
+        <figure>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZepkouxvhKE?si=u2ddQQl2hMGr64d_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption>Watch: Canon EOS R50 hands-on review</figcaption>
+        </figure>
+        <figure>
+            <audio controls src="audio/shutter-sample.mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <figcaption>Listen: Shutter sound sample</figcaption>
+        </figure>
+    </div>
+</section>
+
+<hr>
+
+<!-- ================= DETAILS / SPECS ================= -->
+<section class="details-tabs">
+    <h2>Product Details</h2>
+
+    <h3>Key Features</h3>
+    <ul>
+        <li>24.2MP APS-C CMOS Sensor</li>
+        <li>Dual Pixel CMOS AF II with 651 focus points</li>
+        <li>4K UHD 30p video recording</li>
+        <li>Vari-angle touchscreen display</li>
+    </ul>
+
+    <h3>Getting Started</h3>
+    <ol>
+        <li>Charge the battery fully before first use.</li>
+        <li>Insert an SD card (UHS-II recommended).</li>
+        <li>Attach the RF-S lens and power on the camera.</li>
+        <li>Set date, time, and image quality in the menu.</li>
+    </ol>
+
+    <h3 id="glossary">Glossary</h3>
+    <dl>
+        <dt><dfn>Dual Pixel CMOS AF</dfn></dt>
+        <dd>Canon's autofocus technology that uses every pixel on the sensor for phase-detection focusing.</dd>
+        <dt><dfn>APS-C</dfn></dt>
+        <dd>A sensor format smaller than full-frame, giving a 1.6x crop factor.</dd>
+    </dl>
+
+    <h3>Full Specifications</h3>
+    <table class="specs-table">
+        <thead>
+            <tr><th>Spec</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Sensor</td><td>24.2MP APS-C CMOS</td></tr>
+            <tr><td>Processor</td><td>DIGIC X</td></tr>
+            <tr><td>ISO Range</td><td>100–32000 (expandable to 51200)</td></tr>
+            <tr><td>Autofocus</td><td>Dual Pixel CMOS AF II, 651 points</td></tr>
+            <tr><td>Video</td><td>4K UHD 30p, Full HD 120p</td></tr>
+            <tr><td>Display</td><td>3.0" Vari-angle touchscreen</td></tr>
+            <tr><td>Weight</td><td>375g (body only)</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td colspan="2">Specifications sourced from Canon's official datasheet.</td></tr>
+        </tfoot>
+    </table>
+
+    <p class="pdf-link">📄 <a href="pdf/canon-eos-r50-datasheet.pdf" target="_blank">Download full spec sheet (PDF)</a></p>
+    <embed class="pdf-embed" src="pdf/canon-eos-r50-datasheet.pdf" type="application/pdf" width="100%" height="380">
+</section>
+
+<hr>
+
+<!-- ================= BRAND NOTE (ruby) ================= -->
+<section class="brand-note">
+    <p>Known in Japan as <ruby>キヤノン<rt>Canon</rt></ruby>, this brand continues a decades-long legacy of precision optics.</p>
+</section>
+
+<hr>
+
+<!-- ================= RECENTLY VIEWED (stack demo) ================= -->
+<section class="recently-viewed">
+    <h2>Recently Viewed</h2>
+    <div id="recentlyViewedList" class="recent-list"></div>
+</section>
+
+<hr id="bottom">
+
+<!-- ================= REVIEW FORM ================= -->
+<section class="review-section">
+    <h2>Write a Review</h2>
+    <form onsubmit="event.preventDefault(); alert('Thanks for your review!');">
+        <div>
+            <label for="reviewerName">Name:</label>
+            <input type="text" id="reviewerName" name="reviewerName" placeholder="Your name" required>
+        </div>
+        <div>
+            <label for="reviewerPass">Member Password (optional):</label>
+            <input type="password" id="reviewerPass" name="reviewerPass" placeholder="••••••••">
+        </div>
+        <div>
+            <label for="reviewText">Your Review:</label>
+            <textarea id="reviewText" name="reviewText" rows="5" placeholder="Share your experience with this product..."></textarea>
+        </div>
+        <div>
+            <label for="reviewPhoto">Upload a Photo:</label>
+            <input type="file" id="reviewPhoto" name="reviewPhoto" accept="image/*">
+        </div>
+        <button type="submit">Submit Review</button>
+    </form>
+</section>
+
+<p class="back-links"><a href="#top">Back to Top ↑</a> | <a href="#bottom">Jump to Bottom ↓</a></p>
+
+</main>
+
+<!-- ================= FOOTER (reused from index.html) ================= -->
+<footer class="site-footer">
+    <div class="footer-brands">
+        <span>CANON</span><span>SONY</span><span>NIKON</span><span>FUJIFILM</span>
+        <span>Panasonic</span><span>GoPro</span><span>DJI</span><span>KODAK</span>
+    </div>
+    <div class="footer-main">
+        <div class="footer-column footer-brand-info">
+            <h2>Lente</h2>
+            <p>Capture what matters with cameras and gear made for every kind of creator.</p>
+            <p><strong>Email:</strong> hello@lente.com</p>
+            <p><strong>Phone:</strong> +63 912 345 6789</p>
+        </div>
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="link.html">Contact Us</a>
+            <a href="link.html">Shipping Information</a>
+            <a href="link.html">Returns &amp; Refunds</a>
+            <a href="link.html">FAQs</a>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="index.html#collections">Collections</a>
+            <a href="index.html#best-selling">Best Selling</a>
+            <a href="link.html">New Arrivals</a>
+            <a href="link.html">Camera Accessories</a>
+        </div>
+        <div class="footer-column">
+            <h3>About Lente</h3>
+            <a href="index.html#about">About Us</a>
+            <a href="link.html">Our Story</a>
+            <a href="link.html">Privacy Policy</a>
+            <a href="link.html">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-column footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="link.html" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                <a href="link.html" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="link.html" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            </div>
+            <p>Stay connected with Lente.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Lente. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#top">Back to Top ↑</a>
+            <a href="link.html">Privacy</a>
+            <a href="link.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+    const UNIT_PRICE = 38998;
+
+    // multiplication(): recomputes the order total whenever quantity changes
+    function multiplication() {
+        const qty = parseInt(document.getElementById('qtyInput').value, 10) || 1;
+        const total = qty * UNIT_PRICE;
+        document.getElementById('totalPrice').textContent = total.toLocaleString('en-PH');
+    }
+
+    // toggle(): shows/hides any element by id (used for the quick-specs panel)
+    function toggle(id) {
+        const el = document.getElementById(id);
+        el.hidden = !el.hidden;
+    }
+
+    // ---- Recently Viewed, implemented as a stack (LIFO) ----
+    // push() adds the newest item to the top; we render top-to-bottom
+    // so the most recently viewed product always appears first.
+    const recentlyViewedStack = ['Sony ZV-E10 II', 'GoPro HERO13 Black', 'Fujifilm Instax Mini 12'];
+
+    function pushRecentlyViewed(name) {
+        recentlyViewedStack.push(name);
+        renderRecentlyViewed();
+    }
+
+    function renderRecentlyViewed() {
+        const container = document.getElementById('recentlyViewedList');
+        container.innerHTML = '';
+        for (let i = recentlyViewedStack.length - 1; i >= 0; i--) {
+            const chip = document.createElement('span');
+            chip.className = 'recent-chip';
+            chip.textContent = recentlyViewedStack[i];
+            container.appendChild(chip);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        pushRecentlyViewed('Canon EOS R50'); // current product goes on top of the stack
+        multiplication();
+        lucide.createIcons();
+    });
+</script>
+
+</body>
+</html>
