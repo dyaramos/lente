@@ -9,21 +9,196 @@
     <style>
         /* =========================
            PRODUCT DETAIL PAGE — ADD-ON STYLES
-           (relies on the color/spacing tokens already
-           defined in style.css)
         ========================= */
-
-        /* ---- READABILITY FIX ----
-           The default --text-muted / --text-dim tokens from style.css
-           are too light against the pastel background gradient, so
-           body copy was blending in. Darkening them here (light mode
-           only — dark mode already has its own readable overrides in
-           style.css) fixes every element below that uses them. */
         :root {
             --text-muted: #454064;
             --text-dim: #6b6484;
         }
 
+        /* =========================
+           DEMO 1: BACKGROUND (repeating pattern)
+           Applied to the MEDIA SECTION only (logo1.png repeat)
+           ========================= */
+        .media-section {
+            position: relative;
+            width: 90%;
+            margin: 40px auto;
+            background: url("images/logo1.png") repeat;
+            background-size: 60px 60px;
+            border-radius: 16px;
+            padding: 30px;
+            overflow: hidden;
+        }
+        .media-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 0;
+        }
+        body.theme-dark .media-section::before {
+            background: rgba(20, 17, 42, 0.88);
+        }
+        .media-section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================
+           PRODUCT DETAIL BACKGROUND (restored)
+           ========================= */
+        .product-hero-bg {
+            position: relative;
+            background: url("images/bg.png") repeat;
+            background-size: 200px 200px;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .product-hero-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            z-index: 0;
+        }
+        body.theme-dark .product-hero-bg::before {
+            background: rgba(20, 17, 42, 0.85);
+        }
+        .product-hero-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================
+           DEMO 2: CURSOR
+           ========================= */
+        .main-figure img {
+            cursor: crosshair;
+        }
+        .thumbnail-row img {
+            cursor: pointer;
+        }
+        .btn-cart {
+            cursor: pointer;
+        }
+        .btn-wishlist {
+            cursor: help;
+        }
+        .breadcrumb a {
+            cursor: pointer;
+        }
+
+        /* =========================
+           DEMO 3: BORDER IMAGE — using login-bg.jpg as frame
+           ========================= */
+        .main-figure {
+            border: 14px solid transparent;
+            border-image: url("images/login-bg.jpg") 30 round;
+            border-radius: 0;
+            padding: 10px;
+        }
+
+        .thumbnail-row img {
+            border: 6px solid transparent;
+            border-image: url("images/login-bg.jpg") 20 round;
+            border-radius: 0;
+        }
+
+        /* =========================
+           DEMO 4: FOCUS
+           ========================= */
+        .product-detail input:focus,
+        .product-detail select:focus,
+        .product-detail textarea:focus,
+        .review-section input:focus,
+        .review-section textarea:focus {
+            outline: none;
+            border-color: #9b6bf2;
+            background: rgba(155, 107, 242, 0.12);
+            box-shadow: 0 0 0 3px rgba(155, 107, 242, 0.18);
+        }
+        .product-detail a:focus {
+            background: rgba(5, 184, 255, 0.18);
+            border-radius: 4px;
+            outline: 2px solid #22c7e0;
+        }
+
+        /* =========================
+           DEMO 5: REVEAL (hover pop-up)
+           ========================= */
+        .thumbnail {
+            position: relative;
+            display: inline-block;
+        }
+        .thumbnail .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-5px);
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .thumbnail:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .thumbnail .dropdown .label {
+            display: block;
+            padding: 8px 14px;
+            background: #171426;
+            color: #dbdbdb;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 8px;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* =========================
+           DEMO 6: TRANSITION — like the sample, using Lente palette
+           ========================= */
+        .btn-cart {
+            border: none;
+            border-radius: 10px;
+            background: #9b6bf2;
+            color: #fff;
+            padding: 13px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 20px rgba(155,107,242,0.28);
+
+            transition:
+                background 0.6s linear 0.1s,
+                padding 0.6s ease-out 0.1s,
+                box-shadow 0.4s ease 0.1s,
+                transform 0.4s ease 0.1s;
+        }
+
+        .btn-cart:hover {
+            background: linear-gradient(135deg, #ff7ab8, #9b6bf2, #22c7e0);
+            padding: 13px 40px;
+            box-shadow: 0 0 36px rgba(255, 122, 184, 0.55);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           BASE PRODUCT STYLES
+           ========================= */
         .breadcrumb {
             width: 90%;
             margin: 18px auto 0;
@@ -47,11 +222,8 @@
             align-items: start;
         }
 
-        /* ---- gallery ---- */
         .main-figure {
             margin: 0;
-            border: 1px solid var(--glass-border-soft);
-            border-radius: 18px;
             background: var(--bg-panel-alt);
             padding: 20px;
             text-align: center;
@@ -60,7 +232,6 @@
             max-width: 100%;
             height: 340px;
             object-fit: contain;
-            cursor: crosshair;
         }
         .main-figure figcaption {
             margin-top: 12px;
@@ -79,17 +250,12 @@
             object-fit: contain;
             padding: 8px;
             background: var(--bg-panel-alt);
-            border: 1px solid var(--glass-border-soft);
-            border-radius: 10px;
-            cursor: pointer;
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            transition: transform 0.2s ease;
         }
         .thumbnail-row img:hover {
-            border-color: var(--holo-violet);
             transform: translateY(-2px);
         }
 
-        /* ---- info column ---- */
         .product-info h1 {
             font-size: 26px;
             font-weight: 800;
@@ -138,9 +304,7 @@
         .desc strong { color: var(--text-primary); font-weight: 800; }
         .desc em { color: var(--text-primary); font-weight: 600; }
 
-        .variant-select, .qty-selector, .stock-toggle {
-            margin-bottom: 16px;
-        }
+        .variant-select, .qty-selector, .stock-toggle { margin-bottom: 16px; }
         .variant-select label, .qty-selector label {
             display: block;
             font-size: 12px;
@@ -158,6 +322,7 @@
             font-weight: 600;
             font-size: 12.5px;
             font-family: inherit;
+            transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
         }
         .qty-selector input[type="number"] { width: 90px; }
         .qty-selector p { margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--text-primary); }
@@ -167,25 +332,17 @@
         .stock-toggle label { font-size: 12px; font-weight: 600; margin-right: 14px; color: var(--text-muted); }
 
         .action-buttons { display: flex; gap: 12px; margin-bottom: 14px; }
+
         .btn-cart, .btn-wishlist {
-            border: none;
             border-radius: 10px;
             padding: 13px 20px;
             font-size: 13px;
             font-weight: 700;
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .btn-cart {
-            background: var(--holo-gradient);
-            color: #fff;
-            box-shadow: 0 0 20px rgba(155,107,242,0.28);
         }
         .btn-cart .btn-logo { width: 16px; height: 16px; object-fit: contain; filter: brightness(0) invert(1); }
-        .btn-cart:hover { transform: translateY(-2px); }
         .btn-wishlist {
             background: var(--glass-fill-strong);
             border: 1px solid var(--glass-border);
@@ -218,8 +375,7 @@
             white-space: pre-wrap;
         }
 
-        /* ---- media section ---- */
-        .media-section, .details-tabs, .brand-note, .recently-viewed, .review-section {
+        .details-tabs, .brand-note, .recently-viewed, .review-section {
             width: 90%;
             margin: 40px auto;
         }
@@ -245,7 +401,6 @@
         .media-grid audio { width: 100%; }
         .media-grid figcaption { margin-top: 8px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); }
 
-        /* ---- details / specs ---- */
         .details-tabs h3 { font-size: 15px; font-weight: 800; margin: 22px 0 10px; color: var(--holo-violet); }
         .details-tabs ul, .details-tabs ol { padding-left: 20px; font-size: 13px; font-weight: 500; color: var(--text-muted); line-height: 1.8; }
         .details-tabs dl { font-size: 13px; font-weight: 500; color: var(--text-muted); }
@@ -270,10 +425,7 @@
             text-align: left;
             padding: 12px 14px;
         }
-        .specs-table td:first-child {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
+        .specs-table td:first-child { font-weight: 700; color: var(--text-primary); }
         .specs-table td {
             padding: 11px 14px;
             font-weight: 500;
@@ -350,7 +502,7 @@
 
 <body id="top">
 
-<!-- ================= MAIN HEADER (reused from index.html) ================= -->
+<!-- ================= MAIN HEADER ================= -->
 <header class="main-header">
     <nav class="main-nav">
         <a href="index.html">Home</a>
@@ -389,7 +541,7 @@
 
     <div class="header-right">
         <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
-        <a href="link.html" class="icon-btn"><i data-lucide="user-round"></i></a>
+        <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
         <a href="link.html" class="cart-btn">
             <i data-lucide="shopping-cart"></i>
             <span>1 Item</span>
@@ -406,9 +558,9 @@
 <main>
 
 <!-- ================= PRODUCT DETAIL ================= -->
-<section class="product-detail">
+<section class="product-detail product-hero-bg">
 
-    <!-- GALLERY: figure/figcaption + image map -->
+    <!-- GALLERY -->
     <div class="product-gallery">
         <figure class="main-figure">
             <img id="mainProductImage" src="images/products/canon-eos-r50.png"
@@ -422,9 +574,24 @@
         </figure>
 
         <div class="thumbnail-row">
-            <img src="images/products/canon-eos-r50.png" alt="Front view" onclick="document.getElementById('mainProductImage').src=this.src">
-            <img src="images/products/canon-eos-r50-angle.png" alt="Angled view" onclick="document.getElementById('mainProductImage').src=this.src">
-            <img src="images/products/canon-eos-r50-top.png" alt="Top view" onclick="document.getElementById('mainProductImage').src=this.src">
+            <div class="thumbnail">
+                <img src="images/products/canon-eos-r50.png" alt="Front view" onclick="document.getElementById('mainProductImage').src=this.src">
+                <div class="dropdown">
+                    <span class="label">Front View</span>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/products/canon-eos-r50-angle.png" alt="Angled view" onclick="document.getElementById('mainProductImage').src=this.src">
+                <div class="dropdown">
+                    <span class="label">Angled View</span>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/products/canon-eos-r50-top.png" alt="Top view" onclick="document.getElementById('mainProductImage').src=this.src">
+                <div class="dropdown">
+                    <span class="label">Top View</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -573,14 +740,14 @@ Weight:      375g (body only)
 
 <hr>
 
-<!-- ================= BRAND NOTE (ruby) ================= -->
+<!-- ================= BRAND NOTE ================= -->
 <section class="brand-note">
     <p>Known in Japan as <ruby>キヤノン<rt>Canon</rt></ruby>, this brand continues a decades-long legacy of precision optics.</p>
 </section>
 
 <hr>
 
-<!-- ================= RECENTLY VIEWED (stack demo) ================= -->
+<!-- ================= RECENTLY VIEWED ================= -->
 <section class="recently-viewed">
     <h2>Recently Viewed</h2>
     <div id="recentlyViewedList" class="recent-list"></div>
@@ -616,7 +783,7 @@ Weight:      375g (body only)
 
 </main>
 
-<!-- ================= FOOTER (reused from index.html) ================= -->
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
     <div class="footer-brands">
         <span>CANON</span><span>SONY</span><span>NIKON</span><span>FUJIFILM</span>
@@ -674,22 +841,17 @@ Weight:      375g (body only)
 <script>
     const UNIT_PRICE = 38998;
 
-    // multiplication(): recomputes the order total whenever quantity changes
     function multiplication() {
         const qty = parseInt(document.getElementById('qtyInput').value, 10) || 1;
         const total = qty * UNIT_PRICE;
         document.getElementById('totalPrice').textContent = total.toLocaleString('en-PH');
     }
 
-    // toggle(): shows/hides any element by id (used for the quick-specs panel)
     function toggle(id) {
         const el = document.getElementById(id);
         el.hidden = !el.hidden;
     }
 
-    // ---- Recently Viewed, implemented as a stack (LIFO) ----
-    // push() adds the newest item to the top; we render top-to-bottom
-    // so the most recently viewed product always appears first.
     const recentlyViewedStack = ['Sony ZV-E10 II', 'GoPro HERO13 Black', 'Fujifilm Instax Mini 12'];
 
     function pushRecentlyViewed(name) {
@@ -709,7 +871,7 @@ Weight:      375g (body only)
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        pushRecentlyViewed('Canon EOS R50'); // current product goes on top of the stack
+        pushRecentlyViewed('Canon EOS R50');
         multiplication();
         lucide.createIcons();
     });
