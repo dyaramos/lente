@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart — Lente</title>
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body id="top">
+
+<!-- ================= MAIN HEADER ================= -->
+<header class="main-header">
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="shop.html">Shop ▾</a>
+            <div class="dropdown-menu">
+                <a href="link.html">All Products</a>
+                <a href="link.html#dslr">DSLR</a>
+                <a href="link.html#mirrorless">Mirrorless</a>
+                <a href="link.html#digicam">Digicam</a>
+                <a href="link.html#film">Film</a>
+                <a href="link.html#action">Action Camera</a>
+                <a href="link.html#accessories">Accessories</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="index.html#brand">Brands ▾</a>
+            <div class="dropdown-menu">
+                <a href="link.html#canon">Canon</a>
+                <a href="link.html#sony">Sony</a>
+                <a href="link.html#nikon">Nikon</a>
+                <a href="link.html#fujifilm">Fujifilm</a>
+                <a href="link.html#kodak">Kodak</a>
+                <a href="link.html#gopro">GoPro</a>
+                <a href="link.html#dji">DJI</a>
+            </div>
+        </div>
+        <a href="index.html#collections">Best Sellers</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+        <img src="images/logotext1.png" alt="Lente" class="logo-img logo-dark">
+        <img src="images/logotext2.png" alt="Lente" class="logo-img logo-light">
+    </a>
+
+    <div class="header-right">
+        <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
+        <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
+        <a href="cart.html" class="cart-btn">
+            <i data-lucide="shopping-cart"></i>
+            <span id="headerCartCount">3 Items</span>
+        </a>
+    </div>
+</header>
+
+<!-- ================= BREADCRUMB ================= -->
+<nav class="breadcrumb">
+    <span><a href="index.html">Home</a> / <span class="current">Shopping Cart</span></span>
+    <a href="#summary">Jump to summary ↓</a>
+</nav>
+
+<main>
+
+<!-- ================= CART HEADER ================= -->
+<section class="cart-header-section">
+    <h1>Shopping Cart</h1>
+    <p>You have <strong id="cartItemCount">3 items</strong> in your cart — <strong id="selectedCount">3</strong> selected</p>
+</section>
+
+<!-- ================= CART LAYOUT ================= -->
+<section class="cart-layout">
+
+    <!-- LEFT: CART ITEMS -->
+    <div class="cart-items">
+
+        <!-- SELECT ALL BAR -->
+        <div class="select-all-bar">
+            <label class="checkbox-label">
+                <input type="checkbox" id="selectAll" checked onchange="toggleSelectAll(this)">
+                <span class="checkbox-box"></span>
+                <span class="checkbox-text"><strong>Select All Items</strong></span>
+            </label>
+            <span class="select-all-hint">Uncheck items you don't want to buy</span>
+        </div>
+
+        <!-- ITEM 1 -->
+        <article class="cart-item" data-price="38998" data-id="1">
+            <label class="item-checkbox">
+                <input type="checkbox" class="item-select" checked onchange="updateCart()">
+                <span class="checkbox-box"></span>
+            </label>
+
+            <a href="product_detail.html" class="cart-item-image">
+                <img src="images/products/canon-eos-r50.png" alt="Canon EOS R50">
+            </a>
+
+            <div class="cart-item-info">
+                <a href="product_detail.html" class="cart-item-title">Canon EOS R50</a>
+                <p class="cart-item-desc">Mirrorless Camera — Black</p>
+                <p class="cart-item-price">₱38,998</p>
+            </div>
+
+            <div class="cart-item-qty">
+                <label for="qty1">Qty:</label>
+                <input type="number" id="qty1" value="1" min="1" max="10" oninput="updateCart()">
+            </div>
+
+            <div class="cart-item-total">
+                ₱<span class="item-total">38,998</span>
+            </div>
+
+            <button type="button" class="cart-remove" onclick="removeItem(this)" title="Remove item">
+                <i data-lucide="x"></i>
+            </button>
+        </article>
+
+        <!-- ITEM 2 -->
+        <article class="cart-item" data-price="22999" data-id="2">
+            <label class="item-checkbox">
+                <input type="checkbox" class="item-select" checked onchange="updateCart()">
+                <span class="checkbox-box"></span>
+            </label>
+
+            <a href="product_detail.html" class="cart-item-image">
+                <img src="images/products/gopro-hero13-black.png" alt="GoPro HERO13 Black">
+            </a>
+
+            <div class="cart-item-info">
+                <a href="product_detail.html" class="cart-item-title">GoPro HERO13 Black</a>
+                <p class="cart-item-desc">Action Camera</p>
+                <p class="cart-item-price">₱22,999</p>
+            </div>
+
+            <div class="cart-item-qty">
+                <label for="qty2">Qty:</label>
+                <input type="number" id="qty2" value="1" min="1" max="10" oninput="updateCart()">
+            </div>
+
+            <div class="cart-item-total">
+                ₱<span class="item-total">22,999</span>
+            </div>
+
+            <button type="button" class="cart-remove" onclick="removeItem(this)" title="Remove item">
+                <i data-lucide="x"></i>
+            </button>
+        </article>
+
+        <!-- ITEM 3 -->
+        <article class="cart-item" data-price="8999" data-id="3">
+            <label class="item-checkbox">
+                <input type="checkbox" class="item-select" checked onchange="updateCart()">
+                <span class="checkbox-box"></span>
+            </label>
+
+            <a href="product_detail.html" class="cart-item-image">
+                <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
+            </a>
+
+            <div class="cart-item-info">
+                <a href="product_detail.html" class="cart-item-title">Fujifilm Instax Mini 12</a>
+                <p class="cart-item-desc">Instant Camera</p>
+                <p class="cart-item-price">₱8,999</p>
+            </div>
+
+            <div class="cart-item-qty">
+                <label for="qty3">Qty:</label>
+                <input type="number" id="qty3" value="1" min="1" max="10" oninput="updateCart()">
+            </div>
+
+            <div class="cart-item-total">
+                ₱<span class="item-total">8,999</span>
+            </div>
+
+            <button type="button" class="cart-remove" onclick="removeItem(this)" title="Remove item">
+                <i data-lucide="x"></i>
+            </button>
+        </article>
+
+        <!-- CONTINUE SHOPPING -->
+        <div class="cart-actions">
+            <a href="shop.html" class="continue-shopping">
+                <i data-lucide="arrow-left"></i>
+                Continue Shopping
+            </a>
+        </div>
+
+    </div>
+
+    <!-- RIGHT: ORDER SUMMARY -->
+    <aside class="cart-summary" id="summary">
+        <h2>Order Summary</h2>
+
+        <div class="summary-row">
+            <span>Selected items</span>
+            <span><span id="summarySelectedCount">3</span> of 3</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <span>₱<span id="subtotal">70,996</span></span>
+        </div>
+
+        <div class="summary-row">
+            <span>Shipping</span>
+            <span class="free">Free</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Tax (VAT 12%)</span>
+            <span>₱<span id="tax">8,519</span></span>
+        </div>
+
+        <hr class="summary-divider">
+
+        <div class="summary-row summary-total">
+            <span>Total</span>
+            <span>₱<span id="total">79,515</span></span>
+        </div>
+
+        <button type="button" class="checkout-btn" id="checkoutBtn" onclick="checkout()">
+            <i data-lucide="credit-card"></i>
+            Proceed to Checkout
+        </button>
+
+        <div class="summary-note">
+            <i data-lucide="shield-check"></i>
+            <span>Secure checkout. All data is encrypted.</span>
+        </div>
+
+        <div class="summary-payment">
+            <span class="payment-label">We accept:</span>
+            <div class="payment-icons">
+                <span>VISA</span>
+                <span>MC</span>
+                <span>GCash</span>
+                <span>PayPal</span>
+            </div>
+        </div>
+    </aside>
+
+</section>
+
+<!-- ================= YOU MAY ALSO LIKE ================= -->
+<section class="recommended-section">
+    <div class="section-header">
+        <h2>You May Also Like</h2>
+        <a href="shop.html">View all products →</a>
+    </div>
+
+    <div class="recommended-list">
+        <a href="product_detail.html" class="recommended-card">
+            <div class="recommended-image">
+                <img src="images/products/sony-zv-e10-ii.png" alt="Sony ZV-E10 II">
+            </div>
+            <h4>Sony ZV-E10 II</h4>
+            <p>₱54,999</p>
+        </a>
+        <a href="product_detail.html" class="recommended-card">
+            <div class="recommended-image">
+                <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
+            </div>
+            <h4>Sony Alpha 6700</h4>
+            <p>₱79,999</p>
+        </a>
+        <a href="product_detail.html" class="recommended-card">
+            <div class="recommended-image">
+                <img src="images/products/canon-eos-r10.png" alt="Canon EOS R10">
+            </div>
+            <h4>Canon EOS R10</h4>
+            <p>₱46,999</p>
+        </a>
+        <a href="product_detail.html" class="recommended-card">
+            <div class="recommended-image">
+                <img src="images/products/nikon-z50.png" alt="Nikon Z50">
+            </div>
+            <h4>Nikon Z50</h4>
+            <p>₱49,999</p>
+        </a>
+    </div>
+</section>
+
+<p class="back-links"><a href="#top">Back to Top ↑</a></p>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-brands">
+        <span>CANON</span><span>SONY</span><span>NIKON</span><span>FUJIFILM</span>
+        <span>Panasonic</span><span>GoPro</span><span>DJI</span><span>KODAK</span>
+    </div>
+    <div class="footer-main">
+        <div class="footer-column footer-brand-info">
+            <h2>Lente</h2>
+            <p>Capture what matters with cameras and gear made for every kind of creator.</p>
+            <p><strong>Email:</strong> hello@lente.com</p>
+            <p><strong>Phone:</strong> +63 912 345 6789</p>
+        </div>
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="link.html">Contact Us</a>
+            <a href="link.html">Shipping Information</a>
+            <a href="link.html">Returns &amp; Refunds</a>
+            <a href="link.html">FAQs</a>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="index.html#collections">Collections</a>
+            <a href="index.html#best-selling">Best Selling</a>
+            <a href="link.html">New Arrivals</a>
+            <a href="link.html">Camera Accessories</a>
+        </div>
+        <div class="footer-column">
+            <h3>About Lente</h3>
+            <a href="index.html#about">About Us</a>
+            <a href="link.html">Our Story</a>
+            <a href="link.html">Privacy Policy</a>
+            <a href="link.html">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-column footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="link.html" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="link.html" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="link.html" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+            </div>
+            <p>Stay connected with Lente.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Lente. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#top">Back to Top ↑</a>
+            <a href="link.html">Privacy</a>
+            <a href="link.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+    /* ==================================================
+       CART — multiplication() + stack (based on blackboard)
+    ================================================== */
+
+    /* Stack of cart items */
+    const cartStack = [
+        { id: 1, name: 'Canon EOS R50',          price: 38998, qty: 1, selected: true },
+        { id: 2, name: 'GoPro HERO13 Black',     price: 22999, qty: 1, selected: true },
+        { id: 3, name: 'Fujifilm Instax Mini 12', price: 8999,  qty: 1, selected: true }
+    ];
+
+    /* multiplication() — quantity × price */
+    function multiplication(qty, price) {
+        const q = parseInt(qty, 10) || 0;
+        const p = parseFloat(price) || 0;
+        const result = q * p;
+        if (isNaN(result) || result < 1) return 0;
+        return result;
+    }
+
+    /* ==================================================
+       UPDATE CART — compute totals based on SELECTED items
+    ================================================== */
+    function updateCart() {
+        const items = document.querySelectorAll('.cart-item');
+        let subtotal = 0;
+        let selectedCount = 0;
+
+        items.forEach((item, index) => {
+            const price = parseFloat(item.dataset.price);
+            const qty = parseInt(item.querySelector('input[type="number"]').value) || 1;
+            const isSelected = item.querySelector('.item-select').checked;
+            const itemTotal = multiplication(qty, price);
+
+            /* Update item total display */
+            item.querySelector('.item-total').textContent = itemTotal.toLocaleString('en-PH');
+
+            /* Update cartStack */
+            if (cartStack[index]) {
+                cartStack[index].qty = qty;
+                cartStack[index].selected = isSelected;
+            }
+
+            /* Visual feedback — dim unselected items */
+            if (isSelected) {
+                item.classList.remove('unselected');
+                subtotal += itemTotal;
+                selectedCount++;
+            } else {
+                item.classList.add('unselected');
+            }
+        });
+
+        /* Update tax and total */
+        const tax = Math.round(subtotal * 0.12);
+        const total = subtotal + tax;
+
+        document.getElementById('subtotal').textContent = subtotal.toLocaleString('en-PH');
+        document.getElementById('tax').textContent = tax.toLocaleString('en-PH');
+        document.getElementById('total').textContent = total.toLocaleString('en-PH');
+
+        /* Update count displays */
+        document.getElementById('selectedCount').textContent = selectedCount;
+        document.getElementById('summarySelectedCount').textContent = selectedCount;
+
+        /* Update select-all checkbox state */
+        const selectAll = document.getElementById('selectAll');
+        if (selectAll) {
+            selectAll.checked = (selectedCount === items.length);
+            selectAll.indeterminate = (selectedCount > 0 && selectedCount < items.length);
+        }
+
+        /* Disable checkout if no item selected */
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        if (selectedCount === 0) {
+            checkoutBtn.disabled = true;
+            checkoutBtn.style.opacity = '0.5';
+            checkoutBtn.style.cursor = 'not-allowed';
+        } else {
+            checkoutBtn.disabled = false;
+            checkoutBtn.style.opacity = '1';
+            checkoutBtn.style.cursor = 'pointer';
+        }
+    }
+
+    /* ==================================================
+       SELECT ALL — check / uncheck all items
+    ================================================== */
+    function toggleSelectAll(checkbox) {
+        document.querySelectorAll('.item-select').forEach(item => {
+            item.checked = checkbox.checked;
+        });
+        updateCart();
+    }
+
+    /* ==================================================
+       REMOVE ITEM — remove from DOM and stack
+    ================================================== */
+    function removeItem(button) {
+        const item = button.closest('.cart-item');
+        const itemId = parseInt(item.dataset.id);
+
+        if (confirm('Remove this item from your cart?')) {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = 'all 0.3s ease';
+
+            setTimeout(() => {
+                item.remove();
+
+                /* Remove from stack */
+                const index = cartStack.findIndex(i => i.id === itemId);
+                if (index !== -1) cartStack.splice(index, 1);
+
+                /* Update header count */
+                const remaining = document.querySelectorAll('.cart-item').length;
+                document.getElementById('cartItemCount').textContent = remaining + ' items';
+                document.getElementById('headerCartCount').textContent = remaining + ' Items';
+
+                updateCart();
+            }, 300);
+        }
+    }
+
+    /* ==================================================
+       CHECKOUT — redirect to order confirmation page
+    ================================================== */
+    function checkout() {
+        const selected = document.querySelectorAll('.item-select:checked');
+        if (selected.length === 0) {
+            alert('Please select at least one item to checkout.');
+            return;
+        }
+
+        /* Redirect to order confirmation page */
+        window.location.href = 'order_confirmation.html';
+    }
+
+    /* ==================================================
+       INIT
+    ================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCart();
+        lucide.createIcons();
+    });
+</script>
+
+</body>
+</html>

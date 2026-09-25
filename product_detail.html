@@ -50,12 +50,23 @@
     <div class="header-right">
         <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
         <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
-        <a href="link.html" class="cart-btn">
+        <a href="cart.html" class="cart-btn">
             <i data-lucide="shopping-cart"></i>
             <span>1 Item</span>
         </a>
     </div>
 </header>
+
+<!-- ================= MARQUEE ANNOUNCEMENT ================= -->
+<div class="marquee-bar">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+        FREE SHIPPING on orders over ₱5,000 &nbsp;&nbsp;•&nbsp;&nbsp;
+        HOLIDAY SALE — Up to 40% OFF &nbsp;&nbsp;•&nbsp;&nbsp;
+        New Arrivals: Canon EOS R50, Sony ZV-E10 II &nbsp;&nbsp;•&nbsp;&nbsp;
+        0% Installment available on selected cameras &nbsp;&nbsp;•&nbsp;&nbsp;
+        1-Year Manufacturer Warranty on all items
+    </marquee>
+</div>
 
 <!-- ================= BREADCRUMB ================= -->
 <nav class="breadcrumb">
@@ -67,8 +78,6 @@
 
 <!-- ================= PRODUCT DETAIL ================= -->
 <section class="product-detail product-hero-bg">
-
-    <!-- GALLERY -->
     <div class="product-gallery">
         <figure class="main-figure">
             <img id="mainProductImage" src="images/products/canon-eos-r50.png"
@@ -84,26 +93,19 @@
         <div class="thumbnail-row">
             <div class="thumbnail">
                 <img src="images/products/canon-eos-r50.png" alt="Front view" onclick="document.getElementById('mainProductImage').src=this.src">
-                <div class="dropdown">
-                    <span class="label">Front View</span>
-                </div>
+                <div class="dropdown"><span class="label">Front View</span></div>
             </div>
             <div class="thumbnail">
                 <img src="images/products/canon-eos-r50-angle.png" alt="Angled view" onclick="document.getElementById('mainProductImage').src=this.src">
-                <div class="dropdown">
-                    <span class="label">Angled View</span>
-                </div>
+                <div class="dropdown"><span class="label">Angled View</span></div>
             </div>
             <div class="thumbnail">
                 <img src="images/products/canon-eos-r50-top.png" alt="Top view" onclick="document.getElementById('mainProductImage').src=this.src">
-                <div class="dropdown">
-                    <span class="label">Top View</span>
-                </div>
+                <div class="dropdown"><span class="label">Top View</span></div>
             </div>
         </div>
     </div>
 
-    <!-- INFO -->
     <div class="product-info">
         <h1>Canon EOS R50<em>Mirrorless Camera — Black</em></h1>
 
@@ -140,10 +142,7 @@
             <label for="qtyInput">Quantity:</label>
             <input list="qtySuggestions" id="qtyInput" name="qty" type="number" min="1" max="10" value="1" oninput="multiplication()">
             <datalist id="qtySuggestions">
-                <option value="1">
-                <option value="2">
-                <option value="3">
-                <option value="5">
+                <option value="1"><option value="2"><option value="3"><option value="5">
             </datalist>
             <p>Total: ₱<span id="totalPrice">38,998</span></p>
         </div>
@@ -176,26 +175,45 @@ Weight:      375g (body only)
 
 <hr>
 
-<!-- ================= MEDIA (audio + iframe) ================= -->
+<!-- ================= MEDIA (video + iframe + audio) ================= -->
 <section class="media-section">
     <h2>See It In Action</h2>
     <div class="media-grid">
+
+        <!-- VIDEO -->
+        <figure class="media-video">
+            <video
+                controls
+                poster="images/products/canon-eos-r50.png"
+                preload="metadata"
+            >
+                <source src="videos/canon-eos-r50-review.mp4" type="video/mp4">
+                <source src="videos/canon-eos-r50-review.webm" type="video/webm">
+                Your browser does not support the video element.
+            </video>
+            <figcaption>Watch: Canon EOS R50 in action</figcaption>
+        </figure>
+
+        <!-- IFRAME -->
         <figure>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ZepkouxvhKE?si=u2ddQQl2hMGr64d_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <figcaption>Watch: Canon EOS R50 hands-on review</figcaption>
+            <figcaption>Watch: Full hands-on review</figcaption>
         </figure>
-        <figure>
+
+        <!-- AUDIO -->
+        <figure class="media-audio">
             <audio controls src="audio/shutter-sample.mp3">
                 Your browser does not support the audio element.
             </audio>
             <figcaption>Listen: Shutter sound sample</figcaption>
         </figure>
+
     </div>
 </section>
 
 <hr>
 
-<!-- ================= DETAILS / SPECS ================= -->
+<!-- ================= DETAILS / SPECS + ASIDE ================= -->
 <section class="details-tabs">
     <h2>Product Details</h2>
 
@@ -223,24 +241,50 @@ Weight:      375g (body only)
         <dd>A sensor format smaller than full-frame, giving a 1.6x crop factor.</dd>
     </dl>
 
-    <h3>Full Specifications</h3>
-    <table class="specs-table">
-        <thead>
-            <tr><th>Spec</th><th>Detail</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Sensor</td><td>24.2MP APS-C CMOS</td></tr>
-            <tr><td>Processor</td><td>DIGIC X</td></tr>
-            <tr><td>ISO Range</td><td>100–32000 (expandable to 51200)</td></tr>
-            <tr><td>Autofocus</td><td>Dual Pixel CMOS AF II, 651 points</td></tr>
-            <tr><td>Video</td><td>4K UHD 30p, Full HD 120p</td></tr>
-            <tr><td>Display</td><td>3.0" Vari-angle touchscreen</td></tr>
-            <tr><td>Weight</td><td>375g (body only)</td></tr>
-        </tbody>
-        <tfoot>
-            <tr><td colspan="2">Specifications sourced from Canon's official datasheet.</td></tr>
-        </tfoot>
-    </table>
+    <!-- SPECS + ASIDE LAYOUT -->
+    <div class="specs-with-aside">
+        <div class="specs-main">
+            <h3>Full Specifications</h3>
+            <table class="specs-table">
+                <thead>
+                    <tr><th>Spec</th><th>Detail</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Sensor</td><td>24.2MP APS-C CMOS</td></tr>
+                    <tr><td>Processor</td><td>DIGIC X</td></tr>
+                    <tr><td>ISO Range</td><td>100–32000 (expandable to 51200)</td></tr>
+                    <tr><td>Autofocus</td><td>Dual Pixel CMOS AF II, 651 points</td></tr>
+                    <tr><td>Video</td><td>4K UHD 30p, Full HD 120p</td></tr>
+                    <tr><td>Display</td><td>3.0" Vari-angle touchscreen</td></tr>
+                    <tr><td>Weight</td><td>375g (body only)</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><td colspan="2">Specifications sourced from Canon's official datasheet.</td></tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- ASIDE -->
+        <aside class="specs-aside">
+            <h4>Pro Tips</h4>
+            <ul>
+                <li>Pair with the RF-S 18-45mm kit lens for everyday shooting.</li>
+                <li>Use UHS-II SD cards for smooth 4K recording.</li>
+                <li>Enable "Silent Mode" for discreet street photography.</li>
+            </ul>
+
+            <h4>What's in the Box</h4>
+            <ul>
+                <li>EOS R50 Camera Body</li>
+                <li>LP-E17 Battery Pack</li>
+                <li>Battery Charger</li>
+                <li>Camera Strap</li>
+            </ul>
+
+            <h4>Note</h4>
+            <p>Specifications are sourced from Canon's official datasheet and may change without prior notice.</p>
+        </aside>
+    </div>
 
     <p class="pdf-link">📄 <a href="pdf/canon-eos-r50-datasheet.pdf" target="_blank">Download full spec sheet (PDF)</a></p>
     <embed class="pdf-embed" src="pdf/canon-eos-r50-datasheet.pdf" type="application/pdf" width="100%" height="700">
@@ -263,6 +307,61 @@ Weight:      375g (body only)
 
 <hr id="bottom">
 
+<!-- ================= CUSTOMER REVIEWS ================= -->
+<section class="reviews-display-section">
+    <h2>Customer Reviews</h2>
+
+    <!-- REVIEW 1 -->
+    <article class="review-card">
+        <header class="review-header">
+            <div class="review-avatar">JD</div>
+            <div class="review-meta">
+                <h4>Juan Dela Cruz</h4>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <span class="review-date">Sept 15, 2026</span>
+        </header>
+        <blockquote>
+            <q>Perfect for beginners. The autofocus is incredibly fast and the 4K video quality blew me away.</q>
+            <cite>— Verified Buyer</cite>
+        </blockquote>
+    </article>
+
+    <!-- REVIEW 2 -->
+    <article class="review-card">
+        <header class="review-header">
+            <div class="review-avatar">MS</div>
+            <div class="review-meta">
+                <h4>Maria Santos</h4>
+                <div class="review-stars">★★★★☆</div>
+            </div>
+            <span class="review-date">Sept 10, 2026</span>
+        </header>
+        <blockquote>
+            <q>Lightweight and easy to carry around. Battery could last longer, but overall a solid camera.</q>
+            <cite>— Verified Buyer</cite>
+        </blockquote>
+    </article>
+
+    <!-- REVIEW 3 -->
+    <article class="review-card">
+        <header class="review-header">
+            <div class="review-avatar">AR</div>
+            <div class="review-meta">
+                <h4>Alex Reyes</h4>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <span class="review-date">Sept 5, 2026</span>
+        </header>
+        <blockquote>
+            <q>Best value mirrorless camera in its price range. Highly recommended for content creators.</q>
+            <cite>— Verified Buyer</cite>
+        </blockquote>
+    </article>
+</section>
+
+<hr>
+
 <!-- ================= REVIEW FORM ================= -->
 <section class="review-section">
     <h2>Write a Review</h2>
@@ -274,30 +373,26 @@ Weight:      375g (body only)
             <div class="star-rating" id="starRating">
                 <input type="radio" id="star5" name="rating" value="5" required>
                 <label for="star5" title="5 stars">★</label>
-
                 <input type="radio" id="star4" name="rating" value="4">
                 <label for="star4" title="4 stars">★</label>
-
                 <input type="radio" id="star3" name="rating" value="3">
                 <label for="star3" title="3 stars">★</label>
-
                 <input type="radio" id="star2" name="rating" value="2">
                 <label for="star2" title="2 stars">★</label>
-
                 <input type="radio" id="star1" name="rating" value="1">
                 <label for="star1" title="1 star">★</label>
             </div>
             <small id="starFeedback" class="star-feedback"></small>
         </div>
 
-        <!-- COMMENT TEXTAREA -->
+        <!-- COMMENT -->
         <div>
             <label for="reviewText">Your Review:</label>
             <textarea id="reviewText" name="reviewText" rows="5" placeholder="Share your experience with this product..." required></textarea>
             <small id="reviewTextError" class="field-error"></small>
         </div>
 
-        <!-- PHOTO / VIDEO UPLOAD WITH CUSTOM UI -->
+        <!-- UPLOAD -->
         <div>
             <label>Add Photo or Video (optional):</label>
             <label for="reviewMedia" class="upload-ui">
@@ -361,9 +456,15 @@ Weight:      375g (body only)
         <div class="footer-column footer-social">
             <h3>Follow Us</h3>
             <div class="social-links">
-                <a href="link.html" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-                <a href="link.html" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                <a href="link.html" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="link.html" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="link.html" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="link.html" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
             </div>
             <p>Stay connected with Lente.</p>
         </div>
@@ -393,20 +494,15 @@ Weight:      375g (body only)
         el.hidden = !el.hidden;
     }
 
-    /* ===== STAR RATING FEEDBACK ===== */
+    /* ===== STAR RATING ===== */
     const starInputs = document.querySelectorAll('#starRating input');
     const starFeedback = document.getElementById('starFeedback');
-    const ratingLabels = {
-        '5': 'Excellent',
-        '4': 'Very Good',
-        '3': 'Good',
-        '2': 'Fair',
-        '1': 'Poor'
-    };
+    const ratingLabels = { '5': 'Excellent', '4': 'Very Good', '3': 'Good', '2': 'Fair', '1': 'Poor' };
 
     starInputs.forEach(input => {
         input.addEventListener('change', () => {
             starFeedback.textContent = ratingLabels[input.value] || '';
+            starFeedback.style.color = '';
         });
     });
 
@@ -444,11 +540,10 @@ Weight:      375g (body only)
             mediaPreview.innerHTML = '';
         };
         wrap.appendChild(removeBtn);
-
         mediaPreview.appendChild(wrap);
     });
 
-    /* ===== REVIEW FORM SUBMIT ===== */
+    /* ===== SUBMIT REVIEW ===== */
     function submitReview(event) {
         event.preventDefault();
 
@@ -469,16 +564,14 @@ Weight:      375g (body only)
         }
 
         textErr.textContent = '';
-
         const msg = anonymous
             ? `Thanks for your anonymous review! (${rating.value} stars)`
             : `Thanks for your review! (${rating.value} stars)`;
-
         alert(msg);
         return false;
     }
 
-    /* ===== RECENTLY VIEWED (stack implementation) ===== */
+    /* ===== RECENTLY VIEWED (stack) ===== */
     const recentlyViewedStack = ['Sony ZV-E10 II', 'GoPro HERO13 Black', 'Fujifilm Instax Mini 12'];
 
     function pushRecentlyViewed(name) {
@@ -497,11 +590,10 @@ Weight:      375g (body only)
         }
     }
 
-    /* ===== Y KEY SHORTCUT ===== */
+    /* ===== Y KEY ===== */
     document.addEventListener('keydown', function (e) {
         const tag = document.activeElement.tagName;
         if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-
         if (e.key.toLowerCase() === 'y') {
             pushRecentlyViewed('Canon EOS R50');
             alert('Y pressed — item added to Recently Viewed!');

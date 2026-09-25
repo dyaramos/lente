@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ⏱️ AUTO-REDIRECT: 10 seconds → index.html -->
+    <meta http-equiv="refresh" content="10;url=index.html">
+
+    <title>Order Confirmed — Lente</title>
+    <link rel="stylesheet" href="order_confirmation.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- ================= MAIN HEADER ================= -->
+<header class="main-header">
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="shop.html">Shop ▾</a>
+            <div class="dropdown-menu">
+                <a href="link.html">All Products</a>
+                <a href="link.html#dslr">DSLR</a>
+                <a href="link.html#mirrorless">Mirrorless</a>
+                <a href="link.html#digicam">Digicam</a>
+                <a href="link.html#film">Film</a>
+                <a href="link.html#action">Action Camera</a>
+                <a href="link.html#accessories">Accessories</a>
+            </div>
+        </div>
+        <a href="index.html#collections">Best Sellers</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+        <img src="images/logotext1.png" alt="Lente" class="logo-img logo-dark">
+        <img src="images/logotext2.png" alt="Lente" class="logo-img logo-light">
+    </a>
+
+    <div class="header-right">
+        <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
+        <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
+        <a href="cart.html" class="cart-btn">
+            <i data-lucide="shopping-cart"></i>
+            <span>0 Items</span>
+        </a>
+    </div>
+</header>
+
+<main>
+
+<!-- ================= CONFIRMATION SECTION ================= -->
+<section class="confirmation-section">
+
+    <div class="confirmation-card">
+
+        <!-- ICON -->
+        <div class="confirmation-icon">
+            <i data-lucide="check-circle"></i>
+        </div>
+
+        <!-- TITLE -->
+        <h1>Order Confirmed!</h1>
+        <p class="confirmation-subtitle">
+            Thank you for shopping with Lente.
+        </p>
+
+        <!-- ORDER DETAILS -->
+        <div class="order-details">
+            <div class="detail-row">
+                <span class="detail-label">Order Number</span>
+                <span class="detail-value">#LNT-2026-00042</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Total Paid</span>
+                <span class="detail-value">₱79,515</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Payment Method</span>
+                <span class="detail-value">Visa •••• 4242</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Estimated Delivery</span>
+                <span class="detail-value">Sept 28 – Oct 2, 2026</span>
+            </div>
+        </div>
+
+        <!-- WHAT'S NEXT -->
+        <div class="next-steps">
+            <h3>What happens next?</h3>
+            <ul>
+                <li>
+                    <i data-lucide="mail"></i>
+                    <span>Confirmation email sent to your inbox</span>
+                </li>
+                <li>
+                    <i data-lucide="package"></i>
+                    <span>Your items will be packed and shipped within 24 hours</span>
+                </li>
+                <li>
+                    <i data-lucide="truck"></i>
+                    <span>Track your order via the tracking link in your email</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- REDIRECT NOTICE -->
+        <div class="redirect-notice">
+            <i data-lucide="refresh-cw"></i>
+            <span>
+                Redirecting to homepage in <strong id="countdown">5</strong> seconds...
+            </span>
+        </div>
+
+        <!-- MANUAL BUTTONS -->
+        <div class="confirmation-actions">
+            <a href="index.html" class="btn-primary">
+                <i data-lucide="home"></i>
+                Back to Home
+            </a>
+            <a href="shop.html" class="btn-secondary">
+                <i data-lucide="shopping-bag"></i>
+                Continue Shopping
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-brands">
+        <span>CANON</span><span>SONY</span><span>NIKON</span><span>FUJIFILM</span>
+        <span>Panasonic</span><span>GoPro</span><span>DJI</span><span>KODAK</span>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Lente. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="index.html">Back to Home</a>
+            <a href="link.html">Privacy</a>
+            <a href="link.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+    /* Live countdown para sa visual feedback */
+    let seconds = 10;
+    const countdownEl = document.getElementById('countdown');
+
+    const timer = setInterval(() => {
+        seconds--;
+        if (countdownEl) countdownEl.textContent = seconds;
+        if (seconds <= 0) clearInterval(timer);
+    }, 1000);
+
+    lucide.createIcons();
+</script>
+
+</body>
+</html>
