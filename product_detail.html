@@ -4,500 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canon EOS R50 — Lente</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product_detail.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* =========================
-           PRODUCT DETAIL PAGE — ADD-ON STYLES
-        ========================= */
-        :root {
-            --text-muted: #454064;
-            --text-dim: #6b6484;
-        }
-
-        /* =========================
-           DEMO 1: BACKGROUND (repeating pattern)
-           Applied to the MEDIA SECTION only (logo1.png repeat)
-           ========================= */
-        .media-section {
-            position: relative;
-            width: 90%;
-            margin: 40px auto;
-            background: url("images/logo1.png") repeat;
-            background-size: 60px 60px;
-            border-radius: 16px;
-            padding: 30px;
-            overflow: hidden;
-        }
-        .media-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            z-index: 0;
-        }
-        body.theme-dark .media-section::before {
-            background: rgba(20, 17, 42, 0.88);
-        }
-        .media-section > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* =========================
-           PRODUCT DETAIL BACKGROUND (restored)
-           ========================= */
-        .product-hero-bg {
-            position: relative;
-            background: url("images/bg.png") repeat;
-            background-size: 200px 200px;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-        .product-hero-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
-            z-index: 0;
-        }
-        body.theme-dark .product-hero-bg::before {
-            background: rgba(20, 17, 42, 0.85);
-        }
-        .product-hero-bg > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* =========================
-           DEMO 2: CURSOR
-           ========================= */
-        .main-figure img {
-            cursor: crosshair;
-        }
-        .thumbnail-row img {
-            cursor: pointer;
-        }
-        .btn-cart {
-            cursor: pointer;
-        }
-        .btn-wishlist {
-            cursor: help;
-        }
-        .breadcrumb a {
-            cursor: pointer;
-        }
-
-        /* =========================
-           DEMO 3: BORDER IMAGE — using login-bg.jpg as frame
-           ========================= */
-        .main-figure {
-            border: 14px solid transparent;
-            border-image: url("images/login-bg.jpg") 30 round;
-            border-radius: 0;
-            padding: 10px;
-        }
-
-        .thumbnail-row img {
-            border: 6px solid transparent;
-            border-image: url("images/login-bg.jpg") 20 round;
-            border-radius: 0;
-        }
-
-        /* =========================
-           DEMO 4: FOCUS
-           ========================= */
-        .product-detail input:focus,
-        .product-detail select:focus,
-        .product-detail textarea:focus,
-        .review-section input:focus,
-        .review-section textarea:focus {
-            outline: none;
-            border-color: #9b6bf2;
-            background: rgba(155, 107, 242, 0.12);
-            box-shadow: 0 0 0 3px rgba(155, 107, 242, 0.18);
-        }
-        .product-detail a:focus {
-            background: rgba(5, 184, 255, 0.18);
-            border-radius: 4px;
-            outline: 2px solid #22c7e0;
-        }
-
-        /* =========================
-           DEMO 5: REVEAL (hover pop-up)
-           ========================= */
-        .thumbnail {
-            position: relative;
-            display: inline-block;
-        }
-        .thumbnail .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-5px);
-            display: block;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.25s ease;
-            z-index: 100;
-            pointer-events: none;
-        }
-        .thumbnail:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-        .thumbnail .dropdown .label {
-            display: block;
-            padding: 8px 14px;
-            background: #171426;
-            color: #dbdbdb;
-            font-size: 10px;
-            font-weight: 700;
-            border-radius: 8px;
-            white-space: nowrap;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        /* =========================
-           DEMO 6: TRANSITION — like the sample, using Lente palette
-           ========================= */
-        .btn-cart {
-            border: none;
-            border-radius: 10px;
-            background: #9b6bf2;
-            color: #fff;
-            padding: 13px 20px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 0 20px rgba(155,107,242,0.28);
-
-            transition:
-                background 0.6s linear 0.1s,
-                padding 0.6s ease-out 0.1s,
-                box-shadow 0.4s ease 0.1s,
-                transform 0.4s ease 0.1s;
-        }
-
-        .btn-cart:hover {
-            background: linear-gradient(135deg, #ff7ab8, #9b6bf2, #22c7e0);
-            padding: 13px 40px;
-            box-shadow: 0 0 36px rgba(255, 122, 184, 0.55);
-            transform: translateY(-2px);
-        }
-
-        /* =========================
-           BASE PRODUCT STYLES
-           ========================= */
-        .breadcrumb {
-            width: 90%;
-            margin: 18px auto 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-        .breadcrumb a { color: var(--holo-violet); font-weight: 600; }
-        .breadcrumb a:hover { color: var(--holo-pink); }
-        .breadcrumb .current { color: var(--text-primary); font-weight: 700; }
-
-        .product-detail {
-            width: 90%;
-            margin: 30px auto 10px;
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .main-figure {
-            margin: 0;
-            background: var(--bg-panel-alt);
-            padding: 20px;
-            text-align: center;
-        }
-        .main-figure img {
-            max-width: 100%;
-            height: 340px;
-            object-fit: contain;
-        }
-        .main-figure figcaption {
-            margin-top: 12px;
-            font-size: 11.5px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-        .thumbnail-row {
-            display: flex;
-            gap: 10px;
-            margin-top: 14px;
-        }
-        .thumbnail-row img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            padding: 8px;
-            background: var(--bg-panel-alt);
-            transition: transform 0.2s ease;
-        }
-        .thumbnail-row img:hover {
-            transform: translateY(-2px);
-        }
-
-        .product-info h1 {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-        }
-        .product-info h1 em {
-            font-style: italic;
-            font-weight: 600;
-            color: var(--text-muted);
-            font-size: 16px;
-            display: block;
-            margin-top: 4px;
-        }
-        .product-rating {
-            font-size: 12.5px;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-        .product-rating .star { color: var(--holo-violet); }
-
-        .price-block {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-        .price-block del { color: var(--text-dim); font-size: 13px; font-weight: 600; }
-        .price-block ins {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: 24px;
-            font-weight: 800;
-        }
-        .price-block .badge {
-            padding: 3px 9px;
-            border-radius: 12px;
-            background: var(--holo-gradient);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .desc { font-size: 13.5px; line-height: 1.6; font-weight: 500; color: var(--text-muted); margin-bottom: 16px; }
-        .desc strong { color: var(--text-primary); font-weight: 800; }
-        .desc em { color: var(--text-primary); font-weight: 600; }
-
-        .variant-select, .qty-selector, .stock-toggle { margin-bottom: 16px; }
-        .variant-select label, .qty-selector label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-        }
-        select, input[type="number"], input[type="text"], input[type="password"], textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border-radius: 10px;
-            border: 1px solid var(--glass-border);
-            background: var(--glass-fill-strong);
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 12.5px;
-            font-family: inherit;
-            transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
-        }
-        .qty-selector input[type="number"] { width: 90px; }
-        .qty-selector p { margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--text-primary); }
-        .qty-selector #totalPrice { font-weight: 800; }
-
-        .stock-toggle span { display: block; font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
-        .stock-toggle label { font-size: 12px; font-weight: 600; margin-right: 14px; color: var(--text-muted); }
-
-        .action-buttons { display: flex; gap: 12px; margin-bottom: 14px; }
-
-        .btn-cart, .btn-wishlist {
-            border-radius: 10px;
-            padding: 13px 20px;
-            font-size: 13px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-cart .btn-logo { width: 16px; height: 16px; object-fit: contain; filter: brightness(0) invert(1); }
-        .btn-wishlist {
-            background: var(--glass-fill-strong);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-        }
-        .btn-wishlist:hover { border-color: var(--holo-pink); color: var(--holo-pink); }
-
-        .toggle-specs-btn {
-            background: none;
-            border: 1px dashed var(--glass-border);
-            border-radius: 10px;
-            padding: 8px 14px;
-            font-size: 11.5px;
-            font-weight: 700;
-            color: var(--holo-violet);
-            cursor: pointer;
-        }
-        .quick-specs {
-            margin-top: 10px;
-            padding: 14px;
-            background: var(--bg-panel-alt);
-            border-radius: 10px;
-            border: 1px solid var(--glass-border-soft);
-        }
-        .quick-specs pre {
-            font-family: "Courier New", monospace;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-primary);
-            white-space: pre-wrap;
-        }
-
-        .details-tabs, .brand-note, .recently-viewed, .review-section {
-            width: 90%;
-            margin: 40px auto;
-        }
-        .media-section h2, .details-tabs h2, .recently-viewed h2, .review-section h2 {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-        .media-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 20px;
-        }
-        .media-grid figure {
-            margin: 0;
-            padding: 14px;
-            background: var(--bg-panel);
-            border: 1px solid var(--glass-border-soft);
-            border-radius: 14px;
-        }
-        .media-grid iframe { border-radius: 8px; border: none; }
-        .media-grid audio { width: 100%; }
-        .media-grid figcaption { margin-top: 8px; font-size: 11.5px; font-weight: 600; color: var(--text-muted); }
-
-        .details-tabs h3 { font-size: 15px; font-weight: 800; margin: 22px 0 10px; color: var(--holo-violet); }
-        .details-tabs ul, .details-tabs ol { padding-left: 20px; font-size: 13px; font-weight: 500; color: var(--text-muted); line-height: 1.8; }
-        .details-tabs dl { font-size: 13px; font-weight: 500; color: var(--text-muted); }
-        .details-tabs dt { margin-top: 10px; }
-        .details-tabs dfn { font-style: normal; font-weight: 800; color: var(--text-primary); }
-        .details-tabs dd { margin: 2px 0 0 16px; }
-
-        .specs-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            font-size: 12px;
-            background: var(--glass-fill-strong);
-            border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            overflow: hidden;
-        }
-        .specs-table th {
-            background: #8f7ae5;
-            color: #fff;
-            font-weight: 700;
-            text-align: left;
-            padding: 12px 14px;
-        }
-        .specs-table td:first-child { font-weight: 700; color: var(--text-primary); }
-        .specs-table td {
-            padding: 11px 14px;
-            font-weight: 500;
-            border-bottom: 1px solid var(--glass-border-soft);
-            color: var(--text-primary);
-        }
-        .specs-table tfoot td {
-            background: var(--bg-panel-alt);
-            color: var(--holo-violet);
-            font-weight: 700;
-            border-bottom: none;
-        }
-
-        .pdf-link { margin-top: 16px; font-size: 12.5px; font-weight: 600; color: var(--text-primary); }
-        .pdf-embed { margin-top: 10px; border-radius: 10px; border: 1px solid var(--glass-border-soft); }
-
-        .brand-note { text-align: center; }
-        .brand-note ruby { font-size: 15px; font-weight: 700; color: var(--holo-violet); }
-        .brand-note rt { font-size: 9px; font-weight: 600; color: var(--text-muted); }
-        .brand-note p { font-size: 13px; font-weight: 500; color: var(--text-muted); }
-
-        .recent-list { display: flex; gap: 10px; flex-wrap: wrap; }
-        .recent-chip {
-            padding: 8px 14px;
-            border-radius: 20px;
-            background: var(--glass-fill-strong);
-            border: 1px solid var(--glass-border);
-            font-size: 11.5px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .review-section form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 520px;
-        }
-        .review-section label { font-size: 12px; font-weight: 700; color: var(--text-primary); }
-        .review-section textarea { resize: vertical; }
-        .review-section input[type="file"] {
-            padding: 8px;
-            font-size: 12px;
-            font-weight: 600;
-            background: var(--glass-fill);
-        }
-        .review-section button[type="submit"] {
-            align-self: flex-start;
-            border: none;
-            border-radius: 10px;
-            padding: 11px 22px;
-            background: var(--holo-gradient);
-            color: #fff;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-        }
-
-        .back-links {
-            width: 90%;
-            margin: 10px auto 50px;
-            text-align: center;
-            font-size: 11.5px;
-            font-weight: 600;
-        }
-        .back-links a { color: var(--holo-violet); margin: 0 6px; }
-
-        @media (max-width: 900px) {
-            .product-detail { grid-template-columns: 1fr; }
-            .media-grid { grid-template-columns: 1fr; }
-        }
-    </style>
 </head>
 
 <body id="top">
@@ -735,7 +243,7 @@ Weight:      375g (body only)
     </table>
 
     <p class="pdf-link">📄 <a href="pdf/canon-eos-r50-datasheet.pdf" target="_blank">Download full spec sheet (PDF)</a></p>
-    <embed class="pdf-embed" src="pdf/canon-eos-r50-datasheet.pdf" type="application/pdf" width="100%" height="380">
+    <embed class="pdf-embed" src="pdf/canon-eos-r50-datasheet.pdf" type="application/pdf" width="100%" height="700">
 </section>
 
 <hr>
@@ -758,23 +266,56 @@ Weight:      375g (body only)
 <!-- ================= REVIEW FORM ================= -->
 <section class="review-section">
     <h2>Write a Review</h2>
-    <form onsubmit="event.preventDefault(); alert('Thanks for your review!');">
-        <div>
-            <label for="reviewerName">Name:</label>
-            <input type="text" id="reviewerName" name="reviewerName" placeholder="Your name" required>
+    <form id="reviewForm" onsubmit="return submitReview(event);">
+
+        <!-- 5-STAR RATING -->
+        <div class="star-rating-block">
+            <label class="star-rating-label">Your Rating:</label>
+            <div class="star-rating" id="starRating">
+                <input type="radio" id="star5" name="rating" value="5" required>
+                <label for="star5" title="5 stars">★</label>
+
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4" title="4 stars">★</label>
+
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" title="3 stars">★</label>
+
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2" title="2 stars">★</label>
+
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1" title="1 star">★</label>
+            </div>
+            <small id="starFeedback" class="star-feedback"></small>
         </div>
-        <div>
-            <label for="reviewerPass">Member Password (optional):</label>
-            <input type="password" id="reviewerPass" name="reviewerPass" placeholder="••••••••">
-        </div>
+
+        <!-- COMMENT TEXTAREA -->
         <div>
             <label for="reviewText">Your Review:</label>
-            <textarea id="reviewText" name="reviewText" rows="5" placeholder="Share your experience with this product..."></textarea>
+            <textarea id="reviewText" name="reviewText" rows="5" placeholder="Share your experience with this product..." required></textarea>
+            <small id="reviewTextError" class="field-error"></small>
         </div>
+
+        <!-- PHOTO / VIDEO UPLOAD WITH CUSTOM UI -->
         <div>
-            <label for="reviewPhoto">Upload a Photo:</label>
-            <input type="file" id="reviewPhoto" name="reviewPhoto" accept="image/*">
+            <label>Add Photo or Video (optional):</label>
+            <label for="reviewMedia" class="upload-ui">
+                <i data-lucide="upload-cloud"></i>
+                <span class="upload-title">Click to upload</span>
+                <span class="upload-hint">PNG, JPG, MP4 up to 10MB</span>
+                <input type="file" id="reviewMedia" name="reviewMedia" accept="image/*, video/*">
+            </label>
+            <div id="mediaPreview" class="media-preview"></div>
         </div>
+
+        <!-- ANONYMOUS CHECKBOX -->
+        <label class="checkbox-label">
+            <input type="checkbox" id="reviewAnonymous" name="reviewAnonymous">
+            <span class="checkbox-box"></span>
+            <span class="checkbox-text">Post my review anonymously</span>
+        </label>
+
         <button type="submit">Submit Review</button>
     </form>
 </section>
@@ -852,6 +393,92 @@ Weight:      375g (body only)
         el.hidden = !el.hidden;
     }
 
+    /* ===== STAR RATING FEEDBACK ===== */
+    const starInputs = document.querySelectorAll('#starRating input');
+    const starFeedback = document.getElementById('starFeedback');
+    const ratingLabels = {
+        '5': 'Excellent',
+        '4': 'Very Good',
+        '3': 'Good',
+        '2': 'Fair',
+        '1': 'Poor'
+    };
+
+    starInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            starFeedback.textContent = ratingLabels[input.value] || '';
+        });
+    });
+
+    /* ===== MEDIA PREVIEW ===== */
+    const mediaInput = document.getElementById('reviewMedia');
+    const mediaPreview = document.getElementById('mediaPreview');
+
+    mediaInput.addEventListener('change', () => {
+        mediaPreview.innerHTML = '';
+        const file = mediaInput.files[0];
+        if (!file) return;
+
+        const url = URL.createObjectURL(file);
+        const wrap = document.createElement('div');
+        wrap.className = 'preview-item';
+
+        if (file.type.startsWith('image/')) {
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = 'Preview';
+            wrap.appendChild(img);
+        } else if (file.type.startsWith('video/')) {
+            const video = document.createElement('video');
+            video.src = url;
+            video.controls = true;
+            wrap.appendChild(video);
+        }
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'preview-remove';
+        removeBtn.innerHTML = '×';
+        removeBtn.onclick = () => {
+            mediaInput.value = '';
+            mediaPreview.innerHTML = '';
+        };
+        wrap.appendChild(removeBtn);
+
+        mediaPreview.appendChild(wrap);
+    });
+
+    /* ===== REVIEW FORM SUBMIT ===== */
+    function submitReview(event) {
+        event.preventDefault();
+
+        const rating = document.querySelector('input[name="rating"]:checked');
+        const text = document.getElementById('reviewText').value.trim();
+        const textErr = document.getElementById('reviewTextError');
+        const anonymous = document.getElementById('reviewAnonymous').checked;
+
+        if (!rating) {
+            starFeedback.textContent = 'Please select a rating.';
+            starFeedback.style.color = '#d94a4a';
+            return false;
+        }
+
+        if (text.length < 5) {
+            textErr.textContent = 'Please write at least a few words.';
+            return false;
+        }
+
+        textErr.textContent = '';
+
+        const msg = anonymous
+            ? `Thanks for your anonymous review! (${rating.value} stars)`
+            : `Thanks for your review! (${rating.value} stars)`;
+
+        alert(msg);
+        return false;
+    }
+
+    /* ===== RECENTLY VIEWED (stack implementation) ===== */
     const recentlyViewedStack = ['Sony ZV-E10 II', 'GoPro HERO13 Black', 'Fujifilm Instax Mini 12'];
 
     function pushRecentlyViewed(name) {
@@ -869,6 +496,17 @@ Weight:      375g (body only)
             container.appendChild(chip);
         }
     }
+
+    /* ===== Y KEY SHORTCUT ===== */
+    document.addEventListener('keydown', function (e) {
+        const tag = document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+        if (e.key.toLowerCase() === 'y') {
+            pushRecentlyViewed('Canon EOS R50');
+            alert('Y pressed — item added to Recently Viewed!');
+        }
+    });
 
     window.addEventListener('DOMContentLoaded', () => {
         pushRecentlyViewed('Canon EOS R50');

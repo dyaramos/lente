@@ -1,0 +1,970 @@
+/* ==================================================
+   PRODUCT DETAIL PAGE
+   Extends style.css — shared tokens are reused.
+================================================== */
+
+@import url("style.css");
+
+/* =========================
+   READABILITY OVERRIDE
+========================= */
+:root {
+    --text-muted: #454064;
+    --text-dim: #6b6484;
+}
+
+/* ==================================================
+   BREADCRUMB
+================================================== */
+.breadcrumb {
+    width: 90%;
+    margin: 18px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.breadcrumb a { color: var(--holo-violet); font-weight: 600; }
+.breadcrumb a:hover { color: var(--holo-pink); }
+.breadcrumb .current { color: var(--text-primary); font-weight: 700; }
+
+/* ==================================================
+   PRODUCT DETAIL LAYOUT
+================================================== */
+.product-detail {
+    width: 90%;
+    margin: 30px auto 10px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* =========================
+   DEMO 1: BACKGROUND (repeating pattern)
+   Applied to the MEDIA SECTION only (logo1.png repeat)
+   ========================= */
+.media-section {
+    position: relative;
+    width: 90%;
+    margin: 40px auto;
+    background: url("images/logo1.png") repeat;
+    background-size: 60px 60px;
+    border-radius: 16px;
+    padding: 30px;
+    overflow: hidden;
+}
+.media-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 0;
+}
+body.theme-dark .media-section::before {
+    background: rgba(20, 17, 42, 0.88);
+}
+.media-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   PRODUCT DETAIL BACKGROUND
+   ========================= */
+.product-hero-bg {
+    position: relative;
+    background: url("images/bg.png") repeat;
+    background-size: 200px 200px;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.product-hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 0;
+}
+body.theme-dark .product-hero-bg::before {
+    background: rgba(20, 17, 42, 0.85);
+}
+.product-hero-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   DEMO 2: CURSOR
+   ========================= */
+.main-figure img { cursor: crosshair; }
+.thumbnail-row img { cursor: pointer; }
+.btn-cart { cursor: pointer; }
+.btn-wishlist { cursor: help; }
+.breadcrumb a { cursor: pointer; }
+
+/* =========================
+   DEMO 3: BORDER IMAGE — using login-bg.jpg as frame
+   ========================= */
+.main-figure {
+    border: 14px solid transparent;
+    border-image: url("images/border.jpe") 30 round;
+    border-radius: 0;
+    padding: 10px;
+}
+.thumbnail-row img {
+    border: 6px solid transparent;
+    border-image: url("images/border.jpe") 20 round;
+    border-radius: 0;
+}
+
+/* =========================
+   DEMO 4: FOCUS
+   ========================= */
+.product-detail input:focus,
+.product-detail select:focus,
+.product-detail textarea:focus,
+.review-section input:focus,
+.review-section textarea:focus {
+    outline: none;
+    border-color: #9b6bf2;
+    background: rgba(155, 107, 242, 0.12);
+    box-shadow: 0 0 0 3px rgba(155, 107, 242, 0.18);
+}
+.product-detail a:focus {
+    background: rgba(5, 184, 255, 0.18);
+    border-radius: 4px;
+    outline: 2px solid #22c7e0;
+}
+
+/* =========================
+   DEMO 5: REVEAL (hover pop-up)
+   ========================= */
+.thumbnail {
+    position: relative;
+    display: inline-block;
+}
+.thumbnail .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    z-index: 100;
+    pointer-events: none;
+}
+.thumbnail:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.thumbnail .dropdown .label {
+    display: block;
+    padding: 8px 14px;
+    background: #171426;
+    color: #dbdbdb;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   DEMO 6: TRANSITION — like the sample, using Lente palette
+   ========================= */
+.btn-cart {
+    border: none;
+    border-radius: 10px;
+    background: #9b6bf2;
+    color: #fff;
+    padding: 13px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 20px rgba(155,107,242,0.28);
+
+    transition:
+        background 0.6s linear 0.1s,
+        padding 0.6s ease-out 0.1s,
+        box-shadow 0.4s ease 0.1s,
+        transform 0.4s ease 0.1s;
+}
+.btn-cart:hover {
+    background: linear-gradient(135deg, #ff7ab8, #9b6bf2, #22c7e0);
+    padding: 13px 40px;
+    box-shadow: 0 0 36px rgba(255, 122, 184, 0.55);
+    transform: translateY(-2px);
+}
+
+/* ==================================================
+   MAIN FIGURE
+================================================== */
+.main-figure {
+    margin: 0;
+    background: var(--bg-panel-alt);
+    padding: 20px;
+    text-align: center;
+}
+.main-figure img {
+    max-width: 100%;
+    height: 340px;
+    object-fit: contain;
+}
+.main-figure figcaption {
+    margin-top: 12px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* ==================================================
+   THUMBNAILS
+================================================== */
+.thumbnail-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+.thumbnail-row img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    padding: 8px;
+    background: var(--bg-panel-alt);
+    transition: transform 0.2s ease;
+}
+.thumbnail-row img:hover {
+    transform: translateY(-2px);
+}
+
+/* ==================================================
+   PRODUCT INFO
+================================================== */
+.product-info h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+.product-info h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 16px;
+    display: block;
+    margin-top: 4px;
+}
+.product-rating {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+.product-rating .star { color: var(--holo-violet); }
+
+.price-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.price-block del {
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 600;
+}
+.price-block ins {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 800;
+}
+.price-block .badge {
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: var(--holo-gradient);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+.desc strong { color: var(--text-primary); font-weight: 800; }
+.desc em { color: var(--text-primary); font-weight: 600; }
+
+/* ==================================================
+   FORMS / SELECTORS
+================================================== */
+.variant-select, .qty-selector, .stock-toggle { margin-bottom: 16px; }
+.variant-select label, .qty-selector label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+select, input[type="number"], input[type="text"],
+input[type="password"], textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-fill-strong);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 12.5px;
+    font-family: inherit;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.qty-selector input[type="number"] { width: 90px; }
+.qty-selector p {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.qty-selector #totalPrice { font-weight: 800; }
+
+.stock-toggle span {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+.stock-toggle label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 14px;
+    color: var(--text-muted);
+}
+
+/* ==================================================
+   BUTTONS
+================================================== */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.btn-cart, .btn-wishlist {
+    border-radius: 10px;
+    padding: 13px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-cart .btn-logo {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+.btn-wishlist {
+    background: var(--glass-fill-strong);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+}
+.btn-wishlist:hover {
+    border-color: var(--holo-pink);
+    color: var(--holo-pink);
+}
+
+/* ==================================================
+   QUICK SPECS TOGGLE
+================================================== */
+.toggle-specs-btn {
+    background: none;
+    border: 1px dashed var(--glass-border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--holo-violet);
+    cursor: pointer;
+}
+.quick-specs {
+    margin-top: 10px;
+    padding: 14px;
+    background: var(--bg-panel-alt);
+    border-radius: 10px;
+    border: 1px solid var(--glass-border-soft);
+}
+.quick-specs pre {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+}
+
+/* ==================================================
+   SECTIONS
+================================================== */
+.details-tabs, .brand-note, .recently-viewed, .review-section {
+    width: 90%;
+    margin: 40px auto;
+}
+.media-section h2, .details-tabs h2,
+.recently-viewed h2, .review-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+/* ==================================================
+   MEDIA GRID
+================================================== */
+.media-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+.media-grid figure {
+    margin: 0;
+    padding: 14px;
+    background: var(--bg-panel);
+    border: 1px solid var(--glass-border-soft);
+    border-radius: 14px;
+}
+.media-grid iframe { border-radius: 8px; border: none; }
+.media-grid audio { width: 100%; }
+.media-grid figcaption {
+    margin-top: 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* ==================================================
+   DETAILS TABS
+================================================== */
+.details-tabs h3 {
+    font-size: 15px;
+    font-weight: 800;
+    margin: 22px 0 10px;
+    color: var(--holo-violet);
+}
+.details-tabs ul, .details-tabs ol {
+    padding-left: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+.details-tabs dl {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+.details-tabs dt { margin-top: 10px; }
+.details-tabs dfn {
+    font-style: normal;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+.details-tabs dd { margin: 2px 0 0 16px; }
+
+/* ==================================================
+   SPECS TABLE
+================================================== */
+.specs-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12px;
+    background: var(--glass-fill-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+.specs-table th {
+    background: #8f7ae5;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 14px;
+}
+.specs-table td:first-child {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.specs-table td {
+    padding: 11px 14px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--glass-border-soft);
+    color: var(--text-primary);
+}
+.specs-table tfoot td {
+    background: var(--bg-panel-alt);
+    color: var(--holo-violet);
+    font-weight: 700;
+    border-bottom: none;
+}
+
+/* ==================================================
+   PDF
+================================================== */
+.pdf-link {
+    margin-top: 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.pdf-embed {
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border-soft);
+}
+
+/* ==================================================
+   BRAND NOTE
+================================================== */
+.brand-note { text-align: center; }
+.brand-note ruby {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--holo-violet);
+}
+.brand-note rt {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.brand-note p {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* ==================================================
+   RECENTLY VIEWED
+================================================== */
+.recent-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.recent-chip {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: var(--glass-fill-strong);
+    border: 1px solid var(--glass-border);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ==================================================
+   REVIEW FORM
+================================================== */
+.review-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 520px;
+}
+.review-section label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.review-section textarea { resize: vertical; }
+.review-section input[type="file"] {
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--glass-fill);
+}
+.review-section button[type="submit"] {
+    align-self: flex-start;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 22px;
+    background: var(--holo-gradient);
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ==================================================
+   BACK LINKS
+================================================== */
+.back-links {
+    width: 90%;
+    margin: 10px auto 50px;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 600;
+}
+.back-links a {
+    color: var(--holo-violet);
+    margin: 0 6px;
+}
+
+/* ==================================================
+   CUSTOM CHECKBOX STYLE
+================================================== */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 8px 0;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.checkbox-label .checkbox-box {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--glass-border);
+    background: var(--glass-fill-strong);
+    position: relative;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-label .checkbox-box::after {
+    content: "";
+    width: 5px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+    margin-top: -2px;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-box {
+    background: var(--holo-gradient);
+    border-color: transparent;
+    box-shadow: 0 0 14px rgba(155, 107, 242, 0.35);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-box::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.checkbox-label:hover .checkbox-box {
+    border-color: var(--holo-violet);
+}
+
+.checkbox-label:hover .checkbox-text {
+    color: var(--text-primary);
+}
+
+.checkbox-label input[type="checkbox"]:focus-visible + .checkbox-box {
+    outline: 2px solid #22c7e0;
+    outline-offset: 2px;
+}
+
+/* FIELD ERROR TEXT */
+.field-error {
+    display: block;
+    margin-top: 4px;
+    color: #d94a4a;
+    font-size: 11px;
+    font-weight: 600;
+    min-height: 14px;
+}
+
+
+/* ==================================================
+   STAR RATING
+================================================== */
+.star-rating-block {
+    margin-bottom: 8px;
+}
+
+.star-rating-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.star-rating input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.star-rating label {
+    font-size: 34px;
+    color: #d6d1e0;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.15s ease;
+    user-select: none;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #9b6bf2;
+    transform: scale(1.1);
+}
+
+.star-rating input:checked ~ label {
+    color: #ffb300;
+}
+
+.star-rating input:checked + label {
+    color: #ffb300;
+    text-shadow: 0 0 12px rgba(255, 179, 0, 0.5);
+}
+
+.star-feedback {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--holo-violet);
+    min-height: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* ==================================================
+   UPLOAD UI (photo / video)
+================================================== */
+.upload-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 26px 20px;
+    border: 2px dashed var(--glass-border);
+    border-radius: 14px;
+    background: var(--glass-fill);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.upload-ui svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 1.8;
+    color: var(--holo-violet);
+    margin-bottom: 4px;
+}
+
+.upload-ui .upload-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.upload-ui .upload-hint {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.upload-ui:hover {
+    border-color: var(--holo-violet);
+    background: var(--holo-gradient-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(155, 107, 242, 0.12);
+}
+
+.upload-ui input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* MEDIA PREVIEW */
+.media-preview {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.preview-item {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: var(--bg-panel-alt);
+    box-shadow: 0 3px 12px rgba(90, 80, 130, 0.10);
+}
+
+.preview-item img,
+.preview-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(23, 20, 38, 0.85);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.preview-remove:hover {
+    background: #ff5ba6;
+    transform: scale(1.1);
+}
+
+/* ==================================================
+   CUSTOM CHECKBOX (anonymous)
+================================================== */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 8px 0;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.checkbox-label .checkbox-box {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--glass-border);
+    background: var(--glass-fill-strong);
+    position: relative;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-label .checkbox-box::after {
+    content: "";
+    width: 5px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+    margin-top: -2px;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-box {
+    background: var(--holo-gradient);
+    border-color: transparent;
+    box-shadow: 0 0 14px rgba(155, 107, 242, 0.35);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-box::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.checkbox-label:hover .checkbox-box {
+    border-color: var(--holo-violet);
+}
+
+.checkbox-label:hover .checkbox-text {
+    color: var(--text-primary);
+}
+
+.checkbox-label input[type="checkbox"]:focus-visible + .checkbox-box {
+    outline: 2px solid #22c7e0;
+    outline-offset: 2px;
+}
+
+/* FIELD ERROR */
+.field-error {
+    display: block;
+    margin-top: 4px;
+    color: #d94a4a;
+    font-size: 11px;
+    font-weight: 600;
+    min-height: 14px;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media (max-width: 900px) {
+    .product-detail { grid-template-columns: 1fr; }
+    .media-grid { grid-template-columns: 1fr; }
+}
