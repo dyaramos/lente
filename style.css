@@ -1007,12 +1007,21 @@ hr {
 .marquee-bar {
     width: 100%;
     padding: 10px 0;
-    background: var(--holo-gradient);
-    color: #010025;
+    background: linear-gradient(
+        90deg,
+        #000433 0%,
+        #1b2069 15%,
+        #1e3a8a 35%,
+        #1d2f95 50%,
+        #312e81 65%,
+        #2a21a8 85%,
+        #050033 100%
+    );
+    color: #ffffff;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 12px rgba(155, 107, 242, 0.25);
+    box-shadow: 0 2px 12px rgba(155, 107, 242, 0.35);
     overflow: hidden;
     position: relative;
     z-index: 5;
