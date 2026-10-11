@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop — Lente</title>
     <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="search.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
@@ -36,6 +37,7 @@
                 <a href="kodak.html">Kodak</a>
                 <a href="gopro.html">GoPro</a>
                 <a href="dji.html">DJI</a>
+                <a href="samsung.html">Samsung</a>
             </div>
         </div>
         <a href="index.html#collections">Best Sellers</a>
@@ -48,7 +50,9 @@
     </a>
 
     <div class="header-right">
-        <a href="#" class="icon-btn"><i data-lucide="search"></i></a>
+        <button type="button" class="icon-btn" onclick="openSearch()" aria-label="Search">
+            <i data-lucide="search"></i>
+        </button>
         <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
         <a href="cart.html" class="cart-btn">
             <i data-lucide="shopping-cart"></i>
@@ -81,22 +85,22 @@
         <span class="shop-label">ALL PRODUCTS</span>
         <h1>Shop Cameras</h1>
         <p>
-            Browse our complete collection of <strong>90+ cameras and accessories</strong>
+            Browse our complete collection of <strong>71 cameras and accessories</strong>
             — from beginner-friendly point-and-shoots to professional full-frame mirrorless.
         </p>
     </div>
 
     <div class="shop-hero-stats">
         <div class="hero-stat">
-            <strong>90+</strong>
+            <strong>71</strong>
             <span>Products</span>
         </div>
         <div class="hero-stat">
-            <strong>7</strong>
+            <strong>8</strong>
             <span>Top Brands</span>
         </div>
         <div class="hero-stat">
-            <strong>4.8</strong>
+            <strong>4.7</strong>
             <span>Avg Rating</span>
         </div>
     </div>
@@ -115,43 +119,67 @@
                 <li>
                     <button class="filter-option active" data-filter="all">
                         <span>All Products</span>
-                        <span class="filter-count">17</span>
+                        <span class="filter-count">71</span>
                     </button>
                 </li>
                 <li>
                     <button class="filter-option" data-filter="mirrorless">
                         <span>Mirrorless</span>
-                        <span class="filter-count">7</span>
+                        <span class="filter-count">32</span>
                     </button>
                 </li>
                 <li>
                     <button class="filter-option" data-filter="dslr">
                         <span>DSLR</span>
-                        <span class="filter-count">5</span>
+                        <span class="filter-count">9</span>
                     </button>
                 </li>
                 <li>
                     <button class="filter-option" data-filter="digicam">
                         <span>Digicam</span>
-                        <span class="filter-count">2</span>
+                        <span class="filter-count">3</span>
                     </button>
                 </li>
                 <li>
                     <button class="filter-option" data-filter="film">
                         <span>Film</span>
-                        <span class="filter-count">1</span>
+                        <span class="filter-count">7</span>
                     </button>
                 </li>
                 <li>
                     <button class="filter-option" data-filter="action">
                         <span>Action</span>
-                        <span class="filter-count">2</span>
+                        <span class="filter-count">14</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="compact">
+                        <span>Compact</span>
+                        <span class="filter-count">5</span>
                     </button>
                 </li>
                 <li>
                     <button class="filter-option" data-filter="vlog">
                         <span>Vlog</span>
-                        <span class="filter-count">1</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="drone">
+                        <span>Drone</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="gimbal">
+                        <span>Gimbal</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="accessories">
+                        <span>Accessories</span>
+                        <span class="filter-count">16</span>
                     </button>
                 </li>
             </ul>
@@ -221,6 +249,13 @@
                         <span>DJI</span>
                     </label>
                 </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="samsung">
+                        <span class="brand-check-box"></span>
+                        <span>Samsung</span>
+                    </label>
+                </li>
             </ul>
         </div>
 
@@ -254,7 +289,7 @@
         <div class="shop-toolbar">
             <div class="toolbar-left">
                 <p class="results-count">
-                    Showing <strong id="visibleCount">17</strong> of <strong>17</strong> products
+                    Showing <strong id="visibleCount">71</strong> of <strong>71</strong> products
                 </p>
             </div>
             <div class="toolbar-right">
@@ -271,7 +306,11 @@
         <!-- PRODUCT GRID -->
         <div class="shop-grid">
 
-            <!-- 1. Canon EOS R50 (Mirrorless) -->
+            <!-- ================================================== -->
+            <!-- CANON (15) -->
+            <!-- ================================================== -->
+
+            <!-- 1. Canon EOS R50 -->
             <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="38998" data-rating="4.8">
                 <div class="shop-card-image">
                     <span class="sale-badge">-10%</span>
@@ -289,127 +328,7 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 2. Sony ZV-E10 II (Vlog) -->
-            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="sony" data-price="54999" data-rating="4.7">
-                <div class="shop-card-image">
-                    <span class="sale-badge">-15%</span>
-                    <img src="images/products/sony-zv-e10-ii.png" alt="Sony ZV-E10 II">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Sony</p>
-                    <h3>Sony ZV-E10 II</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.7 (189)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱54,999</span>
-                        <span class="old-price"><del>₱64,999</del></span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 3. KODAK PIXPRO FZ55 (Digicam) -->
-            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="kodak" data-price="12999" data-rating="4.6">
-                <div class="shop-card-image">
-                    <img src="images/products/kodak-pixpro-fz55.png" alt="KODAK PIXPRO FZ55">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Kodak</p>
-                    <h3>KODAK PIXPRO FZ55</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.6 (330)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱12,999</span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 4. GoPro HERO13 Black (Action) -->
-            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="22999" data-rating="4.9">
-                <div class="shop-card-image">
-                    <span class="sale-badge">-10%</span>
-                    <img src="images/products/gopro-hero13-black.png" alt="GoPro HERO13 Black">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">GoPro</p>
-                    <h3>GoPro HERO13 Black</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.9 (145)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱22,999</span>
-                        <span class="old-price"><del>₱25,999</del></span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 5. Fujifilm Instax Mini 12 (Film) -->
-            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="fujifilm" data-price="8999" data-rating="4.5">
-                <div class="shop-card-image">
-                    <span class="sale-badge">-5%</span>
-                    <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Fujifilm</p>
-                    <h3>Fujifilm Instax Mini 12</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.5 (198)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱8,999</span>
-                        <span class="old-price"><del>₱9,999</del></span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 6. Sony Alpha 6700 (Mirrorless) -->
-            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="79999" data-rating="4.7">
-                <div class="shop-card-image">
-                    <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Sony</p>
-                    <h3>Sony Alpha 6700</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.7 (76)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱79,999</span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 7. Fujifilm X100VI (Digicam) -->
-            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="fujifilm" data-price="89999" data-rating="4.9">
-                <div class="shop-card-image">
-                    <span class="sale-badge">-12%</span>
-                    <img src="images/products/fujifilm-x100vi.png" alt="Fujifilm X100VI">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Fujifilm</p>
-                    <h3>Fujifilm X100VI</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.9 (102)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱89,999</span>
-                        <span class="old-price"><del>₱99,999</del></span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 8. Nikon Z50 (Mirrorless) -->
-            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="49999" data-rating="4.8">
-                <div class="shop-card-image">
-                    <img src="images/products/nikon-z50.png" alt="Nikon Z50">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Nikon</p>
-                    <h3>Nikon Z50</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.8 (91)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱49,999</span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 9. Canon EOS R10 (Mirrorless) -->
+            <!-- 2. Canon EOS R10 -->
             <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="46999" data-rating="4.8">
                 <div class="shop-card-image">
                     <span class="sale-badge">-8%</span>
@@ -427,41 +346,7 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 10. DJI Osmo Action (Action) -->
-            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="dji" data-price="19999" data-rating="4.7">
-                <div class="shop-card-image">
-                    <img src="images/products/dji-osmo-action.png" alt="DJI Osmo Action">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">DJI</p>
-                    <h3>DJI Osmo Action</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.7 (84)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱19,999</span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 11. Sony A6400 (Mirrorless) -->
-            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="42999" data-rating="4.8">
-                <div class="shop-card-image">
-                    <span class="sale-badge">-10%</span>
-                    <img src="images/products/sony-a6400.png" alt="Sony A6400">
-                </div>
-                <div class="shop-card-info">
-                    <p class="shop-card-brand">Sony</p>
-                    <h3>Sony A6400</h3>
-                    <div class="product-rating"><span class="star">★</span> 4.8 (134)</div>
-                    <div class="product-price">
-                        <span class="current-price">₱42,999</span>
-                        <span class="old-price"><del>₱47,999</del></span>
-                    </div>
-                </div>
-                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
-            </a>
-
-            <!-- 12. Canon EOS R8 (Mirrorless) -->
+            <!-- 3. Canon EOS R8 -->
             <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="89999" data-rating="4.7">
                 <div class="shop-card-image">
                     <img src="images/products/canon-eos-r8.png" alt="Canon EOS R8">
@@ -477,7 +362,91 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 13. Canon EOS 5D Mark IV (DSLR) -->
+            <!-- 4. Canon EOS R6 Mark II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="142999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/canon-eos-r6-ii.png" alt="Canon EOS R6 Mark II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R6 Mark II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱142,999</span>
+                        <span class="old-price"><del>₱150,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 5. Canon EOS R5 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="249999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-eos-r5.png" alt="Canon EOS R5">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R5</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (203)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱249,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 6. Canon EOS R3 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="349999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-eos-r3.png" alt="Canon EOS R3">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R3</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (67)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱349,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 7. Canon EOS R100 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="27999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/canon-eos-r100.png" alt="Canon EOS R100">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R100</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (154)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱27,999</span>
+                        <span class="old-price"><del>₱31,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 8. Canon EOS R7 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="99999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-eos-r7.png" alt="Canon EOS R7">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R7</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (143)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱99,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 9. Canon EOS 5D Mark IV -->
             <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="canon" data-price="189999" data-rating="4.9">
                 <div class="shop-card-image">
                     <img src="images/products/canon-eos-5d-iv.png" alt="Canon EOS 5D Mark IV">
@@ -493,7 +462,7 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 14. Canon EOS 90D (DSLR) -->
+            <!-- 10. Canon EOS 90D -->
             <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="canon" data-price="79999" data-rating="4.8">
                 <div class="shop-card-image">
                     <span class="sale-badge">-7%</span>
@@ -511,7 +480,7 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 15. Canon EOS 250D (DSLR) -->
+            <!-- 11. Canon EOS 250D -->
             <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="canon" data-price="44999" data-rating="4.6">
                 <div class="shop-card-image">
                     <span class="sale-badge">-10%</span>
@@ -529,7 +498,519 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 16. Nikon D7500 (DSLR) -->
+            <!-- 12. Canon EOS 850D -->
+            <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="canon" data-price="56999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-eos-850d.png" alt="Canon EOS 850D">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS 850D</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱56,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 13. Canon PowerShot G7 X Mark III -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="canon" data-price="42999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-g7x-mark-iii.png" alt="Canon PowerShot G7 X Mark III">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon PowerShot G7 X III</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (189)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱42,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 14. Canon PowerShot SX740 HS -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="canon" data-price="25999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/canon-sx740.png" alt="Canon PowerShot SX740 HS">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon PowerShot SX740 HS</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (231)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱25,999</span>
+                        <span class="old-price"><del>₱27,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 15. Canon PowerShot V10 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="canon" data-price="24999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-powershot-v10.png" alt="Canon PowerShot V10">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon PowerShot V10</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱24,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- SONY (15) -->
+            <!-- ================================================== -->
+
+            <!-- 16. Sony Alpha 7 IV -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="129999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/sony-a7-iv.png" alt="Sony Alpha 7 IV">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 7 IV</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (287)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱129,999</span>
+                        <span class="old-price"><del>₱140,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 17. Sony Alpha 7R V -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="219999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-a7r-v.png" alt="Sony Alpha 7R V">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 7R V</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱219,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 18. Sony Alpha 7C II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="107999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/sony-a7c-ii.png" alt="Sony Alpha 7C II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 7C II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (142)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱107,999</span>
+                        <span class="old-price"><del>₱119,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 19. Sony Alpha 6700 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="79999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 6700</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (76)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱79,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 20. Sony Alpha 6400 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="42999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/sony-a6400.png" alt="Sony Alpha 6400">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 6400</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (134)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱42,999</span>
+                        <span class="old-price"><del>₱47,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 21. Sony Alpha 6100 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="36999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-a6100.png" alt="Sony Alpha 6100">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 6100</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (187)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱36,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 22. Sony Alpha 1 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="329999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-alpha-1.png" alt="Sony Alpha 1">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 1</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (98)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱329,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 23. Sony Alpha 9 III -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="389999" data-rating="5.0">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-a9-iii.png" alt="Sony Alpha 9 III">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 9 III</h3>
+                    <div class="product-rating"><span class="star">★</span> 5.0 (45)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱389,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 24. Sony ZV-E10 II -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="sony" data-price="54999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-15%</span>
+                    <img src="images/products/sony-zv-e10-ii.png" alt="Sony ZV-E10 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony ZV-E10 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (189)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱54,999</span>
+                        <span class="old-price"><del>₱64,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 25. Sony ZV-1 II -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="sony" data-price="46999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/sony-zv-1-ii.png" alt="Sony ZV-1 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony ZV-1 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (134)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱46,999</span>
+                        <span class="old-price"><del>₱50,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 26. Sony ZV-E1 -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="sony" data-price="149999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-zv-e1.png" alt="Sony ZV-E1">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony ZV-E1</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱149,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 27. Sony ZV-1F -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="sony" data-price="27999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-zv-1f.png" alt="Sony ZV-1F">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony ZV-1F</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (203)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱27,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 28. Sony RX100 VII -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="sony" data-price="62999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-rx100-vii.png" alt="Sony RX100 VII">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony RX100 VII</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (176)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱62,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 29. Sony RX10 IV -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="sony" data-price="89999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-rx10-iv.png" alt="Sony RX10 IV">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony RX10 IV</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (89)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱89,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 30. Sony RX100 V -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="sony" data-price="44999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/sony-rx100-v.png" alt="Sony RX100 V">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony RX100 V</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (124)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱44,999</span>
+                        <span class="old-price"><del>₱47,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- NIKON (15) -->
+            <!-- ================================================== -->
+
+            <!-- 31. Nikon Z8 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="189999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/nikon-z8.png" alt="Nikon Z8">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z8</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (187)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱189,999</span>
+                        <span class="old-price"><del>₱199,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 32. Nikon Z9 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="329999" data-rating="5.0">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-z9.png" alt="Nikon Z9">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z9</h3>
+                    <div class="product-rating"><span class="star">★</span> 5.0 (98)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱329,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 33. Nikon Z6 III -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="139999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/nikon-z6-iii.png" alt="Nikon Z6 III">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z6 III</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱139,999</span>
+                        <span class="old-price"><del>₱152,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 34. Nikon Z7 II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="149999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-z7-ii.png" alt="Nikon Z7 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z7 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱149,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 35. Nikon Z5 II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="89999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/nikon-z5-ii.png" alt="Nikon Z5 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z5 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (203)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱89,999</span>
+                        <span class="old-price"><del>₱99,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 36. Nikon Z50 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="49999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-z50.png" alt="Nikon Z50">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z50</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (91)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 37. Nikon Z30 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="42999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/nikon-z30.png" alt="Nikon Z30">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z30</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱42,999</span>
+                        <span class="old-price"><del>₱48,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 38. Nikon Z fc -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="54999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-zfc.png" alt="Nikon Z fc">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z fc</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱54,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 39. Nikon Zf -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="119999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-zf.png" alt="Nikon Zf">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Zf</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱119,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 40. Nikon D850 -->
+            <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="nikon" data-price="199999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-d850.png" alt="Nikon D850">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon D850</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (287)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱199,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 41. Nikon D780 -->
+            <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="nikon" data-price="129999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-7%</span>
+                    <img src="images/products/nikon-d780.png" alt="Nikon D780">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon D780</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱129,999</span>
+                        <span class="old-price"><del>₱139,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 42. Nikon D7500 -->
             <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="nikon" data-price="89999" data-rating="4.7">
                 <div class="shop-card-image">
                     <img src="images/products/nikon-d7500.png" alt="Nikon D7500">
@@ -545,7 +1026,7 @@
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
             </a>
 
-            <!-- 17. Nikon D5600 (DSLR) -->
+            <!-- 43. Nikon D5600 -->
             <a href="product_detail.html" class="shop-card" data-category="dslr" data-brand="nikon" data-price="54999" data-rating="4.6">
                 <div class="shop-card-image">
                     <span class="sale-badge">-5%</span>
@@ -558,6 +1039,1238 @@
                     <div class="product-price">
                         <span class="current-price">₱54,999</span>
                         <span class="old-price"><del>₱57,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 44. Nikon Coolpix P1000 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="nikon" data-price="64999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-p1000.png" alt="Nikon Coolpix P1000">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Coolpix P1000</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (189)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱64,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 45. Nikon Coolpix P950 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="nikon" data-price="49999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/nikon-p950.png" alt="Nikon Coolpix P950">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Coolpix P950</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
+                        <span class="old-price"><del>₱55,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- FUJIFILM (15) -->
+            <!-- ================================================== -->
+
+            <!-- 46. Fujifilm X100VI -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="fujifilm" data-price="89999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/fujifilm-x100vi.png" alt="Fujifilm X100VI">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X100VI</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (102)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱89,999</span>
+                        <span class="old-price"><del>₱99,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 47. Fujifilm X-T5 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="109999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/fujifilm-xt5.png" alt="Fujifilm X-T5">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-T5</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (187)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱109,999</span>
+                        <span class="old-price"><del>₱119,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 48. Fujifilm X-H2S -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="149999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/fujifilm-xh2s.png" alt="Fujifilm X-H2S">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-H2S</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱149,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 49. Fujifilm X-H2 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="129999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/fujifilm-xh2.png" alt="Fujifilm X-H2">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-H2</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱129,999</span>
+                        <span class="old-price"><del>₱136,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 50. Fujifilm X-T30 II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="54999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/fujifilm-xt30-ii.png" alt="Fujifilm X-T30 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-T30 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (203)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱54,999</span>
+                        <span class="old-price"><del>₱61,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 51. Fujifilm X-T50 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="74999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/fujifilm-xt50.png" alt="Fujifilm X-T50">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-T50</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (98)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱74,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 52. Fujifilm X-S20 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="79999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-7%</span>
+                    <img src="images/products/fujifilm-xs20.png" alt="Fujifilm X-S20">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-S20</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱79,999</span>
+                        <span class="old-price"><del>₱86,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 53. Fujifilm X-E4 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="49999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/fujifilm-xe4.png" alt="Fujifilm X-E4">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-E4</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (167)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 54. Fujifilm X-Pro3 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="99999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/fujifilm-xpro3.png" alt="Fujifilm X-Pro3">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X-Pro3</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (124)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱99,999</span>
+                        <span class="old-price"><del>₱110,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 55. Fujifilm GFX 100 II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="389999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/fujifilm-gfx100-ii.png" alt="Fujifilm GFX 100 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm GFX 100 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (76)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱389,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 56. Fujifilm GFX 50S II -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="fujifilm" data-price="229999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/fujifilm-gfx50s-ii.png" alt="Fujifilm GFX 50S II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm GFX 50S II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (89)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱229,999</span>
+                        <span class="old-price"><del>₱249,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 57. Fujifilm X100V -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="fujifilm" data-price="79999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/fujifilm-x100v.png" alt="Fujifilm X100V">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X100V</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱79,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 58. Fujifilm XF10 -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="fujifilm" data-price="33999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-15%</span>
+                    <img src="images/products/fujifilm-xf10.png" alt="Fujifilm XF10">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm XF10</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱33,999</span>
+                        <span class="old-price"><del>₱39,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 59. Fujifilm Instax Mini 12 -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="fujifilm" data-price="8999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm Instax Mini 12</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (198)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱8,999</span>
+                        <span class="old-price"><del>₱9,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 60. Fujifilm Instax Wide 400 -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="fujifilm" data-price="12999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/fujifilm-instax-wide-400.png" alt="Fujifilm Instax Wide 400">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm Instax Wide 400</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱12,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- KODAK (15) -->
+            <!-- ================================================== -->
+
+            <!-- 61. KODAK PIXPRO FZ55 -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="kodak" data-price="12999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-pixpro-fz55.png" alt="KODAK PIXPRO FZ55">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO FZ55</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (330)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱12,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 62. KODAK PIXPRO FZ45 -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="kodak" data-price="11999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/kodak-pixpro-fz45.png" alt="KODAK PIXPRO FZ45">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO FZ45</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (203)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱11,999</span>
+                        <span class="old-price"><del>₱12,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 63. KODAK PIXPRO AZ405 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="kodak" data-price="18999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/kodak-pixpro-az405.png" alt="KODAK PIXPRO AZ405">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO AZ405</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱18,999</span>
+                        <span class="old-price"><del>₱20,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 64. KODAK PIXPRO AZ255 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="kodak" data-price="16999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-pixpro-az255.png" alt="KODAK PIXPRO AZ255">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO AZ255</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱16,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 65. KODAK PIXPRO WPZ2 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="kodak" data-price="13999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/kodak-pixpro-wpz2.png" alt="KODAK PIXPRO WPZ2">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO WPZ2</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (189)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱13,999</span>
+                        <span class="old-price"><del>₱15,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 66. KODAK PIXPRO FZ55 (Blue) -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="kodak" data-price="13499" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-pixpro-fz55-blue.png" alt="KODAK PIXPRO FZ55 Blue">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO FZ55 — Blue</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (98)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱13,499</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 67. KODAK PIXPRO FZ55 (Red) -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="kodak" data-price="13499" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-pixpro-fz55-red.png" alt="KODAK PIXPRO FZ55 Red">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO FZ55 — Red</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (87)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱13,499</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 68. KODAK PIXPRO C1 -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="kodak" data-price="15999" data-rating="4.4">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/kodak-pixpro-c1.png" alt="KODAK PIXPRO C1">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO C1</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.4 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱15,999</span>
+                        <span class="old-price"><del>₱17,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 69. Kodak Ektar H35 -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="kodak" data-price="4999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-ektar-h35.png" alt="Kodak Ektar H35">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak Ektar H35</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱4,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 70. Kodak Ektar H35N -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="kodak" data-price="6499" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/kodak-ektar-h35n.png" alt="Kodak Ektar H35N">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak Ektar H35N</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (167)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱6,499</span>
+                        <span class="old-price"><del>₱6,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 71. Kodak M35 -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="kodak" data-price="3499" data-rating="4.4">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-m35.png" alt="Kodak M35">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak M35</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.4 (289)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱3,499</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 72. Kodak M38 -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="kodak" data-price="3999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/kodak-m38.png" alt="Kodak M38">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak M38</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (203)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱3,999</span>
+                        <span class="old-price"><del>₱4,299</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 73. Kodak UltraMax 400 Film -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="kodak" data-price="1299" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-ultramax-400.png" alt="Kodak UltraMax 400">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak UltraMax 400 Film</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (412)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱1,299</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 74. Kodak Gold 200 Film -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="kodak" data-price="1199" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/kodak-gold-200.png" alt="Kodak Gold 200">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak Gold 200 Film</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (356)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱1,199</span>
+                        <span class="old-price"><del>₱1,299</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 75. Kodak ColorPlus 200 Film -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="kodak" data-price="1099" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-colorplus-200.png" alt="Kodak ColorPlus 200">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>Kodak ColorPlus 200 Film</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (278)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱1,099</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- GOPRO (15) -->
+            <!-- ================================================== -->
+
+            <!-- 76. GoPro HERO13 Black -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="22999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/gopro-hero13-black.png" alt="GoPro HERO13 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO13 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱22,999</span>
+                        <span class="old-price"><del>₱25,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 77. GoPro HERO12 Black -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="18999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-15%</span>
+                    <img src="images/products/gopro-hero12-black.png" alt="GoPro HERO12 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO12 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱18,999</span>
+                        <span class="old-price"><del>₱22,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 78. GoPro HERO11 Black -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="16999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-hero11-black.png" alt="GoPro HERO11 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO11 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (312)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱16,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 79. GoPro HERO11 Black Mini -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="14999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/gopro-hero11-mini.png" alt="GoPro HERO11 Black Mini">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO11 Black Mini</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱14,999</span>
+                        <span class="old-price"><del>₱16,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 80. GoPro HERO10 Black -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="14999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-hero10-black.png" alt="GoPro HERO10 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO10 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (245)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱14,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 81. GoPro HERO9 Black -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="11999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-20%</span>
+                    <img src="images/products/gopro-hero9-black.png" alt="GoPro HERO9 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO9 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (389)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱11,999</span>
+                        <span class="old-price"><del>₱14,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 82. GoPro HERO8 Black -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="9999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-hero8-black.png" alt="GoPro HERO8 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO8 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (267)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱9,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 83. GoPro HERO13 Black Creator Edition -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="32999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/gopro-hero13-creator.png" alt="GoPro HERO13 Black Creator Edition">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO13 Creator Edition</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (76)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱32,999</span>
+                        <span class="old-price"><del>₱35,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 84. GoPro MAX 2 -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="27999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-max-2.png" alt="GoPro MAX 2">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro MAX 2</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱27,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 85. GoPro MAX (2024) -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="17999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/gopro-max-2024.png" alt="GoPro MAX (2024)">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro MAX (2024)</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (189)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱17,999</span>
+                        <span class="old-price"><del>₱19,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 86. GoPro Volta -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="gopro" data-price="7999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-volta.png" alt="GoPro Volta">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro Volta</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱7,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 87. GoPro Media Mod -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="gopro" data-price="3999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/gopro-media-mod.png" alt="GoPro Media Mod">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro Media Mod</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱3,999</span>
+                        <span class="old-price"><del>₱4,499</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 88. GoPro Enduro Battery -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="gopro" data-price="1499" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-enduro.png" alt="GoPro Enduro Battery">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro Enduro Battery</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (412)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱1,499</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 89. GoPro Dual Battery Charger -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="gopro" data-price="2499" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/gopro-dual-charger.png" alt="GoPro Dual Battery Charger">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro Dual Battery Charger</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (289)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱2,499</span>
+                        <span class="old-price"><del>₱2,699</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 90. GoPro Adventure Kit -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="gopro" data-price="5499" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/gopro-adventure-kit.png" alt="GoPro Adventure Kit">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro Adventure Kit</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱5,499</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- DJI (15) -->
+            <!-- ================================================== -->
+
+            <!-- 91. DJI Osmo Action 5 Pro -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="dji" data-price="22999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/dji-osmo-action-5-pro.png" alt="DJI Osmo Action 5 Pro">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Action 5 Pro</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱22,999</span>
+                        <span class="old-price"><del>₱24,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 92. DJI Osmo Action 4 -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="dji" data-price="17999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/dji-osmo-action-4.png" alt="DJI Osmo Action 4">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Action 4</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱17,999</span>
+                        <span class="old-price"><del>₱20,499</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 93. DJI Osmo Action -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="dji" data-price="19999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-osmo-action.png" alt="DJI Osmo Action">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Action</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (84)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱19,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 94. DJI Osmo Pocket 3 -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="dji" data-price="32999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/dji-osmo-pocket-3.png" alt="DJI Osmo Pocket 3">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Pocket 3</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (312)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱32,999</span>
+                        <span class="old-price"><del>₱34,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 95. DJI Osmo Pocket 3 Creator Combo -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="dji" data-price="44999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/dji-osmo-pocket-3-creator.png" alt="DJI Osmo Pocket 3 Creator Combo">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Pocket 3 Creator Combo</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱44,999</span>
+                        <span class="old-price"><del>₱49,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 96. DJI Mini 4 Pro -->
+            <a href="product_detail.html" class="shop-card" data-category="drone" data-brand="dji" data-price="44999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-mini-4-pro.png" alt="DJI Mini 4 Pro">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Mini 4 Pro</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (287)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱44,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 97. DJI Mini 4 Pro Fly More Combo -->
+            <a href="product_detail.html" class="shop-card" data-category="drone" data-brand="dji" data-price="54999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/dji-mini-4-pro-fly-more.png" alt="DJI Mini 4 Pro Fly More Combo">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Mini 4 Pro Fly More Combo</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱54,999</span>
+                        <span class="old-price"><del>₱59,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 98. DJI Air 3S -->
+            <a href="product_detail.html" class="shop-card" data-category="drone" data-brand="dji" data-price="79999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-air-3s.png" alt="DJI Air 3S">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Air 3S</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (98)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱79,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 99. DJI Mavic 3 Pro -->
+            <a href="product_detail.html" class="shop-card" data-category="drone" data-brand="dji" data-price="142999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/dji-mavic-3-pro.png" alt="DJI Mavic 3 Pro">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Mavic 3 Pro</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (167)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱142,999</span>
+                        <span class="old-price"><del>₱149,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 100. DJI Avata 2 -->
+            <a href="product_detail.html" class="shop-card" data-category="drone" data-brand="dji" data-price="49999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-avata-2.png" alt="DJI Avata 2">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Avata 2</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (134)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 101. DJI RS 4 Pro -->
+            <a href="product_detail.html" class="shop-card" data-category="gimbal" data-brand="dji" data-price="49999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/dji-rs-4-pro.png" alt="DJI RS 4 Pro">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI RS 4 Pro</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (89)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
+                        <span class="old-price"><del>₱54,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 102. DJI RS 4 -->
+            <a href="product_detail.html" class="shop-card" data-category="gimbal" data-brand="dji" data-price="32999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-rs-4.png" alt="DJI RS 4">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI RS 4</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱32,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 103. DJI Mic 2 -->
+            <a href="product_detail.html" class="shop-card" data-category="accessories" data-brand="dji" data-price="14999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/dji-mic-2.png" alt="DJI Mic 2">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Mic 2</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (278)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱14,999</span>
+                        <span class="old-price"><del>₱16,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 104. DJI Osmo Mobile 6 -->
+            <a href="product_detail.html" class="shop-card" data-category="gimbal" data-brand="dji" data-price="7999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-osmo-mobile-6.png" alt="DJI Osmo Mobile 6">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Mobile 6</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (234)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱7,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 105. DJI Osmo Mobile SE -->
+            <a href="product_detail.html" class="shop-card" data-category="gimbal" data-brand="dji" data-price="3999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-15%</span>
+                    <img src="images/products/dji-osmo-mobile-se.png" alt="DJI Osmo Mobile SE">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Mobile SE</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱3,999</span>
+                        <span class="old-price"><del>₱4,699</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- ================================================== -->
+            <!-- SAMSUNG (9) -->
+            <!-- ================================================== -->
+
+            <!-- 106. Samsung NX30 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="samsung" data-price="34999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/samsung-nx30.png" alt="Samsung NX30">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung NX30</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (178)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱34,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 107. Samsung NX3000 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="samsung" data-price="19999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/samsung-nx3000.png" alt="Samsung NX3000">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung NX3000</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (156)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱19,999</span>
+                        <span class="old-price"><del>₱21,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 108. Samsung NX2000 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="samsung" data-price="14999" data-rating="4.4">
+                <div class="shop-card-image">
+                    <img src="images/products/samsung-nx2000.png" alt="Samsung NX2000">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung NX2000</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.4 (134)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱14,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 109. Samsung NX1000 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="samsung" data-price="12999" data-rating="4.3">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/samsung-nx1000.png" alt="Samsung NX1000">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung NX1000</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.3 (98)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱12,999</span>
+                        <span class="old-price"><del>₱14,499</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 110. Samsung NX20 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="samsung" data-price="22999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <img src="images/products/samsung-nx20.png" alt="Samsung NX20">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung NX20</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱22,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 111. Samsung WB350F -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="samsung" data-price="15999" data-rating="4.3">
+                <div class="shop-card-image">
+                    <img src="images/products/samsung-wb350f.png" alt="Samsung WB350F">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung WB350F</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.3 (167)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱15,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 112. Samsung WB1100F -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="samsung" data-price="17999" data-rating="4.4">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/samsung-wb1100f.png" alt="Samsung WB1100F">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung WB1100F</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.4 (112)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱17,999</span>
+                        <span class="old-price"><del>₱19,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 113. Samsung DV150F -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="samsung" data-price="8999" data-rating="4.2">
+                <div class="shop-card-image">
+                    <img src="images/products/samsung-dv150f.png" alt="Samsung DV150F">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung DV150F</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.2 (89)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱8,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 114. Samsung ST150F -->
+            <a href="product_detail.html" class="shop-card" data-category="compact" data-brand="samsung" data-price="6999" data-rating="4.1">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/samsung-st150f.png" alt="Samsung ST150F">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Samsung</p>
+                    <h3>Samsung ST150F</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.1 (76)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱6,999</span>
+                        <span class="old-price"><del>₱7,999</del></span>
                     </div>
                 </div>
                 <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
@@ -604,7 +2317,7 @@
             <a href="shop.html">All Products</a>
             <a href="index.html#best-selling">Best Selling</a>
             <a href="shop.html">New Arrivals</a>
-            <a href="shop.html">Camera Accessories</a>
+            <a href="shop.html#accessories">Camera Accessories</a>
         </div>
         <div class="footer-column">
             <h3>About Lente</h3>
@@ -639,12 +2352,43 @@
     </div>
 </footer>
 
+<!-- ================= SEARCH OVERLAY ================= -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+        <div class="search-bar-wrap">
+            <i data-lucide="search"></i>
+            <input
+                type="text"
+                class="search-input"
+                id="searchInput"
+                placeholder="Search cameras, brands, accessories..."
+                autocomplete="off"
+            >
+            <button type="button" class="search-close" onclick="closeSearch()" aria-label="Close">
+                ✕
+            </button>
+        </div>
+        <div class="search-body" id="searchBody">
+            <div class="search-quick">
+                <span>Popular Searches</span>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#action">Action Cameras</a>
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ================= SCRIPTS ================= -->
 <script>
     /* ==================================================
        SHOP PAGE — FILTERS & SORTING
     ================================================== */
-
     let activeFilters = {
         category: 'all',
         brand: [],
@@ -659,7 +2403,6 @@
     const sortSelect = document.getElementById('sortSelect');
     const grid = document.querySelector('.shop-grid');
 
-    /* ===== FILTER BY CATEGORY & RATING ===== */
     document.querySelectorAll('.filter-list .filter-option').forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.dataset.filter) {
@@ -677,7 +2420,6 @@
         });
     });
 
-    /* ===== FILTER BY BRAND ===== */
     document.querySelectorAll('.brand-checkbox').forEach(cb => {
         cb.addEventListener('change', () => {
             activeFilters.brand = Array.from(
@@ -687,7 +2429,6 @@
         });
     });
 
-    /* ===== FILTER BY PRICE ===== */
     function applyPriceFilter() {
         const min = parseFloat(document.getElementById('minPrice').value) || null;
         const max = parseFloat(document.getElementById('maxPrice').value) || null;
@@ -696,7 +2437,6 @@
         applyFilters();
     }
 
-    /* ===== MAIN FILTER FUNCTION ===== */
     function applyFilters() {
         let visible = 0;
 
@@ -724,7 +2464,6 @@
         noResults.hidden = visible > 0;
     }
 
-    /* ===== SORT ===== */
     sortSelect.addEventListener('change', () => {
         const sort = sortSelect.value;
         const arr = Array.from(cards);
@@ -747,7 +2486,6 @@
         arr.forEach(c => grid.appendChild(c));
     });
 
-    /* ===== CLEAR ALL FILTERS ===== */
     function clearAllFilters() {
         document.querySelectorAll('.filter-option').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('[data-filter="all"]').forEach(b => b.classList.add('active'));
@@ -766,14 +2504,113 @@
         applyFilters();
     }
 
-    /* ===== Y KEY ===== */
-    document.addEventListener('keydown', function (e) {
-        const tag = document.activeElement.tagName;
-        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
-        if (e.key.toLowerCase() === 'y') {
-            alert('Y pressed — Shop page!');
+    /* ==================================================
+       SEARCH OVERLAY
+    ================================================== */
+    const searchDatabase = [
+        { name: 'Canon EOS R50', category: 'Mirrorless', price: '₱38,998', image: 'images/products/canon-eos-r50.png', url: 'product_detail.html' },
+        { name: 'Canon EOS R10', category: 'Mirrorless', price: '₱46,999', image: 'images/products/canon-eos-r10.png', url: 'product_detail.html' },
+        { name: 'Canon EOS R8', category: 'Mirrorless', price: '₱89,999', image: 'images/products/canon-eos-r8.png', url: 'product_detail.html' },
+        { name: 'Canon EOS 5D Mark IV', category: 'DSLR', price: '₱189,999', image: 'images/products/canon-eos-5d-iv.png', url: 'product_detail.html' },
+        { name: 'Canon EOS 90D', category: 'DSLR', price: '₱79,999', image: 'images/products/canon-eos-90d.png', url: 'product_detail.html' },
+        { name: 'Canon EOS 250D', category: 'DSLR', price: '₱44,999', image: 'images/products/canon-eos-250d.png', url: 'product_detail.html' },
+        { name: 'Sony ZV-E10 II', category: 'Vlog', price: '₱54,999', image: 'images/products/sony-zv-e10-ii.png', url: 'product_detail.html' },
+        { name: 'Sony Alpha 6700', category: 'Mirrorless', price: '₱79,999', image: 'images/products/sony-alpha-6700.png', url: 'product_detail.html' },
+        { name: 'Sony A6400', category: 'Mirrorless', price: '₱42,999', image: 'images/products/sony-a6400.png', url: 'product_detail.html' },
+        { name: 'Nikon Z50', category: 'Mirrorless', price: '₱49,999', image: 'images/products/nikon-z50.png', url: 'product_detail.html' },
+        { name: 'Nikon D7500', category: 'DSLR', price: '₱89,999', image: 'images/products/nikon-d7500.png', url: 'product_detail.html' },
+        { name: 'Nikon D5600', category: 'DSLR', price: '₱54,999', image: 'images/products/nikon-d5600.png', url: 'product_detail.html' },
+        { name: 'Fujifilm Instax Mini 12', category: 'Film', price: '₱8,999', image: 'images/products/fujifilm-instax-mini-12.png', url: 'product_detail.html' },
+        { name: 'Fujifilm X100VI', category: 'Digicam', price: '₱89,999', image: 'images/products/fujifilm-x100vi.png', url: 'product_detail.html' },
+        { name: 'KODAK PIXPRO FZ55', category: 'Digicam', price: '₱12,999', image: 'images/products/kodak-pixpro-fz55.png', url: 'product_detail.html' },
+        { name: 'GoPro HERO13 Black', category: 'Action', price: '₱22,999', image: 'images/products/gopro-hero13-black.png', url: 'product_detail.html' },
+        { name: 'DJI Osmo Action', category: 'Action', price: '₱19,999', image: 'images/products/dji-osmo-action.png', url: 'product_detail.html' },
+        { name: 'Samsung NX30', category: 'Mirrorless', price: '₱34,999', image: 'images/products/samsung-nx30.png', url: 'product_detail.html' },
+        { name: 'Samsung NX3000', category: 'Mirrorless', price: '₱19,999', image: 'images/products/samsung-nx3000.png', url: 'product_detail.html' },
+        { name: 'Samsung NX2000', category: 'Mirrorless', price: '₱14,999', image: 'images/products/samsung-nx2000.png', url: 'product_detail.html' },
+        { name: 'Samsung NX1000', category: 'Mirrorless', price: '₱12,999', image: 'images/products/samsung-nx1000.png', url: 'product_detail.html' },
+        { name: 'Samsung NX20', category: 'Mirrorless', price: '₱22,999', image: 'images/products/samsung-nx20.png', url: 'product_detail.html' },
+        { name: 'Samsung WB350F', category: 'Compact', price: '₱15,999', image: 'images/products/samsung-wb350f.png', url: 'product_detail.html' },
+        { name: 'Samsung WB1100F', category: 'Compact', price: '₱17,999', image: 'images/products/samsung-wb1100f.png', url: 'product_detail.html' },
+        { name: 'Samsung DV150F', category: 'Compact', price: '₱8,999', image: 'images/products/samsung-dv150f.png', url: 'product_detail.html' },
+        { name: 'Samsung ST150F', category: 'Compact', price: '₱6,999', image: 'images/products/samsung-st150f.png', url: 'product_detail.html' }
+    ];
+
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchInput = document.getElementById('searchInput');
+    const searchBody = document.getElementById('searchBody');
+
+    function openSearch() {
+        searchOverlay.classList.add('active');
+        setTimeout(() => searchInput.focus(), 100);
+    }
+
+    function closeSearch() {
+        searchOverlay.classList.remove('active');
+        searchInput.value = '';
+        resetSearchBody();
+    }
+
+    function resetSearchBody() {
+        searchBody.innerHTML = `
+            <div class="search-quick">
+                <span>Popular Searches</span>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#action">Action Cameras</a>
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        `;
+    }
+
+    function runSearch(query) {
+        query = query.toLowerCase().trim();
+        if (!query) { resetSearchBody(); return; }
+
+        const results = searchDatabase.filter(p =>
+            p.name.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+
+        if (results.length === 0) {
+            searchBody.innerHTML = `<p class="search-empty">No products found for "<strong>${query}</strong>"</p>`;
+            return;
+        }
+
+        searchBody.innerHTML = `
+            <div class="search-section-label">${results.length} Result${results.length > 1 ? 's' : ''}</div>
+            ${results.map(p => `
+                <a href="${p.url}" class="search-result">
+                    <div class="search-result-img"><img src="${p.image}" alt="${p.name}"></div>
+                    <div class="search-result-info">
+                        <h4>${p.name}</h4>
+                        <p>${p.category}</p>
+                    </div>
+                    <div class="search-result-price">${p.price}</div>
+                </a>
+            `).join('')}
+        `;
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => runSearch(e.target.value));
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('active')) {
+            closeSearch();
         }
     });
+
+    if (searchOverlay) {
+        searchOverlay.addEventListener('click', (e) => {
+            if (e.target === searchOverlay) closeSearch();
+        });
+    }
 
     /* ===== INIT ===== */
     window.addEventListener('DOMContentLoaded', () => {

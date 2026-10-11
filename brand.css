@@ -1,5 +1,8 @@
 /* ==================================================
-   FUJIFILM BRAND PAGE
+   BRAND PAGES — SHARED CSS
+   Used by: canon.html, sony.html, nikon.html,
+            fujifilm.html, kodak.html, gopro.html,
+            dji.html, samsung.html
    Extends style.css — shared tokens are reused.
 ================================================== */
 
@@ -225,7 +228,7 @@ body.theme-dark::after {
 }
 
 /* ==================================================
-   FUJIFILM GRID
+   PRODUCT GRID
 ================================================== */
 .canon-grid {
     display: grid;
@@ -234,7 +237,7 @@ body.theme-dark::after {
 }
 
 /* ==================================================
-   FUJIFILM CARD
+   PRODUCT CARD
 ================================================== */
 .canon-card {
     position: relative;
@@ -515,7 +518,7 @@ body.theme-dark::after {
 }
 
 /* ==================================================
-   DARK MODE — Light text para readable sa dark bg
+   DARK MODE
 ================================================== */
 body.theme-dark {
     --text-muted: #a8a3c0;

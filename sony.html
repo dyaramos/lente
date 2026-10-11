@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sony Cameras — Lente</title>
-    <link rel="stylesheet" href="sony.css">
+    <link rel="stylesheet" href="brand.css">
+    <link rel="stylesheet" href="search.css"> 
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
@@ -17,13 +18,13 @@
         <div class="nav-dropdown">
             <a href="shop.html">Shop ▾</a>
             <div class="dropdown-menu">
-                <a href="link.html">All Products</a>
-                <a href="link.html#dslr">DSLR</a>
-                <a href="link.html#mirrorless">Mirrorless</a>
-                <a href="link.html#digicam">Digicam</a>
-                <a href="link.html#film">Film</a>
-                <a href="link.html#action">Action Camera</a>
-                <a href="link.html#accessories">Accessories</a>
+                <a href="shop.html">All Products</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#digicam">Digicam</a>
+                <a href="shop.html#film">Film</a>
+                <a href="shop.html#action">Action Camera</a>
+                <a href="shop.html#accessories">Accessories</a>
             </div>
         </div>
         <div class="nav-dropdown">
@@ -31,11 +32,12 @@
             <div class="dropdown-menu">
                 <a href="canon.html">Canon</a>
                 <a href="sony.html">Sony</a>
-                <a href="link.html#nikon">Nikon</a>
-                <a href="link.html#fujifilm">Fujifilm</a>
-                <a href="link.html#kodak">Kodak</a>
-                <a href="link.html#gopro">GoPro</a>
-                <a href="link.html#dji">DJI</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="kodak.html">Kodak</a>
+                <a href="gopro.html">GoPro</a>
+                <a href="dji.html">DJI</a>
+                <a href="samsung.html">Samsung</a>
             </div>
         </div>
         <a href="index.html#collections">Best Sellers</a>
@@ -48,7 +50,9 @@
     </a>
 
     <div class="header-right">
-        <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
+        <button type="button" class="icon-btn" onclick="openSearch()" aria-label="Search">
+            <i data-lucide="search"></i>
+        </button>
         <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
         <a href="cart.html" class="cart-btn">
             <i data-lucide="shopping-cart"></i>
@@ -97,8 +101,8 @@
         <span class="filter-label">Filter:</span>
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="mirrorless">Mirrorless</button>
-        <button class="filter-btn" data-filter="compact">Compact</button>
         <button class="filter-btn" data-filter="vlog">Vlog</button>
+        <button class="filter-btn" data-filter="compact">Compact</button>
     </div>
     <div class="filter-right">
         <label for="sortSelect">Sort by:</label>
@@ -433,35 +437,35 @@
         </div>
         <div class="footer-column">
             <h3>Customer Service</h3>
-            <a href="link.html">Contact Us</a>
-            <a href="link.html">Shipping Information</a>
-            <a href="link.html">Returns &amp; Refunds</a>
-            <a href="link.html">FAQs</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Shipping Information</a>
+            <a href="#">Returns &amp; Refunds</a>
+            <a href="#">FAQs</a>
         </div>
         <div class="footer-column">
             <h3>Shop</h3>
-            <a href="index.html#collections">Collections</a>
+            <a href="shop.html">All Products</a>
             <a href="index.html#best-selling">Best Selling</a>
-            <a href="link.html">New Arrivals</a>
-            <a href="link.html">Camera Accessories</a>
+            <a href="shop.html">New Arrivals</a>
+            <a href="shop.html#accessories">Camera Accessories</a>
         </div>
         <div class="footer-column">
             <h3>About Lente</h3>
             <a href="index.html#about">About Us</a>
-            <a href="link.html">Our Story</a>
-            <a href="link.html">Privacy Policy</a>
-            <a href="link.html">Terms &amp; Conditions</a>
+            <a href="#">Our Story</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
         </div>
         <div class="footer-column footer-social">
             <h3>Follow Us</h3>
             <div class="social-links">
-                <a href="link.html" aria-label="Facebook">
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
-                <a href="link.html" aria-label="Instagram">
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </a>
-                <a href="link.html" aria-label="Twitter">
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
                 </a>
             </div>
@@ -472,11 +476,43 @@
         <p>© 2026 Lente. All Rights Reserved.</p>
         <div class="footer-bottom-links">
             <a href="#top">Back to Top ↑</a>
-            <a href="link.html">Privacy</a>
-            <a href="link.html">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
         </div>
     </div>
 </footer>
+
+<!-- ================= SEARCH OVERLAY ================= -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+        <div class="search-bar-wrap">
+            <i data-lucide="search"></i>
+            <input
+                type="text"
+                class="search-input"
+                id="searchInput"
+                placeholder="Search cameras, brands, accessories..."
+                autocomplete="off"
+            >
+            <button type="button" class="search-close" onclick="closeSearch()" aria-label="Close">
+                ✕
+            </button>
+        </div>
+        <div class="search-body" id="searchBody">
+            <div class="search-quick">
+                <span>Popular Searches</span>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#action">Action Cameras</a>
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- ================= SCRIPTS ================= -->
 <script>
@@ -540,6 +576,105 @@
             alert('Y pressed — Sony brand page!');
         }
     });
+
+    /* ==================================================
+       SEARCH OVERLAY
+    ================================================== */
+    const searchDatabase = [
+        { name: 'Canon EOS R50', category: 'Mirrorless', price: '₱38,998', image: 'images/products/canon-eos-r50.png', url: 'product_detail.html' },
+        { name: 'Canon EOS R10', category: 'Mirrorless', price: '₱46,999', image: 'images/products/canon-eos-r10.png', url: 'product_detail.html' },
+        { name: 'Canon EOS R8', category: 'Mirrorless', price: '₱89,999', image: 'images/products/canon-eos-r8.png', url: 'product_detail.html' },
+        { name: 'Canon EOS 5D Mark IV', category: 'DSLR', price: '₱189,999', image: 'images/products/canon-eos-5d-iv.png', url: 'product_detail.html' },
+        { name: 'Canon EOS 90D', category: 'DSLR', price: '₱79,999', image: 'images/products/canon-eos-90d.png', url: 'product_detail.html' },
+        { name: 'Canon EOS 250D', category: 'DSLR', price: '₱44,999', image: 'images/products/canon-eos-250d.png', url: 'product_detail.html' },
+        { name: 'Sony ZV-E10 II', category: 'Vlog', price: '₱54,999', image: 'images/products/sony-zv-e10-ii.png', url: 'product_detail.html' },
+        { name: 'Sony Alpha 6700', category: 'Mirrorless', price: '₱79,999', image: 'images/products/sony-alpha-6700.png', url: 'product_detail.html' },
+        { name: 'Sony A6400', category: 'Mirrorless', price: '₱42,999', image: 'images/products/sony-a6400.png', url: 'product_detail.html' },
+        { name: 'Nikon Z50', category: 'Mirrorless', price: '₱49,999', image: 'images/products/nikon-z50.png', url: 'product_detail.html' },
+        { name: 'Nikon D7500', category: 'DSLR', price: '₱89,999', image: 'images/products/nikon-d7500.png', url: 'product_detail.html' },
+        { name: 'Nikon D5600', category: 'DSLR', price: '₱54,999', image: 'images/products/nikon-d5600.png', url: 'product_detail.html' },
+        { name: 'Fujifilm Instax Mini 12', category: 'Film', price: '₱8,999', image: 'images/products/fujifilm-instax-mini-12.png', url: 'product_detail.html' },
+        { name: 'Fujifilm X100VI', category: 'Digicam', price: '₱89,999', image: 'images/products/fujifilm-x100vi.png', url: 'product_detail.html' },
+        { name: 'KODAK PIXPRO FZ55', category: 'Digicam', price: '₱12,999', image: 'images/products/kodak-pixpro-fz55.png', url: 'product_detail.html' },
+        { name: 'GoPro HERO13 Black', category: 'Action', price: '₱22,999', image: 'images/products/gopro-hero13-black.png', url: 'product_detail.html' },
+        { name: 'DJI Osmo Action', category: 'Action', price: '₱19,999', image: 'images/products/dji-osmo-action.png', url: 'product_detail.html' }
+    ];
+
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchInput = document.getElementById('searchInput');
+    const searchBody = document.getElementById('searchBody');
+
+    function openSearch() {
+        searchOverlay.classList.add('active');
+        setTimeout(() => searchInput.focus(), 100);
+    }
+
+    function closeSearch() {
+        searchOverlay.classList.remove('active');
+        searchInput.value = '';
+        resetSearchBody();
+    }
+
+    function resetSearchBody() {
+        searchBody.innerHTML = `
+            <div class="search-quick">
+                <span>Popular Searches</span>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#action">Action Cameras</a>
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        `;
+    }
+
+    function runSearch(query) {
+        query = query.toLowerCase().trim();
+        if (!query) { resetSearchBody(); return; }
+
+        const results = searchDatabase.filter(p =>
+            p.name.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+
+        if (results.length === 0) {
+            searchBody.innerHTML = `<p class="search-empty">No products found for "<strong>${query}</strong>"</p>`;
+            return;
+        }
+
+        searchBody.innerHTML = `
+            <div class="search-section-label">${results.length} Result${results.length > 1 ? 's' : ''}</div>
+            ${results.map(p => `
+                <a href="${p.url}" class="search-result">
+                    <div class="search-result-img"><img src="${p.image}" alt="${p.name}"></div>
+                    <div class="search-result-info">
+                        <h4>${p.name}</h4>
+                        <p>${p.category}</p>
+                    </div>
+                    <div class="search-result-price">${p.price}</div>
+                </a>
+            `).join('')}
+        `;
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => runSearch(e.target.value));
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('active')) {
+            closeSearch();
+        }
+    });
+
+    if (searchOverlay) {
+        searchOverlay.addEventListener('click', (e) => {
+            if (e.target === searchOverlay) closeSearch();
+        });
+    }
 
     window.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();

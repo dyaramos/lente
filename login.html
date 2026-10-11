@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Lente</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="search.css"> 
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body id="top">
 
     <!-- HEADER -->
     <header class="main-header">
@@ -154,7 +155,43 @@
     </main>
 
 
+    <!-- ================= SEARCH OVERLAY ================= -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-modal">
+            <div class="search-bar-wrap">
+                <i data-lucide="search"></i>
+                <input
+                    type="text"
+                    class="search-input"
+                    id="searchInput"
+                    placeholder="Search cameras, brands, accessories..."
+                    autocomplete="off"
+                >
+                <button type="button" class="search-close" onclick="closeSearch()" aria-label="Close">
+                    ✕
+                </button>
+            </div>
+            <div class="search-body" id="searchBody">
+                <div class="search-quick">
+                    <span>Popular Searches</span>
+                    <a href="shop.html#mirrorless">Mirrorless</a>
+                    <a href="shop.html#dslr">DSLR</a>
+                    <a href="shop.html#action">Action Cameras</a>
+                    <a href="canon.html">Canon</a>
+                    <a href="sony.html">Sony</a>
+                    <a href="nikon.html">Nikon</a>
+                    <a href="fujifilm.html">Fujifilm</a>
+                    <a href="shop.html#accessories">Accessories</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script>
+        /* ==================================================
+           LOGIN HANDLER
+        ================================================== */
         function handleLogin(event) {
             event.preventDefault();
 
@@ -179,6 +216,120 @@
 
             // Redirect to homepage
             window.location.href = 'index.html';
+        }
+
+        /* ==================================================
+           SEARCH OVERLAY
+        ================================================== */
+        const searchDatabase = [
+            { name: 'Canon EOS R50', category: 'Mirrorless', price: '₱38,998', image: 'images/products/canon-eos-r50.png', url: 'product_detail.html' },
+            { name: 'Canon EOS R10', category: 'Mirrorless', price: '₱46,999', image: 'images/products/canon-eos-r10.png', url: 'product_detail.html' },
+            { name: 'Canon EOS R8', category: 'Mirrorless', price: '₱89,999', image: 'images/products/canon-eos-r8.png', url: 'product_detail.html' },
+            { name: 'Canon EOS 5D Mark IV', category: 'DSLR', price: '₱189,999', image: 'images/products/canon-eos-5d-iv.png', url: 'product_detail.html' },
+            { name: 'Canon EOS 90D', category: 'DSLR', price: '₱79,999', image: 'images/products/canon-eos-90d.png', url: 'product_detail.html' },
+            { name: 'Canon EOS 250D', category: 'DSLR', price: '₱44,999', image: 'images/products/canon-eos-250d.png', url: 'product_detail.html' },
+            { name: 'Sony ZV-E10 II', category: 'Vlog', price: '₱54,999', image: 'images/products/sony-zv-e10-ii.png', url: 'product_detail.html' },
+            { name: 'Sony Alpha 6700', category: 'Mirrorless', price: '₱79,999', image: 'images/products/sony-alpha-6700.png', url: 'product_detail.html' },
+            { name: 'Sony A6400', category: 'Mirrorless', price: '₱42,999', image: 'images/products/sony-a6400.png', url: 'product_detail.html' },
+            { name: 'Nikon Z50', category: 'Mirrorless', price: '₱49,999', image: 'images/products/nikon-z50.png', url: 'product_detail.html' },
+            { name: 'Nikon D7500', category: 'DSLR', price: '₱89,999', image: 'images/products/nikon-d7500.png', url: 'product_detail.html' },
+            { name: 'Nikon D5600', category: 'DSLR', price: '₱54,999', image: 'images/products/nikon-d5600.png', url: 'product_detail.html' },
+            { name: 'Fujifilm Instax Mini 12', category: 'Film', price: '₱8,999', image: 'images/products/fujifilm-instax-mini-12.png', url: 'product_detail.html' },
+            { name: 'Fujifilm X100VI', category: 'Digicam', price: '₱89,999', image: 'images/products/fujifilm-x100vi.png', url: 'product_detail.html' },
+            { name: 'KODAK PIXPRO FZ55', category: 'Digicam', price: '₱12,999', image: 'images/products/kodak-pixpro-fz55.png', url: 'product_detail.html' },
+            { name: 'GoPro HERO13 Black', category: 'Action', price: '₱22,999', image: 'images/products/gopro-hero13-black.png', url: 'product_detail.html' },
+            { name: 'DJI Osmo Action', category: 'Action', price: '₱19,999', image: 'images/products/dji-osmo-action.png', url: 'product_detail.html' },
+            { name: 'Samsung Galaxy S24 Ultra', category: 'Smartphone', price: '₱84,999', image: 'images/products/samsung-galaxy-s24-ultra.png', url: 'product_detail.html' },
+            { name: 'Samsung Galaxy S24+', category: 'Smartphone', price: '₱67,999', image: 'images/products/samsung-galaxy-s24-plus.png', url: 'product_detail.html' },
+            { name: 'Samsung Galaxy S23 FE', category: 'Smartphone', price: '₱39,999', image: 'images/products/samsung-galaxy-s23-fe.png', url: 'product_detail.html' },
+            { name: 'Samsung Galaxy Z Fold 5', category: 'Smartphone', price: '₱104,999', image: 'images/products/samsung-galaxy-z-fold5.png', url: 'product_detail.html' },
+            { name: 'Samsung Galaxy A55 5G', category: 'Smartphone', price: '₱23,999', image: 'images/products/samsung-galaxy-a55.png', url: 'product_detail.html' },
+            { name: 'Samsung NX1', category: 'Mirrorless', price: '₱89,999', image: 'images/products/samsung-nx1.png', url: 'product_detail.html' },
+            { name: 'Samsung NX500', category: 'Mirrorless', price: '₱44,999', image: 'images/products/samsung-nx500.png', url: 'product_detail.html' },
+            { name: 'Samsung NX300', category: 'Mirrorless', price: '₱24,999', image: 'images/products/samsung-nx300.png', url: 'product_detail.html' },
+            { name: 'Samsung NX Mini', category: 'Mirrorless', price: '₱16,999', image: 'images/products/samsung-nx-mini.png', url: 'product_detail.html' },
+            { name: 'Samsung Galaxy Camera 2', category: 'Smartphone', price: '₱18,999', image: 'images/products/samsung-galaxy-camera-2.png', url: 'product_detail.html' },
+            { name: 'Samsung Gear 360', category: 'Action', price: '₱7,999', image: 'images/products/samsung-gear-360.png', url: 'product_detail.html' },
+            { name: 'Samsung Gear 360 (2017)', category: 'Action', price: '₱9,999', image: 'images/products/samsung-gear-360-2017.png', url: 'product_detail.html' },
+            { name: 'Samsung EVO Plus microSD 256GB', category: 'Accessories', price: '₱1,699', image: 'images/products/samsung-evo-plus-256.png', url: 'product_detail.html' },
+            { name: 'Samsung PRO Ultimate microSD 512GB', category: 'Accessories', price: '₱3,999', image: 'images/products/samsung-pro-ultimate-512.png', url: 'product_detail.html' },
+            { name: 'Samsung T7 Shield SSD 1TB', category: 'Accessories', price: '₱8,499', image: 'images/products/samsung-t7-shield-1tb.png', url: 'product_detail.html' }
+        ];
+
+        const searchOverlay = document.getElementById('searchOverlay');
+        const searchInput = document.getElementById('searchInput');
+        const searchBody = document.getElementById('searchBody');
+
+        function openSearch() {
+            searchOverlay.classList.add('active');
+            setTimeout(() => searchInput.focus(), 100);
+        }
+
+        function closeSearch() {
+            searchOverlay.classList.remove('active');
+            searchInput.value = '';
+            resetSearchBody();
+        }
+
+        function resetSearchBody() {
+            searchBody.innerHTML = `
+                <div class="search-quick">
+                    <span>Popular Searches</span>
+                    <a href="shop.html#mirrorless">Mirrorless</a>
+                    <a href="shop.html#dslr">DSLR</a>
+                    <a href="shop.html#action">Action Cameras</a>
+                    <a href="canon.html">Canon</a>
+                    <a href="sony.html">Sony</a>
+                    <a href="nikon.html">Nikon</a>
+                    <a href="fujifilm.html">Fujifilm</a>
+                    <a href="shop.html#accessories">Accessories</a>
+                </div>
+            `;
+        }
+
+        function runSearch(query) {
+            query = query.toLowerCase().trim();
+            if (!query) { resetSearchBody(); return; }
+
+            const results = searchDatabase.filter(p =>
+                p.name.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                searchBody.innerHTML = `<p class="search-empty">No products found for "<strong>${query}</strong>"</p>`;
+                return;
+            }
+
+            searchBody.innerHTML = `
+                <div class="search-section-label">${results.length} Result${results.length > 1 ? 's' : ''}</div>
+                ${results.map(p => `
+                    <a href="${p.url}" class="search-result">
+                        <div class="search-result-img"><img src="${p.image}" alt="${p.name}"></div>
+                        <div class="search-result-info">
+                            <h4>${p.name}</h4>
+                            <p>${p.category}</p>
+                        </div>
+                        <div class="search-result-price">${p.price}</div>
+                    </a>
+                `).join('')}
+            `;
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => runSearch(e.target.value));
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('active')) {
+                closeSearch();
+            }
+        });
+
+        if (searchOverlay) {
+            searchOverlay.addEventListener('click', (e) => {
+                if (e.target === searchOverlay) closeSearch();
+            });
         }
 
         lucide.createIcons();
