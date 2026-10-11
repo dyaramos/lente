@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop — Lente</title>
+    <link rel="stylesheet" href="shop.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body id="top">
+
+<!-- ================= MAIN HEADER ================= -->
+<header class="main-header">
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="shop.html">Shop ▾</a>
+            <div class="dropdown-menu">
+                <a href="shop.html">All Products</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#digicam">Digicam</a>
+                <a href="shop.html#film">Film</a>
+                <a href="shop.html#action">Action Camera</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="index.html#brand">Brands ▾</a>
+            <div class="dropdown-menu">
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="link.html">Nikon</a>
+                <a href="link.html">Fujifilm</a>
+                <a href="link.html">Kodak</a>
+                <a href="link.html">GoPro</a>
+                <a href="link.html">DJI</a>
+            </div>
+        </div>
+        <a href="index.html#collections">Best Sellers</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+        <img src="images/logotext1.png" alt="Lente" class="logo-img logo-dark">
+        <img src="images/logotext2.png" alt="Lente" class="logo-img logo-light">
+    </a>
+
+    <div class="header-right">
+        <a href="link.html" class="icon-btn"><i data-lucide="search"></i></a>
+        <a href="login.html" class="icon-btn"><i data-lucide="user-round"></i></a>
+        <a href="cart.html" class="cart-btn">
+            <i data-lucide="shopping-cart"></i>
+            <span>1 Item</span>
+        </a>
+    </div>
+</header>
+
+<!-- ================= MARQUEE ANNOUNCEMENT ================= -->
+<div class="marquee-bar">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+        FREE SHIPPING on orders over ₱5,000 &nbsp;&nbsp;•&nbsp;&nbsp;
+        HOLIDAY SALE — Up to 40% OFF &nbsp;&nbsp;•&nbsp;&nbsp;
+        New Arrivals: Canon EOS R50, Sony ZV-E10 II &nbsp;&nbsp;•&nbsp;&nbsp;
+        0% Installment available on selected cameras
+    </marquee>
+</div>
+
+<!-- ================= BREADCRUMB ================= -->
+<nav class="breadcrumb">
+    <span><a href="index.html">Home</a> / <span class="current">Shop</span></span>
+    <a href="#top">Back to Top ↑</a>
+</nav>
+
+<main>
+
+<!-- ================= SHOP HERO ================= -->
+<section class="shop-hero">
+    <div class="shop-hero-content">
+        <span class="shop-label">ALL PRODUCTS</span>
+        <h1>Shop Cameras</h1>
+        <p>
+            Browse our complete collection of <strong>85+ cameras and accessories</strong>
+            — from beginner-friendly point-and-shoots to professional full-frame mirrorless.
+        </p>
+    </div>
+
+    <div class="shop-hero-stats">
+        <div class="hero-stat">
+            <strong>85+</strong>
+            <span>Products</span>
+        </div>
+        <div class="hero-stat">
+            <strong>7</strong>
+            <span>Top Brands</span>
+        </div>
+        <div class="hero-stat">
+            <strong>4.8</strong>
+            <span>Avg Rating</span>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SHOP LAYOUT ================= -->
+<section class="shop-layout">
+
+    <!-- SIDEBAR FILTERS -->
+    <aside class="shop-sidebar">
+
+        <!-- CATEGORY FILTER -->
+        <div class="filter-block">
+            <h3>Category</h3>
+            <ul class="filter-list">
+                <li>
+                    <button class="filter-option active" data-filter="all">
+                        <span>All Products</span>
+                        <span class="filter-count">85</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="mirrorless">
+                        <span>Mirrorless</span>
+                        <span class="filter-count">14</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="dslr">
+                        <span>DSLR</span>
+                        <span class="filter-count">12</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="digicam">
+                        <span>Digicam</span>
+                        <span class="filter-count">18</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="film">
+                        <span>Film</span>
+                        <span class="filter-count">9</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="action">
+                        <span>Action</span>
+                        <span class="filter-count">15</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-filter="accessories">
+                        <span>Accessories</span>
+                        <span class="filter-count">24</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- PRICE FILTER -->
+        <div class="filter-block">
+            <h3>Price Range</h3>
+            <div class="price-inputs">
+                <input type="number" placeholder="₱ Min" id="minPrice" min="0">
+                <span>—</span>
+                <input type="number" placeholder="₱ Max" id="maxPrice" min="0">
+            </div>
+            <button class="apply-price-btn" onclick="applyPriceFilter()">Apply</button>
+        </div>
+
+        <!-- BRAND FILTER -->
+        <div class="filter-block">
+            <h3>Brand</h3>
+            <ul class="filter-list brand-filter">
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="canon">
+                        <span class="brand-check-box"></span>
+                        <span>Canon</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="sony">
+                        <span class="brand-check-box"></span>
+                        <span>Sony</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="nikon">
+                        <span class="brand-check-box"></span>
+                        <span>Nikon</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="fujifilm">
+                        <span class="brand-check-box"></span>
+                        <span>Fujifilm</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="kodak">
+                        <span class="brand-check-box"></span>
+                        <span>Kodak</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="gopro">
+                        <span class="brand-check-box"></span>
+                        <span>GoPro</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="brand-check">
+                        <input type="checkbox" class="brand-checkbox" value="dji">
+                        <span class="brand-check-box"></span>
+                        <span>DJI</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <!-- RATING FILTER -->
+        <div class="filter-block">
+            <h3>Minimum Rating</h3>
+            <ul class="filter-list rating-filter">
+                <li>
+                    <button class="filter-option" data-rating="4">
+                        <span>★★★★☆ &nbsp; 4.0 & up</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="filter-option" data-rating="4.5">
+                        <span>★★★★½ &nbsp; 4.5 & up</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <button class="clear-filters-btn" onclick="clearAllFilters()">
+            <i data-lucide="x-circle"></i>
+            Clear All Filters
+        </button>
+    </aside>
+
+    <!-- PRODUCTS MAIN -->
+    <div class="shop-main">
+
+        <!-- TOOLBAR -->
+        <div class="shop-toolbar">
+            <div class="toolbar-left">
+                <p class="results-count">
+                    Showing <strong id="visibleCount">12</strong> of <strong>85</strong> products
+                </p>
+            </div>
+            <div class="toolbar-right">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect">
+                    <option value="popular">Most Popular</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="shop-grid">
+
+            <!-- 1 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="38998" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/canon-eos-r50.png" alt="Canon EOS R50">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R50</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (225)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱38,998</span>
+                        <span class="old-price"><del>₱42,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 2 -->
+            <a href="product_detail.html" class="shop-card" data-category="vlog" data-brand="sony" data-price="54999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-15%</span>
+                    <img src="images/products/sony-zv-e10-ii.png" alt="Sony ZV-E10 II">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony ZV-E10 II</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (189)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱54,999</span>
+                        <span class="old-price"><del>₱64,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 3 -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="kodak" data-price="12999" data-rating="4.6">
+                <div class="shop-card-image">
+                    <img src="images/products/kodak-pixpro-fz55.png" alt="KODAK PIXPRO FZ55">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Kodak</p>
+                    <h3>KODAK PIXPRO FZ55</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.6 (330)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱12,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 4 -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="gopro" data-price="22999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/gopro-hero13-black.png" alt="GoPro HERO13 Black">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">GoPro</p>
+                    <h3>GoPro HERO13 Black</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (145)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱22,999</span>
+                        <span class="old-price"><del>₱25,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 5 -->
+            <a href="product_detail.html" class="shop-card" data-category="film" data-brand="fujifilm" data-price="8999" data-rating="4.5">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-5%</span>
+                    <img src="images/products/fujifilm-instax-mini-12.png" alt="Fujifilm Instax Mini 12">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm Instax Mini 12</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.5 (198)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱8,999</span>
+                        <span class="old-price"><del>₱9,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 6 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="79999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/sony-alpha-6700.png" alt="Sony Alpha 6700">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony Alpha 6700</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (76)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱79,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 7 -->
+            <a href="product_detail.html" class="shop-card" data-category="digicam" data-brand="fujifilm" data-price="89999" data-rating="4.9">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-12%</span>
+                    <img src="images/products/fujifilm-x100vi.png" alt="Fujifilm X100VI">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Fujifilm</p>
+                    <h3>Fujifilm X100VI</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.9 (102)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱89,999</span>
+                        <span class="old-price"><del>₱99,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 8 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="nikon" data-price="49999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <img src="images/products/nikon-z50.png" alt="Nikon Z50">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Nikon</p>
+                    <h3>Nikon Z50</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (91)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱49,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 9 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="46999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-8%</span>
+                    <img src="images/products/canon-eos-r10.png" alt="Canon EOS R10">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R10</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (118)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱46,999</span>
+                        <span class="old-price"><del>₱51,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 10 -->
+            <a href="product_detail.html" class="shop-card" data-category="action" data-brand="dji" data-price="19999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/dji-osmo-action.png" alt="DJI Osmo Action">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">DJI</p>
+                    <h3>DJI Osmo Action</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (84)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱19,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 11 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="sony" data-price="42999" data-rating="4.8">
+                <div class="shop-card-image">
+                    <span class="sale-badge">-10%</span>
+                    <img src="images/products/sony-a6400.png" alt="Sony A6400">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Sony</p>
+                    <h3>Sony A6400</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.8 (134)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱42,999</span>
+                        <span class="old-price"><del>₱47,999</del></span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+            <!-- 12 -->
+            <a href="product_detail.html" class="shop-card" data-category="mirrorless" data-brand="canon" data-price="89999" data-rating="4.7">
+                <div class="shop-card-image">
+                    <img src="images/products/canon-eos-r8.png" alt="Canon EOS R8">
+                </div>
+                <div class="shop-card-info">
+                    <p class="shop-card-brand">Canon</p>
+                    <h3>Canon EOS R8</h3>
+                    <div class="product-rating"><span class="star">★</span> 4.7 (92)</div>
+                    <div class="product-price">
+                        <span class="current-price">₱89,999</span>
+                    </div>
+                </div>
+                <span class="cart-button"><i data-lucide="shopping-cart"></i></span>
+            </a>
+
+        </div>
+
+        <!-- NO RESULTS -->
+        <p class="no-results" id="noResults" hidden>
+            <i data-lucide="search-x"></i>
+            No products match your filters.
+        </p>
+
+    </div>
+
+</section>
+
+<p class="back-links"><a href="#top">Back to Top ↑</a></p>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-brands">
+        <span>CANON</span><span>SONY</span><span>NIKON</span><span>FUJIFILM</span>
+        <span>Panasonic</span><span>GoPro</span><span>DJI</span><span>KODAK</span>
+    </div>
+    <div class="footer-main">
+        <div class="footer-column footer-brand-info">
+            <h2>Lente</h2>
+            <p>Capture what matters with cameras and gear made for every kind of creator.</p>
+            <p><strong>Email:</strong> hello@lente.com</p>
+            <p><strong>Phone:</strong> +63 912 345 6789</p>
+        </div>
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="link.html">Contact Us</a>
+            <a href="link.html">Shipping Information</a>
+            <a href="link.html">Returns &amp; Refunds</a>
+            <a href="link.html">FAQs</a>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="#collections">Collections</a>
+            <a href="#best-selling">Best Selling</a>
+            <a href="link.html">New Arrivals</a>
+            <a href="link.html">Camera Accessories</a>
+        </div>
+        <div class="footer-column">
+            <h3>About Lente</h3>
+            <a href="#about">About Us</a>
+            <a href="link.html">Our Story</a>
+            <a href="link.html">Privacy Policy</a>
+            <a href="link.html">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-column footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="link.html" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="link.html" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="link.html" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+            </div>
+            <p>Stay connected with Lente.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Lente. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#top">Back to Top ↑</a>
+            <a href="link.html">Privacy</a>
+            <a href="link.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+    /* ==================================================
+       SHOP PAGE — FILTERS & SORTING
+    ================================================== */
+
+    let activeFilters = {
+        category: 'all',
+        brand: [],
+        minPrice: null,
+        maxPrice: null,
+        rating: null
+    };
+
+    const cards = document.querySelectorAll('.shop-card');
+    const visibleCount = document.getElementById('visibleCount');
+    const noResults = document.getElementById('noResults');
+    const sortSelect = document.getElementById('sortSelect');
+    const grid = document.querySelector('.shop-grid');
+
+    /* ===== FILTER BY CATEGORY ===== */
+    document.querySelectorAll('.filter-list .filter-option:not(.active)').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.dataset.filter) {
+                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilters.category = btn.dataset.filter;
+                applyFilters();
+            }
+            if (btn.dataset.rating) {
+                const r = parseFloat(btn.dataset.rating);
+                activeFilters.rating = (activeFilters.rating === r) ? null : r;
+                btn.classList.toggle('active');
+                applyFilters();
+            }
+        });
+    });
+
+    /* ===== FILTER BY BRAND ===== */
+    document.querySelectorAll('.brand-checkbox').forEach(cb => {
+        cb.addEventListener('change', () => {
+            activeFilters.brand = Array.from(
+                document.querySelectorAll('.brand-checkbox:checked')
+            ).map(c => c.value);
+            applyFilters();
+        });
+    });
+
+    /* ===== FILTER BY PRICE ===== */
+    function applyPriceFilter() {
+        const min = parseFloat(document.getElementById('minPrice').value) || null;
+        const max = parseFloat(document.getElementById('maxPrice').value) || null;
+        activeFilters.minPrice = min;
+        activeFilters.maxPrice = max;
+        applyFilters();
+    }
+
+    /* ===== MAIN FILTER FUNCTION ===== */
+    function applyFilters() {
+        let visible = 0;
+
+        cards.forEach(card => {
+            const cat = card.dataset.category;
+            const brand = card.dataset.brand;
+            const price = parseFloat(card.dataset.price);
+            const rating = parseFloat(card.dataset.rating);
+
+            const matchCat = activeFilters.category === 'all' || cat === activeFilters.category;
+            const matchBrand = activeFilters.brand.length === 0 || activeFilters.brand.includes(brand);
+            const matchMin = !activeFilters.minPrice || price >= activeFilters.minPrice;
+            const matchMax = !activeFilters.maxPrice || price <= activeFilters.maxPrice;
+            const matchRating = !activeFilters.rating || rating >= activeFilters.rating;
+
+            if (matchCat && matchBrand && matchMin && matchMax && matchRating) {
+                card.style.display = '';
+                visible++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        visibleCount.textContent = visible;
+        noResults.hidden = visible > 0;
+    }
+
+    /* ===== SORT ===== */
+    sortSelect.addEventListener('change', () => {
+        const sort = sortSelect.value;
+        const arr = Array.from(cards);
+
+        arr.sort((a, b) => {
+            const priceA = parseFloat(a.dataset.price);
+            const priceB = parseFloat(b.dataset.price);
+            const ratingA = parseFloat(a.dataset.rating);
+            const ratingB = parseFloat(b.dataset.rating);
+
+            switch (sort) {
+                case 'price-low':  return priceA - priceB;
+                case 'price-high': return priceB - priceA;
+                case 'rating':     return ratingB - ratingA;
+                case 'popular':
+                default:           return ratingB - ratingA;
+            }
+        });
+
+        arr.forEach(c => grid.appendChild(c));
+    });
+
+    /* ===== CLEAR ALL FILTERS ===== */
+    function clearAllFilters() {
+        document.querySelectorAll('.filter-option').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('[data-filter="all"]').forEach(b => b.classList.add('active'));
+        document.querySelectorAll('.brand-checkbox').forEach(cb => cb.checked = false);
+        document.getElementById('minPrice').value = '';
+        document.getElementById('maxPrice').value = '';
+
+        activeFilters = {
+            category: 'all',
+            brand: [],
+            minPrice: null,
+            maxPrice: null,
+            rating: null
+        };
+
+        applyFilters();
+    }
+
+    /* ===== Y KEY ===== */
+    document.addEventListener('keydown', function (e) {
+        const tag = document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+        if (e.key.toLowerCase() === 'y') {
+            alert('Y pressed — Shop page!');
+        }
+    });
+
+    /* ===== INIT ===== */
+    window.addEventListener('DOMContentLoaded', () => {
+        applyFilters();
+        lucide.createIcons();
+    });
+</script>
+
+</body>
+</html>
