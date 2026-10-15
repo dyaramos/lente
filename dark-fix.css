@@ -1,0 +1,319 @@
+/* ==================================================
+   DARK MODE — Global Text Readability Fix
+   Loaded LAST para i-override lahat ng hardcoded colors
+================================================== */
+
+/* ==================================================
+   1. GLOBAL TEXT
+================================================== */
+body.theme-dark {
+    color: #f5f4fb;
+}
+
+/* ==================================================
+   2. HEADINGS
+================================================== */
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5,
+body.theme-dark h6 {
+    color: #f5f4fb;
+}
+
+/* ==================================================
+   3. PRODUCT CARDS (shop, brand, best-selling)
+================================================== */
+body.theme-dark .shop-card-info h3,
+body.theme-dark .canon-card-info h3,
+body.theme-dark .best-product-info h3,
+body.theme-dark .product-info h3,
+body.theme-dark .current-price,
+body.theme-dark .price,
+body.theme-dark .cart-item-title,
+body.theme-dark .cart-item-price,
+body.theme-dark .cart-item-total {
+    color: #f5f4fb;
+}
+
+body.theme-dark .shop-card-brand,
+body.theme-dark .canon-type {
+    color: #c4a8ff;
+}
+
+body.theme-dark .product-rating,
+body.theme-dark .rating,
+body.theme-dark .old-price {
+    color: #a8a3c0;
+}
+
+/* ==================================================
+   4. BREADCRUMB
+================================================== */
+body.theme-dark .breadcrumb,
+body.theme-dark .breadcrumb a,
+body.theme-dark .breadcrumb .current,
+body.theme-dark .breadcrumb span {
+    color: #f5f4fb;
+}
+
+/* ==================================================
+   5. HERO SECTIONS
+================================================== */
+body.theme-dark .shop-hero h1,
+body.theme-dark .shop-hero p,
+body.theme-dark .shop-hero p strong,
+body.theme-dark .brand-hero h1,
+body.theme-dark .brand-hero p,
+body.theme-dark .brand-hero p strong,
+body.theme-dark .shop-label,
+body.theme-dark .brand-label,
+body.theme-dark .hero-stat strong,
+body.theme-dark .hero-stat span {
+    color: #f5f4fb;
+}
+
+body.theme-dark .shop-label,
+body.theme-dark .brand-label,
+body.theme-dark .hero-stat strong {
+    color: #c4a8ff;
+}
+
+/* ==================================================
+   6. FILTERS & TOOLBAR
+================================================== */
+body.theme-dark .filter-label,
+body.theme-dark .filter-btn,
+body.theme-dark .filter-right label,
+body.theme-dark .filter-block h3,
+body.theme-dark .filter-option,
+body.theme-dark .filter-count,
+body.theme-dark .brand-check,
+body.theme-dark .clear-filters-btn,
+body.theme-dark .results-count,
+body.theme-dark .results-count strong,
+body.theme-dark .toolbar-right label,
+body.theme-dark .toolbar-right select,
+body.theme-dark .price-inputs input {
+    color: #f5f4fb;
+}
+
+body.theme-dark .toolbar-right select,
+body.theme-dark .price-inputs input {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ==================================================
+   7. ABOUT & BRAND SECTIONS
+================================================== */
+body.theme-dark .about-brand h2,
+body.theme-dark .about-brand p,
+body.theme-dark .about-brand-label,
+body.theme-dark .about-content h2,
+body.theme-dark .about-content p,
+body.theme-dark .about-label,
+body.theme-dark .brand-section h2,
+body.theme-dark .brand-table-container h3,
+body.theme-dark .brand-table td,
+body.theme-dark .table-info-list li,
+body.theme-dark .brand-stat strong,
+body.theme-dark .brand-stat span,
+body.theme-dark .brand-ruby,
+body.theme-dark .brand-ruby ruby,
+body.theme-dark .brand-ruby rt {
+    color: #f5f4fb;
+}
+
+body.theme-dark .about-brand-label,
+body.theme-dark .about-label,
+body.theme-dark .brand-stat strong {
+    color: #c4a8ff;
+}
+
+body.theme-dark .brand-table td {
+    background: rgba(26, 22, 50, 0.70);
+}
+
+/* ==================================================
+   8. CART PAGE
+================================================== */
+body.theme-dark .cart-header-section h1,
+body.theme-dark .cart-header-section p,
+body.theme-dark .cart-summary h2,
+body.theme-dark .summary-row,
+body.theme-dark .summary-total,
+body.theme-dark .summary-note,
+body.theme-dark .payment-label,
+body.theme-dark .payment-icons span,
+body.theme-dark .section-header h2,
+body.theme-dark .recommended-card h4,
+body.theme-dark .recommended-card p,
+body.theme-dark .select-all-hint,
+body.theme-dark .checkbox-text,
+body.theme-dark .checkbox-text strong,
+body.theme-dark .cart-item-qty label,
+body.theme-dark .cart-item-desc,
+body.theme-dark .continue-shopping {
+    color: #f5f4fb;
+}
+
+body.theme-dark .cart-item,
+body.theme-dark .cart-summary,
+body.theme-dark .recommended-card,
+body.theme-dark .select-all-bar,
+body.theme-dark .continue-shopping {
+    background: linear-gradient(135deg, rgba(155, 107, 242, 0.10) 0%, rgba(34, 199, 224, 0.08) 100%);
+    border-color: rgba(155, 107, 242, 0.30);
+}
+
+body.theme-dark .cart-item-image,
+body.theme-dark .recommended-image {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .cart-item-qty input {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f5f4fb;
+}
+
+body.theme-dark .cart-remove {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f5f4fb;
+}
+
+/* ==================================================
+   9. PRODUCT DETAIL
+================================================== */
+body.theme-dark .product-info h1,
+body.theme-dark .product-info h1 em,
+body.theme-dark .price-block del,
+body.theme-dark .price-block ins,
+body.theme-dark .desc,
+body.theme-dark .desc strong,
+body.theme-dark .desc em,
+body.theme-dark .variant-select label,
+body.theme-dark .qty-selector label,
+body.theme-dark .stock-toggle span,
+body.theme-dark .stock-toggle label,
+body.theme-dark .qty-selector p,
+body.theme-dark .qty-selector #totalPrice,
+body.theme-dark .specs-table td:first-child,
+body.theme-dark .specs-aside h4,
+body.theme-dark .specs-aside ul li,
+body.theme-dark .specs-aside p,
+body.theme-dark .details-tabs h3,
+body.theme-dark .details-tabs ul li,
+body.theme-dark .details-tabs ol li,
+body.theme-dark .details-tabs dd,
+body.theme-dark .recent-chip,
+body.theme-dark .review-meta h4,
+body.theme-dark .review-card q,
+body.theme-dark .review-section h2,
+body.theme-dark .review-section label,
+body.theme-dark .upload-ui .upload-title,
+body.theme-dark .upload-ui .upload-hint,
+body.theme-dark .btn-wishlist {
+    color: #f5f4fb;
+}
+
+body.theme-dark .specs-table td {
+    color: #b0aacf;
+}
+
+body.theme-dark .variant-select select,
+body.theme-dark .qty-selector input,
+body.theme-dark .review-section input,
+body.theme-dark .review-section textarea {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f5f4fb;
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ==================================================
+   10. PROFILE PAGE
+================================================== */
+body.theme-dark .profile-hero-info h1,
+body.theme-dark .profile-hero-info p,
+body.theme-dark .profile-hero-info p strong,
+body.theme-dark .profile-panel h2,
+body.theme-dark .profile-panel .panel-desc,
+body.theme-dark .profile-form label,
+body.theme-dark .setting-info h4,
+body.theme-dark .setting-info p,
+body.theme-dark .settings-group h3,
+body.theme-dark .profile-tab-btn {
+    color: #f5f4fb;
+}
+
+body.theme-dark .profile-form input,
+body.theme-dark .profile-form select,
+body.theme-dark .profile-form textarea {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f5f4fb;
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.theme-dark #languageSelect {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #f5f4fb !important;
+}
+
+/* ==================================================
+   11. FOOTER PAGES (contact, shipping, returns, etc.)
+================================================== */
+body.theme-dark .info-page h1,
+body.theme-dark .info-page p,
+body.theme-dark .info-page .brand-label,
+body.theme-dark .info-page .contact-list li,
+body.theme-dark .info-page .info-list li {
+    color: #f5f4fb;
+}
+
+body.theme-dark .info-page .brand-label {
+    color: #c4a8ff;
+}
+
+body.theme-dark .info-page .contact-list,
+body.theme-dark .info-page .info-list {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.theme-dark .info-page a.inline-link {
+    color: #c4a8ff;
+}
+
+/* ==================================================
+   12. INPUTS — Global
+================================================== */
+body.theme-dark input,
+body.theme-dark select,
+body.theme-dark textarea {
+    color: #f5f4fb;
+}
+
+body.theme-dark input::placeholder,
+body.theme-dark textarea::placeholder {
+    color: #a8a3c0;
+}
+
+/* ==================================================
+   13. DROPDOWN MENUS
+================================================== */
+body.theme-dark .dropdown-menu {
+    background: rgba(20, 17, 42, 0.96);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+body.theme-dark .dropdown-menu a {
+    color: #a8a3c0;
+}
+
+/* ==================================================
+   14. NO RESULTS
+================================================== */
+body.theme-dark .no-results {
+    color: #f5f4fb;
+}

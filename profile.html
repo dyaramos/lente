@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile — Lente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="search.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="theme.js"></script>
+    <style>
+        /* ==================================================
+           PROFILE PAGE — Lente
+        ================================================== */
+
+        .profile-hero {
+            width: 90%;
+            max-width: 1400px;
+            margin: 40px auto 30px;
+            padding: 40px 50px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: var(--glass-fill-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(90, 80, 130, 0.10);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--holo-gradient);
+        }
+
+        .profile-avatar-lg {
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--holo-gradient);
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 28px rgba(155, 107, 242, 0.40);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .profile-avatar-lg::after {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px dashed rgba(155, 107, 242, 0.40);
+            animation: rotateRing 20s linear infinite;
+        }
+
+        @keyframes rotateRing {
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-hero-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .profile-hero-info .profile-label {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: #4a1e8a;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .profile-hero-info h1 {
+            margin: 0 0 6px;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+
+        .profile-hero-info p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .profile-hero-info p strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .profile-hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .profile-hero-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .profile-hero-stat strong {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--holo-violet);
+            line-height: 1;
+        }
+
+        .profile-hero-stat span {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================================================
+           PROFILE LAYOUT
+        ================================================== */
+        .profile-layout {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* ==================================================
+           SIDEBAR TABS
+        ================================================== */
+        .profile-tabs {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 14px;
+            background: var(--glass-fill-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            box-shadow: 0 4px 18px rgba(90, 80, 130, 0.06);
+        }
+
+        .profile-tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .profile-tab-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .profile-tab-btn:hover {
+            background: var(--holo-gradient-soft);
+            color: var(--holo-violet);
+        }
+
+        .profile-tab-btn.active {
+            background: var(--holo-gradient);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 16px rgba(155, 107, 242, 0.35);
+        }
+
+        /* ==================================================
+           MAIN PANEL
+        ================================================== */
+        .profile-main {
+            min-width: 0;
+        }
+
+        .profile-panel {
+            display: none;
+            padding: 36px 40px;
+            background: var(--glass-fill-strong);
+            border: 1px solid var(--glass-border);
+            border-radius: 22px;
+            box-shadow: 0 8px 30px rgba(90, 80, 130, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .profile-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-panel h2 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .profile-panel .panel-desc {
+            margin: 0 0 28px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        /* ==================================================
+           FORM
+        ================================================== */
+        .profile-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .profile-form .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .profile-form .field.full {
+            grid-column: span 2;
+        }
+
+        .profile-form label {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-form input,
+        .profile-form select,
+        .profile-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .profile-form input:focus,
+        .profile-form select:focus,
+        .profile-form textarea:focus {
+            outline: none;
+            border-color: var(--holo-violet);
+            box-shadow: 0 0 0 3px rgba(155, 107, 242, 0.18);
+        }
+
+        .profile-form textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .profile-save-btn {
+            grid-column: span 2;
+            justify-self: flex-start;
+            padding: 13px 32px;
+            border: none;
+            border-radius: 12px;
+            background: var(--holo-gradient);
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 22px rgba(155, 107, 242, 0.30);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .profile-save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(155, 107, 242, 0.45);
+        }
+
+        /* ==================================================
+           SETTINGS — TOGGLE ROWS
+        ================================================== */
+        .settings-group {
+            margin-bottom: 32px;
+        }
+
+        .settings-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .settings-group h3 {
+            margin: 0 0 14px;
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--glass-border-soft);
+        }
+
+        .setting-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px dashed var(--glass-border-soft);
+        }
+
+        .setting-row:last-child {
+            border-bottom: none;
+        }
+
+        .setting-info h4 {
+            margin: 0 0 4px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .setting-info p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ==================================================
+           THEME TOGGLE (Dark / Light Mode)
+        ================================================== */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px;
+            background: var(--glass-fill);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle-btn svg {
+            width: 15px;
+            height: 15px;
+            stroke-width: 2;
+        }
+
+        .theme-toggle-btn.active {
+            background: var(--holo-gradient);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(155, 107, 242, 0.35);
+        }
+
+        .theme-toggle-btn:not(.active):hover {
+            color: var(--holo-violet);
+        }
+
+        /* ==================================================
+           SIMPLE TOGGLE SWITCH
+        ================================================== */
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+
+        .toggle-switch .toggle-slider {
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: var(--glass-fill);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .toggle-switch .toggle-slider::after {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            transition: transform 0.25s ease;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: var(--holo-gradient);
+            border-color: transparent;
+        }
+
+        .toggle-switch input:checked + .toggle-slider::after {
+            transform: translateX(22px);
+        }
+
+        /* ==================================================
+           DANGER ZONE
+        ================================================== */
+        .danger-btn {
+            padding: 10px 20px;
+            border: 1px solid rgba(239, 68, 68, 0.40);
+            border-radius: 10px;
+            background: rgba(239, 68, 68, 0.10);
+            color: #dc2626;
+            font-family: inherit;
+            font-size: 12.5px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .danger-btn:hover {
+            background: rgba(239, 68, 68, 0.20);
+            border-color: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+        @media (max-width: 900px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .profile-tabs {
+                position: static;
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 10px;
+            }
+            .profile-tab-btn {
+                flex-shrink: 0;
+                padding: 10px 14px;
+                font-size: 12.5px;
+            }
+            .profile-tab-btn span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .profile-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 22px;
+            }
+            .profile-hero-info h1 {
+                font-size: 26px;
+            }
+            .profile-hero-stats {
+                justify-content: center;
+            }
+            .profile-panel {
+                padding: 26px 22px;
+            }
+            .profile-form {
+                grid-template-columns: 1fr;
+            }
+            .profile-form .field.full {
+                grid-column: span 1;
+            }
+            .profile-save-btn {
+                grid-column: span 1;
+            }
+            .setting-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-avatar-lg {
+                width: 90px;
+                height: 90px;
+                font-size: 34px;
+            }
+            .profile-panel h2 {
+                font-size: 20px;
+            }
+        }
+
+        /* ==================================================
+           DARK MODE OVERRIDES
+        ================================================== */
+        body.theme-dark .profile-form input,
+        body.theme-dark .profile-form select,
+        body.theme-dark .profile-form textarea {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+<!-- ================= MAIN HEADER ================= -->
+<header class="main-header">
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+            <a href="shop.html">Shop ▾</a>
+            <div class="dropdown-menu">
+                <a href="shop.html">All Products</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#digicam">Digicam</a>
+                <a href="shop.html#film">Film</a>
+                <a href="shop.html#action">Action Camera</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="index.html#brand">Brands ▾</a>
+            <div class="dropdown-menu">
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="kodak.html">Kodak</a>
+                <a href="gopro.html">GoPro</a>
+                <a href="dji.html">DJI</a>
+                <a href="samsung.html">Samsung</a>
+            </div>
+        </div>
+        <a href="index.html#collections">Best Sellers</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+        <img src="images/logotext1.png" alt="Lente" class="logo-img logo-dark">
+        <img src="images/logotext2.png" alt="Lente" class="logo-img logo-light">
+    </a>
+
+    <div class="header-right">
+        <button type="button" class="icon-btn" onclick="openSearch()" aria-label="Search">
+            <i data-lucide="search"></i>
+        </button>
+        <a href="profile.html" class="icon-btn active-profile" aria-label="Profile">
+            <i data-lucide="user-round"></i>
+        </a>
+        <a href="cart.html" class="cart-btn">
+            <i data-lucide="shopping-cart"></i>
+            <span>1 Item</span>
+        </a>
+    </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee-bar">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+        FREE SHIPPING on orders over ₱5,000 &nbsp;&nbsp;•&nbsp;&nbsp;
+        NEW ARRIVALS — Canon, Sony, Fujifilm &nbsp;&nbsp;•&nbsp;&nbsp;
+        0% Installment available on selected cameras
+    </marquee>
+</div>
+
+<!-- ================= BREADCRUMB ================= -->
+<nav class="breadcrumb">
+    <span><a href="index.html">Home</a> / <span class="current">My Profile</span></span>
+    <a href="#top">Back to Top ↑</a>
+</nav>
+
+<main>
+
+<!-- ================= PROFILE HERO ================= -->
+<section class="profile-hero">
+    <div class="profile-avatar-lg" id="avatarInitials">JD</div>
+
+    <div class="profile-hero-info">
+        <span class="profile-label">MY ACCOUNT</span>
+        <h1 id="profileName">Juan Dela Cruz</h1>
+        <p><strong id="profileEmail">hello@lente.com</strong> · Member since 2024</p>
+
+        <div class="profile-hero-stats">
+            <div class="profile-hero-stat">
+                <strong>12</strong>
+                <span>Orders</span>
+            </div>
+            <div class="profile-hero-stat">
+                <strong>3</strong>
+                <span>Wishlist</span>
+            </div>
+            <div class="profile-hero-stat">
+                <strong>5</strong>
+                <span>Reviews</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROFILE LAYOUT ================= -->
+<section class="profile-layout">
+
+    <!-- SIDEBAR TABS -->
+    <aside class="profile-tabs">
+        <button class="profile-tab-btn active" data-tab="info">
+            <i data-lucide="user-round"></i>
+            <span>Profile Info</span>
+        </button>
+        <button class="profile-tab-btn" data-tab="settings">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+        </button>
+        <button class="profile-tab-btn" data-tab="orders">
+            <i data-lucide="package"></i>
+            <span>My Orders</span>
+        </button>
+        <button class="profile-tab-btn" data-tab="wishlist">
+            <i data-lucide="heart"></i>
+            <span>Wishlist</span>
+        </button>
+        <button class="profile-tab-btn" data-tab="security">
+            <i data-lucide="shield-check"></i>
+            <span>Security</span>
+        </button>
+    </aside>
+
+    <!-- MAIN PANEL -->
+    <div class="profile-main">
+
+        <!-- ========== TAB: PROFILE INFO ========== -->
+        <div class="profile-panel active" data-panel="info">
+            <h2>Profile Info</h2>
+            <p class="panel-desc">Manage your personal information and shipping details.</p>
+
+            <form class="profile-form" onsubmit="saveProfile(event)">
+                <div class="field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" value="Juan" required>
+                </div>
+                <div class="field">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" value="Dela Cruz" required>
+                </div>
+                <div class="field">
+                    <label for="profEmail">Email Address</label>
+                    <input type="email" id="profEmail" value="hello@lente.com" required>
+                </div>
+                <div class="field">
+                    <label for="profPhone">Phone Number</label>
+                    <input type="tel" id="profPhone" value="+63 912 345 6789">
+                </div>
+                <div class="field full">
+                    <label for="profAddress">Shipping Address</label>
+                    <textarea id="profAddress" placeholder="Street, Barangay, City, Province">Metro Manila, Philippines</textarea>
+                </div>
+                <button type="submit" class="profile-save-btn">Save Changes</button>
+            </form>
+        </div>
+
+        <!-- ========== TAB: SETTINGS ========== -->
+        <div class="profile-panel" data-panel="settings">
+            <h2>Settings</h2>
+            <p class="panel-desc">Customize your experience on Lente.</p>
+
+            <!-- APPEARANCE -->
+            <div class="settings-group">
+                <h3>Appearance</h3>
+
+                <!-- DARK / LIGHT MODE -->
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Theme Mode</h4>
+                        <p>Choose between Light Mode and Dark Mode for the entire site.</p>
+                    </div>
+
+                    <div class="theme-toggle" id="themeToggle">
+                        <button type="button" class="theme-toggle-btn active" data-theme="light">
+                            <i data-lucide="sun"></i>
+                            Light
+                        </button>
+                        <button type="button" class="theme-toggle-btn" data-theme="dark">
+                            <i data-lucide="moon"></i>
+                            Dark
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ANIMATIONS -->
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Reduced Motion</h4>
+                        <p>Minimize animations and transitions across the site.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="reducedMotion">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- NOTIFICATIONS -->
+            <div class="settings-group">
+                <h3>Notifications</h3>
+
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Order Updates</h4>
+                        <p>Receive email notifications about your order status.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notifOrders" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Promotions & Deals</h4>
+                        <p>Get notified about sales, discounts, and new arrivals.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notifPromos" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Product Reviews</h4>
+                        <p>Notified when someone replies to your reviews.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notifReviews">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- LANGUAGE -->
+            <div class="settings-group">
+                <h3>Language & Region</h3>
+
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Language</h4>
+                        <p>Choose your preferred language for the site.</p>
+                    </div>
+                    <select id="languageSelect" style="max-width: 180px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.85); font-family: inherit; font-size: 13px; font-weight: 700;">
+                        <option>English</option>
+                        <option>Filipino</option>
+                        <option>日本語</option>
+                        <option>한국어</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TAB: MY ORDERS ========== -->
+        <div class="profile-panel" data-panel="orders">
+            <h2>My Orders</h2>
+            <p class="panel-desc">View and track your recent purchases.</p>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Order #LNT-2026-00042</h4>
+                    <p>Canon EOS R50 + GoPro HERO13 Black · ₱79,515 · Delivered Sept 28, 2026</p>
+                </div>
+                <button class="danger-btn" style="background: rgba(155,107,242,0.10); border-color: rgba(155,107,242,0.40); color: #7d4dd6;">View Details</button>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Order #LNT-2026-00041</h4>
+                    <p>Sony ZV-E10 II · ₱54,999 · Delivered Sept 20, 2026</p>
+                </div>
+                <button class="danger-btn" style="background: rgba(155,107,242,0.10); border-color: rgba(155,107,242,0.40); color: #7d4dd6;">View Details</button>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Order #LNT-2026-00040</h4>
+                    <p>Fujifilm X100VI · ₱89,999 · In Transit</p>
+                </div>
+                <button class="danger-btn" style="background: rgba(155,107,242,0.10); border-color: rgba(155,107,242,0.40); color: #7d4dd6;">Track Order</button>
+            </div>
+        </div>
+
+        <!-- ========== TAB: WISHLIST ========== -->
+        <div class="profile-panel" data-panel="wishlist">
+            <h2>Wishlist</h2>
+            <p class="panel-desc">Products you've saved for later.</p>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Nikon Z8</h4>
+                    <p>Mirrorless · ₱189,999</p>
+                </div>
+                <button class="danger-btn" style="background: rgba(155,107,242,0.10); border-color: rgba(155,107,242,0.40); color: #7d4dd6;">View Product</button>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Sony Alpha 7 IV</h4>
+                    <p>Mirrorless · ₱129,999</p>
+                </div>
+                <button class="danger-btn" style="background: rgba(155,107,242,0.10); border-color: rgba(155,107,242,0.40); color: #7d4dd6;">View Product</button>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h4>Fujifilm Instax Mini 12</h4>
+                    <p>Film · ₱8,999</p>
+                </div>
+                <button class="danger-btn" style="background: rgba(155,107,242,0.10); border-color: rgba(155,107,242,0.40); color: #7d4dd6;">View Product</button>
+            </div>
+        </div>
+
+        <!-- ========== TAB: SECURITY ========== -->
+        <div class="profile-panel" data-panel="security">
+            <h2>Security</h2>
+            <p class="panel-desc">Manage your password and account security.</p>
+
+            <form class="profile-form" onsubmit="changePassword(event)">
+                <div class="field full">
+                    <label for="curPassword">Current Password</label>
+                    <input type="password" id="curPassword" placeholder="Enter current password">
+                </div>
+                <div class="field">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" placeholder="At least 8 characters" minlength="8">
+                </div>
+                <div class="field">
+                    <label for="confPassword">Confirm New Password</label>
+                    <input type="password" id="confPassword" placeholder="Re-enter new password" minlength="8">
+                </div>
+                <button type="submit" class="profile-save-btn">Update Password</button>
+            </form>
+
+            <div class="settings-group" style="margin-top: 32px;">
+                <h3>Danger Zone</h3>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <h4>Delete Account</h4>
+                        <p>Permanently remove your account and all associated data. This cannot be undone.</p>
+                    </div>
+                    <button class="danger-btn" onclick="confirmDelete()">Delete Account</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<p class="back-links"><a href="#top">Back to Top ↑</a></p>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-brands">
+        <span>CANON</span><span>SONY</span><span>NIKON</span><span>FUJIFILM</span>
+        <span>Panasonic</span><span>GoPro</span><span>DJI</span><span>KODAK</span>
+    </div>
+    <div class="footer-main">
+        <div class="footer-column footer-brand-info">
+            <h2>Lente</h2>
+            <p>Capture what matters with cameras and gear made for every kind of creator.</p>
+            <p><strong>Email:</strong> hello@lente.com</p>
+            <p><strong>Phone:</strong> +63 912 345 6789</p>
+        </div>
+        <div class="footer-column">
+            <h3>Customer Service</h3>
+            <a href="contact.html">Contact Us</a>
+            <a href="shipping.html">Shipping Information</a>
+            <a href="returns.html">Returns &amp; Refunds</a>
+            <a href="faqs.html">FAQs</a>
+        </div>
+        <div class="footer-column">
+            <h3>Shop</h3>
+            <a href="shop.html">All Products</a>
+            <a href="index.html#best-selling">Best Selling</a>
+            <a href="shop.html">New Arrivals</a>
+            <a href="shop.html#accessories">Camera Accessories</a>
+        </div>
+        <div class="footer-column">
+            <h3>About Lente</h3>
+            <a href="index.html#about">About Us</a>
+            <a href="our-story.html">Our Story</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
+        </div>
+        <div class="footer-column footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                </a>
+            </div>
+            <p>Stay connected with Lente.</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Lente. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#top">Back to Top ↑</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================= SEARCH OVERLAY ================= -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="search-modal">
+        <div class="search-bar-wrap">
+            <i data-lucide="search"></i>
+            <input type="text" class="search-input" id="searchInput" placeholder="Search cameras, brands, accessories..." autocomplete="off">
+            <button type="button" class="search-close" onclick="closeSearch()" aria-label="Close">✕</button>
+        </div>
+        <div class="search-body" id="searchBody">
+            <div class="search-quick">
+                <span>Popular Searches</span>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#action">Action Cameras</a>
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+    /* ==================================================
+       PROFILE PAGE — TABS, THEME, SETTINGS
+    ================================================== */
+
+    /* ===== INIT THEME FROM LOCALSTORAGE ===== */
+    (function initTheme() {
+        const savedTheme = localStorage.getItem('lente_theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('theme-dark');
+        }
+    })();
+
+    /* ===== TAB SWITCHING ===== */
+    const tabBtns = document.querySelectorAll('.profile-tab-btn');
+    const panels = document.querySelectorAll('.profile-panel');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.tab;
+
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            panels.forEach(p => p.classList.remove('active'));
+            const panel = document.querySelector(`.profile-panel[data-panel="${target}"]`);
+            if (panel) panel.classList.add('active');
+        });
+    });
+
+    /* ===== THEME TOGGLE ===== */
+    const themeBtns = document.querySelectorAll('.theme-toggle-btn');
+
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const theme = btn.dataset.theme;
+
+            themeBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (theme === 'dark') {
+                document.body.classList.add('theme-dark');
+                localStorage.setItem('lente_theme', 'dark');
+            } else {
+                document.body.classList.remove('theme-dark');
+                localStorage.setItem('lente_theme', 'light');
+            }
+
+            if (window.lucide) lucide.createIcons();
+        });
+    });
+
+    /* ===== SYNC TOGGLE UI SA INIT ===== */
+    (function syncToggleUI() {
+        const savedTheme = localStorage.getItem('lente_theme') || 'light';
+        themeBtns.forEach(b => {
+            b.classList.toggle('active', b.dataset.theme === savedTheme);
+        });
+    })();
+
+    /* ===== SAVE PROFILE (demo) ===== */
+    function saveProfile(event) {
+        event.preventDefault();
+        const first = document.getElementById('firstName').value.trim();
+        const last = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('profEmail').value.trim();
+
+        document.getElementById('profileName').textContent = first + ' ' + last;
+        document.getElementById('profileEmail').textContent = email;
+        document.getElementById('avatarInitials').textContent =
+            (first.charAt(0) + last.charAt(0)).toUpperCase();
+
+        alert('Profile saved successfully!');
+    }
+
+    /* ===== CHANGE PASSWORD (demo) ===== */
+    function changePassword(event) {
+        event.preventDefault();
+        const newPass = document.getElementById('newPassword').value;
+        const confPass = document.getElementById('confPassword').value;
+
+        if (newPass.length < 8) {
+            alert('New password must be at least 8 characters.');
+            return;
+        }
+        if (newPass !== confPass) {
+            alert('Passwords do not match.');
+            return;
+        }
+        alert('Password updated successfully!');
+        event.target.reset();
+    }
+
+    /* ===== DELETE ACCOUNT ===== */
+    function confirmDelete() {
+        if (confirm('Are you sure you want to delete your account? This cannot be undone.')) {
+            alert('Account deletion request submitted. (Demo only)');
+        }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    const reducedMotionToggle = document.getElementById('reducedMotion');
+    if (reducedMotionToggle) {
+        reducedMotionToggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.body.style.setProperty('--motion-off', '1');
+                document.documentElement.style.scrollBehavior = 'auto';
+            } else {
+                document.documentElement.style.scrollBehavior = 'smooth';
+            }
+        });
+    }
+
+    /* ==================================================
+       SEARCH OVERLAY
+    ================================================== */
+    const searchDatabase = [
+        { name: 'Canon EOS R50', category: 'Mirrorless', price: '₱38,998', image: 'images/products/canon-eos-r50.png', url: 'product_detail.html' },
+        { name: 'Sony ZV-E10 II', category: 'Vlog', price: '₱54,999', image: 'images/products/sony-zv-e10-ii.png', url: 'product_detail.html' },
+        { name: 'Nikon Z50', category: 'Mirrorless', price: '₱49,999', image: 'images/products/nikon-z50.png', url: 'product_detail.html' },
+        { name: 'Fujifilm X100VI', category: 'Digicam', price: '₱89,999', image: 'images/products/fujifilm-x100vi.png', url: 'product_detail.html' },
+        { name: 'KODAK PIXPRO FZ55', category: 'Digicam', price: '₱12,999', image: 'images/products/kodak-pixpro-fz55.png', url: 'product_detail.html' },
+        { name: 'GoPro HERO13 Black', category: 'Action', price: '₱22,999', image: 'images/products/gopro-hero13-black.png', url: 'product_detail.html' },
+        { name: 'DJI Osmo Action', category: 'Action', price: '₱19,999', image: 'images/products/dji-osmo-action.png', url: 'product_detail.html' }
+    ];
+
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchInput = document.getElementById('searchInput');
+    const searchBody = document.getElementById('searchBody');
+
+    function openSearch() {
+        if (!searchOverlay) return;
+        searchOverlay.classList.add('active');
+        setTimeout(() => searchInput.focus(), 100);
+    }
+    function closeSearch() {
+        if (!searchOverlay) return;
+        searchOverlay.classList.remove('active');
+        searchInput.value = '';
+        resetSearchBody();
+    }
+    function resetSearchBody() {
+        if (!searchBody) return;
+        searchBody.innerHTML = `
+            <div class="search-quick">
+                <span>Popular Searches</span>
+                <a href="shop.html#mirrorless">Mirrorless</a>
+                <a href="shop.html#dslr">DSLR</a>
+                <a href="shop.html#action">Action Cameras</a>
+                <a href="canon.html">Canon</a>
+                <a href="sony.html">Sony</a>
+                <a href="nikon.html">Nikon</a>
+                <a href="fujifilm.html">Fujifilm</a>
+                <a href="shop.html#accessories">Accessories</a>
+            </div>
+        `;
+    }
+    function runSearch(query) {
+        query = query.toLowerCase().trim();
+        if (!query) { resetSearchBody(); return; }
+        const results = searchDatabase.filter(p =>
+            p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query)
+        );
+        if (results.length === 0) {
+            searchBody.innerHTML = `<p class="search-empty">No products found for "<strong>${query}</strong>"</p>`;
+            return;
+        }
+        searchBody.innerHTML = `
+            <div class="search-section-label">${results.length} Result${results.length > 1 ? 's' : ''}</div>
+            ${results.map(p => `
+                <a href="${p.url}" class="search-result">
+                    <div class="search-result-img"><img src="${p.image}" alt="${p.name}"></div>
+                    <div class="search-result-info">
+                        <h4>${p.name}</h4>
+                        <p>${p.category}</p>
+                    </div>
+                    <div class="search-result-price">${p.price}</div>
+                </a>
+            `).join('')}
+        `;
+    }
+
+    if (searchInput) searchInput.addEventListener('input', (e) => runSearch(e.target.value));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('active')) closeSearch();
+    });
+    if (searchOverlay) searchOverlay.addEventListener('click', (e) => {
+        if (e.target === searchOverlay) closeSearch();
+    });
+
+    /* ===== INIT ===== */
+    window.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide) lucide.createIcons();
+    });
+</script>
+
+</body>
+</html>
