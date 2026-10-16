@@ -725,3 +725,139 @@ body.theme-dark .cart-button { color: #e5e2f5; }
         text-align: center;
     }
 }
+
+/* ==================================================
+   SHOP PAGE — MOBILE ENHANCEMENTS
+================================================== */
+
+/* Mobile — 900px pababa */
+@media (max-width: 900px) {
+    /* Sidebar filters — limit height para hindi sobrang haba */
+    .shop-sidebar {
+        max-height: none;   /* Buksan lahat */
+    }
+
+    /* Filter buttons — allow horizontal scroll */
+    .filter-left {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    .filter-left::-webkit-scrollbar {
+        display: none;
+    }
+    .filter-btn {
+        flex-shrink: 0;
+    }
+}
+
+/* Mobile — 600px pababa */
+@media (max-width: 600px) {
+    /* Product cards — 1 column */
+    .shop-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* Cart button — mas malaki para easy tap */
+    .cart-button {
+        width: 40px;
+        height: 40px;
+        right: 14px;
+        bottom: 14px;
+    }
+    .cart-button svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Product image — mas maliit para hindi sobrang laki */
+    .shop-card-image {
+        height: 200px;
+    }
+
+    /* Sidebar filters — compact */
+    .filter-block {
+        padding: 16px 18px;
+    }
+    .filter-block h3 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* Price inputs — stack */
+    .price-inputs {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .price-inputs input {
+        width: 100%;
+        text-align: left;
+    }
+    .price-inputs span {
+        display: none;   /* Alisin ang "—" divider */
+    }
+
+    /* Toolbar — stack */
+    .shop-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .toolbar-left {
+        width: 100%;
+    }
+    .toolbar-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .toolbar-right select {
+        width: 100%;
+    }
+
+    /* Hero stats — 1 column */
+    .shop-hero-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Hero text */
+    .shop-hero h1 {
+        font-size: 32px;
+    }
+    .shop-hero p {
+        font-size: 13px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 14px 18px;
+        border-radius: 16px;
+    }
+
+    /* Clear filters button */
+    .clear-filters-btn {
+        width: 100%;
+    }
+}
+
+/* Small mobile — 400px pababa */
+@media (max-width: 400px) {
+    .shop-hero h1 {
+        font-size: 26px;
+    }
+    .shop-card-image {
+        height: 180px;
+    }
+    .cart-button {
+        width: 36px;
+        height: 36px;
+    }
+}

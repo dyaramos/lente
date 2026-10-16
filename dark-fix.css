@@ -1,319 +1,1396 @@
 /* ==================================================
-   DARK MODE — Global Text Readability Fix
-   Loaded LAST para i-override lahat ng hardcoded colors
+   LENTE — DARK MODE FIX
+   Loaded LAST para ma-override lahat ng light-mode hardcoded colors.
+   Scope: body.theme-dark only — hindi makakaapekto sa light mode.
 ================================================== */
 
 /* ==================================================
-   1. GLOBAL TEXT
+   1. GLOBAL BACKGROUNDS — TOTOONG DARK
 ================================================== */
+
+/* Body — solid dark base */
 body.theme-dark {
-    color: #f5f4fb;
+    background: #0B0B16 !important;
+    color: #F5F3FF;
+}
+
+/* I-off lahat ng ::before at ::after layers — walang light leaks */
+body.theme-dark::before {
+    background: #0B0B16 !important;
+    opacity: 1 !important;
+}
+
+body.theme-dark::after {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(155, 107, 242, 0.12), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(34, 199, 224, 0.10), transparent 30%),
+        radial-gradient(circle at 50% 85%, rgba(255, 122, 184, 0.08), transparent 35%),
+        #0B0B16 !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 /* ==================================================
-   2. HEADINGS
+   2. HEADER & NAVIGATION
 ================================================== */
-body.theme-dark h1,
-body.theme-dark h2,
-body.theme-dark h3,
-body.theme-dark h4,
-body.theme-dark h5,
-body.theme-dark h6 {
-    color: #f5f4fb;
+body.theme-dark .main-header {
+    background: #151522 !important;
+    border-bottom-color: #3B3454 !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+}
+
+body.theme-dark .main-nav > a,
+body.theme-dark .nav-dropdown > a {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .main-nav > a:hover,
+body.theme-dark .nav-dropdown > a:hover {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .dropdown-menu {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.50) !important;
+}
+
+body.theme-dark .dropdown-menu a {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .dropdown-menu a:hover {
+    color: #FFFFFF !important;
+}
+
+/* Icon buttons and cart button */
+body.theme-dark .icon-btn,
+body.theme-dark .cart-btn {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .icon-btn:hover,
+body.theme-dark .cart-btn:hover {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
 }
 
 /* ==================================================
-   3. PRODUCT CARDS (shop, brand, best-selling)
+   3. MARQUEE ANNOUNCEMENT BAR
 ================================================== */
-body.theme-dark .shop-card-info h3,
-body.theme-dark .canon-card-info h3,
-body.theme-dark .best-product-info h3,
-body.theme-dark .product-info h3,
-body.theme-dark .current-price,
-body.theme-dark .price,
-body.theme-dark .cart-item-title,
-body.theme-dark .cart-item-price,
-body.theme-dark .cart-item-total {
-    color: #f5f4fb;
-}
-
-body.theme-dark .shop-card-brand,
-body.theme-dark .canon-type {
-    color: #c4a8ff;
-}
-
-body.theme-dark .product-rating,
-body.theme-dark .rating,
-body.theme-dark .old-price {
-    color: #a8a3c0;
+body.theme-dark .marquee-bar {
+    background: #0A0A14 !important;
+    color: #F5F3FF !important;
+    border-bottom-color: #3B3454 !important;
 }
 
 /* ==================================================
    4. BREADCRUMB
 ================================================== */
-body.theme-dark .breadcrumb,
+body.theme-dark .breadcrumb {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    color: #C4C0D6 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+
 body.theme-dark .breadcrumb a,
 body.theme-dark .breadcrumb .current,
 body.theme-dark .breadcrumb span {
-    color: #f5f4fb;
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .breadcrumb a:hover {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .breadcrumb .current {
+    color: #F5F3FF !important;
+    font-weight: 800 !important;
+}
+
+body.theme-dark .breadcrumb a[href="#top"] {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .breadcrumb a[href="#top"]:hover {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
 }
 
 /* ==================================================
-   5. HERO SECTIONS
+   5. HERO SECTIONS (shop, brand, index)
 ================================================== */
+body.theme-dark .shop-hero,
+body.theme-dark .brand-hero {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+}
+
 body.theme-dark .shop-hero h1,
+body.theme-dark .brand-hero h1 {
+    color: #F5F3FF !important;
+    text-shadow: 0 2px 12px rgba(155, 107, 242, 0.45) !important;
+}
+
 body.theme-dark .shop-hero p,
-body.theme-dark .shop-hero p strong,
-body.theme-dark .brand-hero h1,
 body.theme-dark .brand-hero p,
-body.theme-dark .brand-hero p strong,
-body.theme-dark .shop-label,
-body.theme-dark .brand-label,
-body.theme-dark .hero-stat strong,
-body.theme-dark .hero-stat span {
-    color: #f5f4fb;
+body.theme-dark .shop-hero p strong,
+body.theme-dark .brand-hero p strong {
+    color: #C4C0D6 !important;
 }
 
 body.theme-dark .shop-label,
-body.theme-dark .brand-label,
+body.theme-dark .brand-label {
+    color: #C4A8FF !important;
+}
+
+/* Hero stats */
+body.theme-dark .hero-stat {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
 body.theme-dark .hero-stat strong {
-    color: #c4a8ff;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .hero-stat span {
+    color: #C4C0D6 !important;
+}
+
+/* Index homepage hero texts */
+body.theme-dark .hero-title h5 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .hero-title h1 {
+    background: linear-gradient(135deg, #F5F3FF 0%, #C4A8FF 50%, #22c7e0 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+body.theme-dark .hero-content h2,
+body.theme-dark .hero-content h3,
+body.theme-dark .hero-content p {
+    color: #F5F3FF !important;
 }
 
 /* ==================================================
-   6. FILTERS & TOOLBAR
+   6. SIDEBAR FILTERS
 ================================================== */
+body.theme-dark .filter-block,
+body.theme-dark .shop-sidebar .filter-block {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30) !important;
+}
+
+body.theme-dark .filter-block h3 {
+    color: #F5F3FF !important;
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .filter-option {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .filter-option:hover {
+    background: rgba(155, 107, 242, 0.18) !important;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .filter-option.active {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+}
+
+body.theme-dark .filter-count {
+    background: #211D35 !important;
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .filter-option.active .filter-count {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
 body.theme-dark .filter-label,
-body.theme-dark .filter-btn,
 body.theme-dark .filter-right label,
-body.theme-dark .filter-block h3,
-body.theme-dark .filter-option,
-body.theme-dark .filter-count,
-body.theme-dark .brand-check,
-body.theme-dark .clear-filters-btn,
+body.theme-dark .filter-right select {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .filter-right select {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+/* Filter buttons (brand pages) */
+body.theme-dark .filter-btn {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .filter-btn:hover {
+    border-color: #9b6bf2 !important;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .filter-btn.active {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+/* Filter bar container */
+body.theme-dark .filter-bar {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+/* Price inputs */
+body.theme-dark .price-inputs input {
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .price-inputs input::placeholder {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .price-inputs span {
+    color: #C4C0D6 !important;
+}
+
+/* Brand checkboxes */
+body.theme-dark .brand-check {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .brand-check:hover {
+    background: rgba(155, 107, 242, 0.18) !important;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .brand-check-box {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+}
+
+/* Clear filters */
+body.theme-dark .clear-filters-btn {
+    color: #C4A8FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .clear-filters-btn:hover {
+    background: rgba(255, 122, 184, 0.15) !important;
+    border-color: #ff7ab8 !important;
+    color: #ff7ab8 !important;
+}
+
+/* ==================================================
+   7. TOOLBAR (Results count, sort)
+================================================== */
+body.theme-dark .shop-toolbar {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
 body.theme-dark .results-count,
 body.theme-dark .results-count strong,
-body.theme-dark .toolbar-right label,
-body.theme-dark .toolbar-right select,
-body.theme-dark .price-inputs input {
-    color: #f5f4fb;
+body.theme-dark .toolbar-right label {
+    color: #F5F3FF !important;
 }
 
-body.theme-dark .toolbar-right select,
-body.theme-dark .price-inputs input {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.14);
+body.theme-dark .results-count strong {
+    color: #C4A8FF !important;
 }
 
-/* ==================================================
-   7. ABOUT & BRAND SECTIONS
-================================================== */
-body.theme-dark .about-brand h2,
-body.theme-dark .about-brand p,
-body.theme-dark .about-brand-label,
-body.theme-dark .about-content h2,
-body.theme-dark .about-content p,
-body.theme-dark .about-label,
-body.theme-dark .brand-section h2,
-body.theme-dark .brand-table-container h3,
-body.theme-dark .brand-table td,
-body.theme-dark .table-info-list li,
-body.theme-dark .brand-stat strong,
-body.theme-dark .brand-stat span,
-body.theme-dark .brand-ruby,
-body.theme-dark .brand-ruby ruby,
-body.theme-dark .brand-ruby rt {
-    color: #f5f4fb;
-}
-
-body.theme-dark .about-brand-label,
-body.theme-dark .about-label,
-body.theme-dark .brand-stat strong {
-    color: #c4a8ff;
-}
-
-body.theme-dark .brand-table td {
-    background: rgba(26, 22, 50, 0.70);
+body.theme-dark .toolbar-right select {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
 }
 
 /* ==================================================
-   8. CART PAGE
+   8. PRODUCT CARDS
 ================================================== */
-body.theme-dark .cart-header-section h1,
-body.theme-dark .cart-header-section p,
-body.theme-dark .cart-summary h2,
-body.theme-dark .summary-row,
-body.theme-dark .summary-total,
-body.theme-dark .summary-note,
-body.theme-dark .payment-label,
-body.theme-dark .payment-icons span,
-body.theme-dark .section-header h2,
-body.theme-dark .recommended-card h4,
-body.theme-dark .recommended-card p,
-body.theme-dark .select-all-hint,
-body.theme-dark .checkbox-text,
-body.theme-dark .checkbox-text strong,
-body.theme-dark .cart-item-qty label,
-body.theme-dark .cart-item-desc,
-body.theme-dark .continue-shopping {
-    color: #f5f4fb;
+body.theme-dark .shop-card,
+body.theme-dark .canon-card,
+body.theme-dark .best-product-card,
+body.theme-dark .product-card {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.40) !important;
 }
 
-body.theme-dark .cart-item,
-body.theme-dark .cart-summary,
-body.theme-dark .recommended-card,
-body.theme-dark .select-all-bar,
-body.theme-dark .continue-shopping {
-    background: linear-gradient(135deg, rgba(155, 107, 242, 0.10) 0%, rgba(34, 199, 224, 0.08) 100%);
-    border-color: rgba(155, 107, 242, 0.30);
+body.theme-dark .shop-card:hover,
+body.theme-dark .canon-card:hover,
+body.theme-dark .best-product-link:hover .best-product-card,
+body.theme-dark .product-link:hover .product-card {
+    border-color: rgba(155, 107, 242, 0.50) !important;
+    box-shadow: 0 18px 45px rgba(155, 107, 242, 0.35) !important;
 }
 
-body.theme-dark .cart-item-image,
-body.theme-dark .recommended-image {
-    background: rgba(255, 255, 255, 0.08);
+body.theme-dark .shop-card-image,
+body.theme-dark .canon-card-image,
+body.theme-dark .best-product-image,
+body.theme-dark .product-image {
+    background: #19172B !important;
 }
 
-body.theme-dark .cart-item-qty input {
-    background: rgba(255, 255, 255, 0.08);
-    color: #f5f4fb;
+body.theme-dark .shop-card-info h3,
+body.theme-dark .canon-card-info h3,
+body.theme-dark .best-product-info h3,
+body.theme-dark .product-info h3 {
+    color: #F5F3FF !important;
 }
 
-body.theme-dark .cart-remove {
-    background: rgba(255, 255, 255, 0.08);
-    color: #f5f4fb;
+body.theme-dark .shop-card-brand,
+body.theme-dark .canon-type {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .product-rating,
+body.theme-dark .rating {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .product-rating .star,
+body.theme-dark .star {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .current-price,
+body.theme-dark .price {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .old-price {
+    color: #A5A0BB !important;
+}
+
+/* Cart button on cards */
+body.theme-dark .cart-button {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .shop-card:hover .cart-button,
+body.theme-dark .canon-card:hover .cart-button,
+body.theme-dark .best-product-link:hover .cart-button {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
 }
 
 /* ==================================================
-   9. PRODUCT DETAIL
+   9. PRODUCT DETAIL PAGE
 ================================================== */
-body.theme-dark .product-info h1,
-body.theme-dark .product-info h1 em,
-body.theme-dark .price-block del,
-body.theme-dark .price-block ins,
-body.theme-dark .desc,
+body.theme-dark .product-hero-bg {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .product-hero-bg::before {
+    background: rgba(11, 11, 22, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+body.theme-dark .product-info h1 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .product-info h1 em {
+    color: #C4A8FF !important;
+    background: rgba(155, 107, 242, 0.18) !important;
+    border-color: rgba(155, 107, 242, 0.35) !important;
+}
+
+body.theme-dark .product-rating {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .product-rating .star {
+    color: #f59e0b !important;
+}
+
+body.theme-dark .price-block del {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .price-block ins {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .desc {
+    color: #C4C0D6 !important;
+}
+
 body.theme-dark .desc strong,
-body.theme-dark .desc em,
-body.theme-dark .variant-select label,
+body.theme-dark .desc em {
+    color: #F5F3FF !important;
+}
+
+/* Quantity selector */
 body.theme-dark .qty-selector label,
-body.theme-dark .stock-toggle span,
-body.theme-dark .stock-toggle label,
-body.theme-dark .qty-selector p,
-body.theme-dark .qty-selector #totalPrice,
-body.theme-dark .specs-table td:first-child,
-body.theme-dark .specs-aside h4,
-body.theme-dark .specs-aside ul li,
-body.theme-dark .specs-aside p,
-body.theme-dark .details-tabs h3,
+body.theme-dark .variant-select label,
+body.theme-dark .stock-toggle span {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .qty-selector input,
+body.theme-dark .variant-select select {
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .qty-selector p {
+    background: rgba(155, 107, 242, 0.18) !important;
+    border-color: rgba(155, 107, 242, 0.35) !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .qty-selector #totalPrice {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .stock-toggle label {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #C4C0D6 !important;
+}
+
+/* Main figure */
+body.theme-dark .main-figure {
+    background: radial-gradient(circle at 50% 50%, rgba(155, 107, 242, 0.15) 0%, transparent 80%), #211D35 !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.theme-dark .main-figure figcaption {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .thumbnail-row img {
+    background: #211D35 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.theme-dark .thumbnail .dropdown .label {
+    background: #05030A !important;
+    color: #F5F3FF !important;
+    border-color: rgba(155, 107, 242, 0.40) !important;
+}
+
+/* Media section */
+body.theme-dark .media-section {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .media-section::before {
+    background: rgba(11, 11, 22, 0.92) !important;
+}
+
+body.theme-dark .media-section h2,
+body.theme-dark .details-tabs h2,
+body.theme-dark .recently-viewed h2,
+body.theme-dark .reviews-display-section h2,
+body.theme-dark .review-section h2 {
+    color: #F5F3FF !important;
+}
+
+/* Details tabs */
+body.theme-dark .details-tabs {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .details-tabs h3 {
+    color: #C4A8FF !important;
+}
+
 body.theme-dark .details-tabs ul li,
-body.theme-dark .details-tabs ol li,
-body.theme-dark .details-tabs dd,
-body.theme-dark .recent-chip,
-body.theme-dark .review-meta h4,
-body.theme-dark .review-card q,
-body.theme-dark .review-section h2,
-body.theme-dark .review-section label,
-body.theme-dark .upload-ui .upload-title,
-body.theme-dark .upload-ui .upload-hint,
-body.theme-dark .btn-wishlist {
-    color: #f5f4fb;
+body.theme-dark .details-tabs ol li {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .details-tabs ol li {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .details-tabs dl {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .details-tabs dd {
+    color: #C4C0D6 !important;
+}
+
+/* Specs table */
+body.theme-dark .specs-table {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
 }
 
 body.theme-dark .specs-table td {
-    color: #b0aacf;
+    color: #C4C0D6 !important;
+    border-bottom-color: #3B3454 !important;
 }
 
-body.theme-dark .variant-select select,
-body.theme-dark .qty-selector input,
+body.theme-dark .specs-table td:first-child {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .specs-table tbody tr:hover td {
+    background: rgba(155, 107, 242, 0.15) !important;
+}
+
+body.theme-dark .specs-table tfoot td {
+    background: rgba(155, 107, 242, 0.15) !important;
+    color: #C4A8FF !important;
+}
+
+/* Specs aside */
+body.theme-dark .specs-aside {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    border-left-color: #9b6bf2 !important;
+}
+
+body.theme-dark .specs-aside h4 {
+    color: #F5F3FF !important;
+    border-top-color: #3B3454 !important;
+}
+
+body.theme-dark .specs-aside ul li {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .specs-aside p {
+    color: #A5A0BB !important;
+}
+
+/* Review cards */
+body.theme-dark .review-card {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .review-card:hover {
+    border-color: rgba(155, 107, 242, 0.50) !important;
+}
+
+body.theme-dark .review-header {
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .review-meta h4 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .review-card q {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .review-date {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .review-card cite {
+    color: #C4A8FF !important;
+}
+
+/* Review form */
+body.theme-dark .review-section {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .review-section label {
+    color: #F5F3FF !important;
+}
+
 body.theme-dark .review-section input,
 body.theme-dark .review-section textarea {
-    background: rgba(255, 255, 255, 0.08);
-    color: #f5f4fb;
-    border-color: rgba(255, 255, 255, 0.14);
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .review-section textarea::placeholder,
+body.theme-dark .review-section input::placeholder {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .upload-ui {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .upload-ui .upload-title {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .upload-ui .upload-hint {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .checkbox-label {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .checkbox-label .checkbox-box {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+}
+
+/* Recent chips */
+body.theme-dark .recent-chip {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .recent-chip:hover {
+    border-color: #9b6bf2 !important;
+}
+
+/* Brand note */
+body.theme-dark .brand-note {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .brand-note p,
+body.theme-dark .brand-note ruby,
+body.theme-dark .brand-note rt {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .brand-note ruby {
+    color: #C4A8FF !important;
+}
+
+/* PDF link */
+body.theme-dark .pdf-link a {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .pdf-embed {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
 }
 
 /* ==================================================
-   10. PROFILE PAGE
+   10. CART PAGE
 ================================================== */
-body.theme-dark .profile-hero-info h1,
-body.theme-dark .profile-hero-info p,
-body.theme-dark .profile-hero-info p strong,
-body.theme-dark .profile-panel h2,
-body.theme-dark .profile-panel .panel-desc,
-body.theme-dark .profile-form label,
-body.theme-dark .setting-info h4,
-body.theme-dark .setting-info p,
-body.theme-dark .settings-group h3,
+body.theme-dark .cart-header-section h1 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .cart-header-section p,
+body.theme-dark .cart-header-section p strong {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .cart-header-section p strong {
+    color: #C4A8FF !important;
+}
+
+/* Cart items */
+body.theme-dark .cart-item {
+    background: linear-gradient(135deg, #211D35 0%, #19172B 100%) !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30) !important;
+}
+
+body.theme-dark .cart-item:hover {
+    border-color: rgba(155, 107, 242, 0.50) !important;
+}
+
+body.theme-dark .cart-item-image {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .cart-item-title,
+body.theme-dark .cart-item-price,
+body.theme-dark .cart-item-total,
+body.theme-dark .cart-item-desc {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .cart-item-desc {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .cart-item-qty label {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .cart-item-qty input {
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .cart-remove {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .cart-remove:hover {
+    background: rgba(255, 91, 166, 0.20) !important;
+    border-color: #ff5ba6 !important;
+    color: #ff5ba6 !important;
+}
+
+/* Continue shopping */
+body.theme-dark .continue-shopping {
+    background: linear-gradient(135deg, #211D35 0%, #19172B 100%) !important;
+    border-color: #3B3454 !important;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .continue-shopping:hover {
+    background: linear-gradient(135deg, #2A2545 0%, #211D35 100%) !important;
+    border-color: #9b6bf2 !important;
+}
+
+/* Select all bar */
+body.theme-dark .select-all-bar {
+    background: linear-gradient(135deg, #211D35 0%, #19172B 100%) !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.30) !important;
+}
+
+body.theme-dark .select-all-hint {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .checkbox-text,
+body.theme-dark .checkbox-text strong {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .checkbox-label .checkbox-box,
+body.theme-dark .item-checkbox .checkbox-box {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+}
+
+/* Order summary */
+body.theme-dark .cart-summary {
+    background: linear-gradient(135deg, #211D35 0%, #19172B 100%) !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.theme-dark .cart-summary h2 {
+    color: #F5F3FF !important;
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .summary-row,
+body.theme-dark .summary-row span {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .summary-total,
+body.theme-dark .summary-total span {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .summary-note {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .payment-label {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .payment-icons span {
+    background: #1A1830 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+/* Recommended cards */
+body.theme-dark .recommended-card {
+    background: linear-gradient(135deg, #211D35 0%, #19172B 100%) !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .recommended-image {
+    background: #1A1830 !important;
+}
+
+body.theme-dark .recommended-card h4 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .recommended-card p {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .section-header h2 {
+    color: #F5F3FF !important;
+}
+
+/* ==================================================
+   11. PROFILE / ACCOUNT PAGE
+================================================== */
+body.theme-dark .profile-hero {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.theme-dark .profile-hero-info h1 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .profile-hero-info p {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .profile-hero-info p strong {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .profile-label {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .profile-hero-stat strong {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .profile-hero-stat span {
+    color: #C4C0D6 !important;
+}
+
+/* Tabs */
+body.theme-dark .profile-tabs {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.30) !important;
+}
+
 body.theme-dark .profile-tab-btn {
-    color: #f5f4fb;
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .profile-tab-btn:hover {
+    background: rgba(155, 107, 242, 0.18) !important;
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .profile-tab-btn.active {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+}
+
+/* Panels */
+body.theme-dark .profile-panel {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+body.theme-dark .profile-panel h2 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .profile-panel .panel-desc {
+    color: #C4C0D6 !important;
+}
+
+/* Form */
+body.theme-dark .profile-form label {
+    color: #F5F3FF !important;
 }
 
 body.theme-dark .profile-form input,
 body.theme-dark .profile-form select,
 body.theme-dark .profile-form textarea {
-    background: rgba(255, 255, 255, 0.08);
-    color: #f5f4fb;
-    border-color: rgba(255, 255, 255, 0.14);
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .profile-form input::placeholder,
+body.theme-dark .profile-form textarea::placeholder {
+    color: #A5A0BB !important;
+}
+
+/* Settings */
+body.theme-dark .settings-group h3 {
+    color: #F5F3FF !important;
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .setting-row {
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .setting-info h4 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .setting-info p {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .theme-toggle {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .theme-toggle-btn {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .theme-toggle-btn.active {
+    background: linear-gradient(135deg, #9b6bf2, #22c7e0, #ff7ab8) !important;
+    color: #ffffff !important;
+}
+
+body.theme-dark .toggle-switch .toggle-slider {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
 }
 
 body.theme-dark #languageSelect {
-    background: rgba(255, 255, 255, 0.08) !important;
-    color: #f5f4fb !important;
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+/* Danger button */
+body.theme-dark .danger-btn {
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: rgba(239, 68, 68, 0.50) !important;
+    color: #fca5a5 !important;
 }
 
 /* ==================================================
-   11. FOOTER PAGES (contact, shipping, returns, etc.)
+   12. ORDER CONFIRMATION PAGE
 ================================================== */
-body.theme-dark .info-page h1,
-body.theme-dark .info-page p,
-body.theme-dark .info-page .brand-label,
-body.theme-dark .info-page .contact-list li,
-body.theme-dark .info-page .info-list li {
-    color: #f5f4fb;
+body.theme-dark .confirmation-card {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.50) !important;
 }
 
-body.theme-dark .info-page .brand-label {
-    color: #c4a8ff;
+body.theme-dark .confirmation-card h1 {
+    color: #F5F3FF !important;
 }
 
-body.theme-dark .info-page .contact-list,
-body.theme-dark .info-page .info-list {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.12);
+body.theme-dark .confirmation-subtitle {
+    color: #C4C0D6 !important;
 }
 
-body.theme-dark .info-page a.inline-link {
-    color: #c4a8ff;
+body.theme-dark .order-details {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .detail-row {
+    border-top-color: #3B3454 !important;
+}
+
+body.theme-dark .detail-label {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .detail-value {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .next-steps h3 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .next-steps li {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .redirect-notice {
+    background: rgba(155, 107, 242, 0.15) !important;
+    border-color: rgba(155, 107, 242, 0.35) !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .btn-secondary {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
 }
 
 /* ==================================================
-   12. INPUTS — Global
+   13. LOGIN PAGE
+================================================== */
+body.theme-dark .login-container {
+    background: rgba(25, 23, 43, 0.75) !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .login-form {
+    background: rgba(25, 23, 43, 0.55) !important;
+}
+
+body.theme-dark .login-form h1 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .login-label {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .login-subtitle {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .login-form label {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .login-form input {
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .login-form input::placeholder {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .forgot-password {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .forgot-password:hover {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .language-select {
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .login-divider {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .login-divider::before,
+body.theme-dark .login-divider::after {
+    background: #3B3454 !important;
+}
+
+body.theme-dark .social-button {
+    background: #211D35 !important;
+    color: #F5F3FF !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .create-account {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .create-account a {
+    color: #C4A8FF !important;
+}
+
+/* ==================================================
+   14. SEARCH OVERLAY
+================================================== */
+body.theme-dark .search-modal {
+    background: #19172B !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .search-bar-wrap {
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .search-input {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .search-input::placeholder {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .search-close {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .search-result-info h4 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .search-result-info p {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .search-quick a {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .search-quick span {
+    color: #A5A0BB !important;
+}
+
+/* ==================================================
+   15. FOOTER
+================================================== */
+body.theme-dark .site-footer {
+    background: #0A0A14 !important;
+}
+
+body.theme-dark .footer-brands {
+    background: #151522 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .footer-brands span {
+    color: #A5A0BB !important;
+}
+
+body.theme-dark .footer-column a {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .footer-column a:hover {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .footer-bottom {
+    background: #06060E !important;
+    border-top-color: #3B3454 !important;
+}
+
+/* ==================================================
+   16. INPUTS — Global
 ================================================== */
 body.theme-dark input,
 body.theme-dark select,
 body.theme-dark textarea {
-    color: #f5f4fb;
+    color: #F5F3FF !important;
 }
 
 body.theme-dark input::placeholder,
 body.theme-dark textarea::placeholder {
-    color: #a8a3c0;
+    color: #A5A0BB !important;
+}
+
+/* Select dropdown options */
+body.theme-dark select option {
+    background: #1A1830 !important;
+    color: #F5F3FF !important;
 }
 
 /* ==================================================
-   13. DROPDOWN MENUS
+   17. INFO PAGES (contact, shipping, etc.)
 ================================================== */
+body.theme-dark .info-page h1 {
+    color: #F5F3FF !important;
+}
+
+body.theme-dark .info-page p {
+    color: #C4C0D6 !important;
+}
+
+body.theme-dark .info-page .brand-label {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .info-page .contact-list,
+body.theme-dark .info-page .info-list {
+    background: #211D35 !important;
+    border-color: #3B3454 !important;
+}
+
+body.theme-dark .info-page .contact-list li,
+body.theme-dark .info-page .info-list li {
+    color: #F5F3FF !important;
+    border-bottom-color: #3B3454 !important;
+}
+
+body.theme-dark .info-page .contact-list strong,
+body.theme-dark .info-page .info-list strong {
+    color: #C4A8FF !important;
+}
+
+body.theme-dark .info-page a.inline-link {
+    color: #C4A8FF !important;
+}
+
+/* ==================================================
+   19. NUCLEAR OPTION — FORCE OVERRIDE ALL COLORED GLOWS
+   Lahat ng element sa dark mode na may box-shadow o text-shadow
+   ay papalitan ng BLACK shadow. Walang exception.
+================================================== */
+
+/* Override lahat ng common glow elements */
+body.theme-dark .icon-btn:hover,
+body.theme-dark .cart-btn:hover,
+body.theme-dark .shop-card:hover,
+body.theme-dark .canon-card:hover,
+body.theme-dark .best-product-card:hover,
+body.theme-dark .product-card:hover,
+body.theme-dark .cart-button,
+body.theme-dark .cart-item:hover,
+body.theme-dark .recommended-card:hover,
+body.theme-dark .brand-card:hover,
+body.theme-dark .category-card:hover,
+body.theme-dark .category-arrow,
+body.theme-dark .filter-option.active,
+body.theme-dark .filter-btn.active,
+body.theme-dark .breadcrumb a[href="#top"]:hover,
+body.theme-dark .checkout-btn,
+body.theme-dark .checkout-btn:hover,
+body.theme-dark .continue-shopping:hover,
+body.theme-dark .btn-cart,
+body.theme-dark .btn-cart:hover,
+body.theme-dark .btn-wishlist:hover,
+body.theme-dark .hero-content-btn,
+body.theme-dark .hero-content-btn:hover,
+body.theme-dark .sale-button,
+body.theme-dark .sale-button:hover,
+body.theme-dark .show-more-btn:hover,
+body.theme-dark .apply-price-btn:hover,
+body.theme-dark .review-section button[type="submit"],
+body.theme-dark .review-section button[type="submit"]:hover,
+body.theme-dark .profile-tab-btn.active,
+body.theme-dark .profile-save-btn,
+body.theme-dark .profile-save-btn:hover,
+body.theme-dark .theme-toggle-btn.active,
+body.theme-dark .signin-button,
+body.theme-dark .signin-button:hover,
+body.theme-dark .social-button:hover,
+body.theme-dark .search-quick a:hover,
+body.theme-dark .back-to-top:hover,
+body.theme-dark .back-links a:hover,
+body.theme-dark .brand-stat:hover,
+body.theme-dark .hero-stat:hover,
+body.theme-dark .filter-option:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Override card hovers with more depth */
+body.theme-dark .shop-card:hover,
+body.theme-dark .canon-card:hover,
+body.theme-dark .best-product-link:hover .best-product-card,
+body.theme-dark .product-link:hover .product-card,
+body.theme-dark .cart-item:hover,
+body.theme-dark .recommended-card:hover,
+body.theme-dark .brand-card:hover,
+body.theme-dark .category-card:hover,
+body.theme-dark .review-card:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.60) !important;
+}
+
+/* Base shadows */
+body.theme-dark .shop-card,
+body.theme-dark .canon-card,
+body.theme-dark .best-product-card,
+body.theme-dark .product-card,
+body.theme-dark .cart-item,
+body.theme-dark .recommended-card,
+body.theme-dark .review-card,
+body.theme-dark .filter-block,
+body.theme-dark .filter-bar,
+body.theme-dark .shop-toolbar,
+body.theme-dark .breadcrumb {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Panels */
+body.theme-dark .shop-hero,
+body.theme-dark .brand-hero,
+body.theme-dark .cart-summary,
+body.theme-dark .profile-hero,
+body.theme-dark .profile-tabs,
+body.theme-dark .profile-panel,
+body.theme-dark .product-hero-bg,
+body.theme-dark .main-figure,
+body.theme-dark .details-tabs,
+body.theme-dark .media-section,
+body.theme-dark .review-section,
+body.theme-dark .confirmation-card,
+body.theme-dark .login-container,
+body.theme-dark .search-modal {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.50) !important;
+}
+
+/* Header */
+body.theme-dark .main-header {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55) !important;
+}
+
 body.theme-dark .dropdown-menu {
-    background: rgba(20, 17, 42, 0.96);
-    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.60) !important;
 }
 
-body.theme-dark .dropdown-menu a {
-    color: #a8a3c0;
+/* Text shadows — alisin lahat sa dark mode */
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4,
+body.theme-dark h5,
+body.theme-dark h6,
+body.theme-dark .shop-hero h1,
+body.theme-dark .brand-hero h1,
+body.theme-dark .hero-title h1,
+body.theme-dark .hero-title h5,
+body.theme-dark .about-content h2,
+body.theme-dark .brand-section h2,
+body.theme-dark .profile-hero-info h1,
+body.theme-dark .confirmation-card h1,
+body.theme-dark .product-info h1 {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.50) !important;
 }
 
-/* ==================================================
-   14. NO RESULTS
-================================================== */
-body.theme-dark .no-results {
-    color: #f5f4fb;
+/* Icon btn specific */
+body.theme-dark .icon-btn:hover,
+body.theme-dark .cart-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
 }
